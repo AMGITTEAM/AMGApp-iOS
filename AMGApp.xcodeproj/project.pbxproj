@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B1244DB21EFA3F800EC7A0C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1244DA21EFA3F800EC7A0C /* StringExtensions.swift */; };
 		7B73D48621C5ABAB005AB6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */; };
 		7B73D48821C5ABAB005AB6D0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B73D48721C5ABAB005AB6D0 /* FirstViewController.swift */; };
 		7B73D48A21C5ABAB005AB6D0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B73D48921C5ABAB005AB6D0 /* SecondViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B1244DA21EFA3F800EC7A0C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		7B73D48221C5ABAB005AB6D0 /* AMGApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMGApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B73D48721C5ABAB005AB6D0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				7B73D48E21C5ABAD005AB6D0 /* Assets.xcassets */,
 				7B73D49021C5ABAD005AB6D0 /* LaunchScreen.storyboard */,
 				7B73D49321C5ABAD005AB6D0 /* Info.plist */,
+				7B1244DA21EFA3F800EC7A0C /* StringExtensions.swift */,
 			);
 			path = AMGApp;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B1244DB21EFA3F800EC7A0C /* StringExtensions.swift in Sources */,
 				7B73D48A21C5ABAB005AB6D0 /* SecondViewController.swift in Sources */,
 				7B73D48621C5ABAB005AB6D0 /* AppDelegate.swift in Sources */,
 				7B73D48821C5ABAB005AB6D0 /* FirstViewController.swift in Sources */,

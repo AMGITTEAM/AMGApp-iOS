@@ -27,13 +27,13 @@
                                             <constraint firstAttribute="height" constant="128" id="hMR-WT-tP4"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p6X-2S-wMl">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p6X-2S-wMl">
                                         <rect key="frame" x="8" y="144" width="359" height="467.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">Das 4-zügige AMG ist das jüngste Gymnasium Wittens. 74 Lehrer/innen unterrichten ca. 1050 Schüler/innen (SuS). Im Leistungskursbereich kooperieren wir mit den beiden anderen Wittener Gymnasien. In der Stufe EF werden SuS der benachbarten Realschulen aufgenommen.
+                                        <string key="text">Das 4-zügige AMG ist das jüngste Gymnasium Wittens. 74 Lehrer/innen unterrichten ca. 1050 Schüler/innen (SuS). Im Leistungskursbereich kooperieren wir mit den beiden anderen Wittener Gymnasien. In der Stufe EF werden SuS der benachbarten Realschulen aufgenommen.
 Die individuelle Förderung von SuS besitzt einen hohen Stellenwert. So sind in der Erprobungsstufe Bläserklassen eingerichtet, und für die Stufen 5 bis 7 wird je eine naturwissenschaftliche Profilklasse angeboten.
 Für den Einsatz moderner Medien ist die Schule komplett vernetzt. Wichtige Bausteine unseres Schulprogramms sind: die Vermittlung von Arbeits- und Lernformen, ein Selbstlernzentrum für die Sek. II,  eine Kultur des Hinschauens (d.h. Präventivmaßnahmen im Bereich Mobbing, Gewalt, Sucht), die Ausbildung von Streitschlichtern, Theater- und Roboter-AGs, Sportwettkämpfe in den Stufen 5/6, eine umfassende Studien- und Berufswahlorientierung sowie die Teilnahme an den Sprachprüfungen DELF, DELE und ESOL und der Schüleruniversität.
-Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsräume ergänzen das Angebot, um den Arbeitsplatz Schule für alle Beteiligten als Lebensraum Schule zu definieren.</mutableString>
+Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsräume ergänzen das Angebot, um den Arbeitsplatz Schule für alle Beteiligten als Lebensraum Schule zu definieren.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -73,34 +73,49 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="312" width="201.5" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf4-pD-Dpi">
+                                <rect key="frame" x="8" y="28" width="359" height="598"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oal-0a-nxq">
+                                <rect key="frame" x="8" y="332.5" width="359" height="2"/>
+                            </progressView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testText" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWp-tZ-7eN">
+                                <rect key="frame" x="151" y="282.5" width="73" height="30"/>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Gf4-pD-Dpi" secondAttribute="trailing" constant="8" id="2Lt-vC-btb"/>
+                            <constraint firstAttribute="trailing" secondItem="oal-0a-nxq" secondAttribute="trailing" constant="8" id="2cA-vB-Hbw"/>
+                            <constraint firstItem="oal-0a-nxq" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="5Wi-OZ-H5o"/>
+                            <constraint firstItem="oal-0a-nxq" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="92j-dQ-KJf"/>
+                            <constraint firstItem="oal-0a-nxq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="8" id="JNA-Gq-eCl"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" constant="8" id="Ld9-wd-0gs"/>
+                            <constraint firstItem="oal-0a-nxq" firstAttribute="top" secondItem="LWp-tZ-7eN" secondAttribute="bottom" constant="20" id="MwX-uq-5hR"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="8" id="Ovn-Uo-fYZ"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="8" id="U25-jA-lgn"/>
+                            <constraint firstItem="LWp-tZ-7eN" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="uxW-oE-0hw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="progressBar" destination="oal-0a-nxq" id="xwk-u0-Tda"/>
+                        <outlet property="progressBarText" destination="LWp-tZ-7eN" id="yfF-6j-66a"/>
+                        <outlet property="webView" destination="Gf4-pD-Dpi" id="Sdt-lc-IsC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
