@@ -71,29 +71,32 @@
         <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="9pv-A4-QxB" customClass="FirstViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoR-Zp-S6T">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoR-Zp-S6T">
+                                <rect key="frame" x="8" y="28" width="359" height="598"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_amg" highlightedImage="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="3K5-BB-48t">
-                                        <rect key="frame" x="8" y="8" width="359" height="128"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_amg" highlightedImage="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="3K5-BB-48t">
+                                        <rect key="frame" x="8" y="8" width="343" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="hMR-WT-tP4"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p6X-2S-wMl">
-                                        <rect key="frame" x="8" y="144" width="359" height="467.5"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p6X-2S-wMl">
+                                        <rect key="frame" x="8" y="144" width="343" height="468"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="468" id="hVQ-1a-Gpi"/>
+                                        </constraints>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <mutableString key="content">Das 4-zügige AMG ist das jüngste Gymnasium Wittens. 74 Lehrer/innen unterrichten ca. 1050 Schüler/innen (SuS). Im Leistungskursbereich kooperieren wir mit den beiden anderen Wittener Gymnasien. In der Stufe EF werden SuS der benachbarten Realschulen aufgenommen.
+                                                <string key="content">Das 4-zügige AMG ist das jüngste Gymnasium Wittens. 74 Lehrer/innen unterrichten ca. 1050 Schüler/innen (SuS). Im Leistungskursbereich kooperieren wir mit den beiden anderen Wittener Gymnasien. In der Stufe EF werden SuS der benachbarten Realschulen aufgenommen.
 Die individuelle Förderung von SuS besitzt einen hohen Stellenwert. So sind in der Erprobungsstufe Bläserklassen eingerichtet, und für die Stufen 5 bis 7 wird je eine naturwissenschaftliche Profilklasse angeboten.
 Für den Einsatz moderner Medien ist die Schule komplett vernetzt. Wichtige Bausteine unseres Schulprogramms sind: die Vermittlung von Arbeits- und Lernformen, ein Selbstlernzentrum für die Sek. II,  eine Kultur des Hinschauens (d.h. Präventivmaßnahmen im Bereich Mobbing, Gewalt, Sucht), die Ausbildung von Streitschlichtern, Theater- und Roboter-AGs, Sportwettkämpfe in den Stufen 5/6, eine umfassende Studien- und Berufswahlorientierung sowie die Teilnahme an den Sprachprüfungen DELF, DELE und ESOL und der Schüleruniversität.
-Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsräume ergänzen das Angebot, um den Arbeitsplatz Schule für alle Beteiligten als Lebensraum Schule zu definieren.</mutableString>
+Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsräume ergänzen das Angebot, um den Arbeitsplatz Schule für alle Beteiligten als Lebensraum Schule zu definieren.</string>
                                                 <attributes>
                                                     <color key="NSBackgroundColor" red="0.99992352724075317" green="1" blue="0.99988299608230591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" metaFont="system" size="14"/>
@@ -105,10 +108,12 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="3K5-BB-48t" firstAttribute="leading" secondItem="eoR-Zp-S6T" secondAttribute="leading" constant="8" id="42M-Cu-UNW"/>
-                                    <constraint firstAttribute="bottom" secondItem="p6X-2S-wMl" secondAttribute="bottom" id="6ll-uc-b0U"/>
-                                    <constraint firstItem="p6X-2S-wMl" firstAttribute="top" secondItem="3K5-BB-48t" secondAttribute="bottom" constant="8" id="ZIC-vW-7qx"/>
+                                    <constraint firstItem="p6X-2S-wMl" firstAttribute="leading" secondItem="eoR-Zp-S6T" secondAttribute="leading" constant="8" id="JLx-gu-Mnd"/>
+                                    <constraint firstAttribute="trailing" secondItem="3K5-BB-48t" secondAttribute="trailing" constant="8" id="KSz-h2-VwU"/>
+                                    <constraint firstAttribute="bottom" secondItem="p6X-2S-wMl" secondAttribute="bottom" constant="8" id="Mw2-Gf-N1F"/>
+                                    <constraint firstItem="p6X-2S-wMl" firstAttribute="top" secondItem="3K5-BB-48t" secondAttribute="bottom" constant="8" id="UId-49-Fxt"/>
+                                    <constraint firstAttribute="trailing" secondItem="p6X-2S-wMl" secondAttribute="trailing" constant="8" id="bho-Dx-seV"/>
                                     <constraint firstItem="3K5-BB-48t" firstAttribute="centerX" secondItem="eoR-Zp-S6T" secondAttribute="centerX" id="oLJ-EK-jGi"/>
-                                    <constraint firstAttribute="trailing" secondItem="3K5-BB-48t" secondAttribute="trailing" constant="8" id="pLR-H1-ouN"/>
                                     <constraint firstItem="p6X-2S-wMl" firstAttribute="centerX" secondItem="eoR-Zp-S6T" secondAttribute="centerX" id="xOc-WG-MzP"/>
                                     <constraint firstItem="p6X-2S-wMl" firstAttribute="leading" secondItem="eoR-Zp-S6T" secondAttribute="leading" constant="8" id="zNF-OP-2RX"/>
                                     <constraint firstItem="3K5-BB-48t" firstAttribute="top" secondItem="eoR-Zp-S6T" secondAttribute="top" constant="8" id="zam-0b-Ixc"/>
@@ -117,10 +122,10 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="eoR-Zp-S6T" secondAttribute="trailing" id="DBJ-j2-CgR"/>
-                            <constraint firstItem="eoR-Zp-S6T" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="IXh-Fi-SvU"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="eoR-Zp-S6T" secondAttribute="bottom" id="P8Q-hd-BqK"/>
-                            <constraint firstItem="eoR-Zp-S6T" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="-20" id="hmh-pr-9t6"/>
+                            <constraint firstItem="eoR-Zp-S6T" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="8" id="QXo-JT-nro"/>
+                            <constraint firstAttribute="trailing" secondItem="eoR-Zp-S6T" secondAttribute="trailing" constant="8" id="RTa-3p-tdc"/>
+                            <constraint firstItem="eoR-Zp-S6T" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="ZFE-cU-i3s"/>
+                            <constraint firstItem="eoR-Zp-S6T" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" constant="8" id="zaA-Kk-l9H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -185,32 +190,37 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <!--Logout-->
         <scene sceneID="lGN-BK-5O4">
             <objects>
-                <viewController id="KJ1-Sq-hzH" sceneMemberID="viewController">
+                <viewController id="KJ1-Sq-hzH" customClass="LoginViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jpn-LZ-XBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Benutzername" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5g-Pn-QkT">
-                                <rect key="frame" x="70" y="400" width="238" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Benutzername" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5g-Pn-QkT">
+                                <rect key="frame" x="70" y="318.5" width="235" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="username"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-ic-7Ti">
-                                <rect key="frame" x="70" y="449" width="238" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-ic-7Ti">
+                                <rect key="frame" x="70" y="378.5" width="235" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="pG8-8j-Lyg">
-                                <rect key="frame" x="69" y="184" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="pG8-8j-Lyg">
+                                <rect key="frame" x="20" y="90" width="335" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="NLJ-jX-tj1"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDG-Y1-jOU">
-                                <rect key="frame" x="264" y="497" width="45" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Anmeldedaten für Schüler sind die des Schüleraccounts an den Schul-PCs." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-hQ-UjY">
+                                <rect key="frame" x="16" y="566" width="343" height="36"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDG-Y1-jOU">
+                                <rect key="frame" x="267" y="458.5" width="38" height="30"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Login">
@@ -232,20 +242,35 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                     </attributedString>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Die Anmeldedaten für Schüler sind die des Schüleraccounts an den Schul-PCs." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-hQ-UjY">
-                                <rect key="frame" x="8" y="572" width="359" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="d5g-Pn-QkT" firstAttribute="centerY" secondItem="Jpn-LZ-XBh" secondAttribute="centerY" id="3jA-jv-iFI"/>
+                            <constraint firstItem="kx1-DV-0KN" firstAttribute="trailing" secondItem="HDG-Y1-jOU" secondAttribute="trailing" constant="70" id="4Ef-64-ED8"/>
+                            <constraint firstItem="d5g-Pn-QkT" firstAttribute="leading" secondItem="kx1-DV-0KN" secondAttribute="leading" constant="70" id="CfO-cI-Piz"/>
+                            <constraint firstAttribute="trailing" secondItem="pG8-8j-Lyg" secondAttribute="trailing" constant="20" id="JEt-44-hoY"/>
+                            <constraint firstItem="pG8-8j-Lyg" firstAttribute="leading" secondItem="Jpn-LZ-XBh" secondAttribute="leading" constant="20" id="Krk-30-vNG"/>
+                            <constraint firstItem="HDG-Y1-jOU" firstAttribute="top" secondItem="WiL-ic-7Ti" secondAttribute="bottom" constant="50" id="MDo-vb-64r"/>
+                            <constraint firstItem="pG8-8j-Lyg" firstAttribute="top" secondItem="kx1-DV-0KN" secondAttribute="top" constant="70" id="N6I-Pi-6tc"/>
+                            <constraint firstItem="WiL-ic-7Ti" firstAttribute="leading" secondItem="kx1-DV-0KN" secondAttribute="leading" constant="70" id="Pb3-Co-vfJ"/>
+                            <constraint firstItem="3ee-hQ-UjY" firstAttribute="bottom" secondItem="kx1-DV-0KN" secondAttribute="bottom" constant="-16" id="TYR-Iz-nOR"/>
+                            <constraint firstItem="kx1-DV-0KN" firstAttribute="trailing" secondItem="d5g-Pn-QkT" secondAttribute="trailing" constant="70" id="Vva-F7-mp8"/>
+                            <constraint firstItem="kx1-DV-0KN" firstAttribute="trailing" secondItem="3ee-hQ-UjY" secondAttribute="trailing" constant="16" id="WNZ-Xt-vMO"/>
+                            <constraint firstItem="d5g-Pn-QkT" firstAttribute="centerX" secondItem="Jpn-LZ-XBh" secondAttribute="centerX" id="Yt4-n9-jC0"/>
+                            <constraint firstItem="WiL-ic-7Ti" firstAttribute="top" secondItem="d5g-Pn-QkT" secondAttribute="bottom" constant="30" id="hC8-5b-twG"/>
+                            <constraint firstItem="3ee-hQ-UjY" firstAttribute="leading" secondItem="kx1-DV-0KN" secondAttribute="leading" constant="16" id="kab-sU-kpl"/>
+                            <constraint firstItem="kx1-DV-0KN" firstAttribute="trailing" secondItem="WiL-ic-7Ti" secondAttribute="trailing" constant="70" id="ocP-Fs-fgb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kx1-DV-0KN"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Logout" badgeValue="Logout" id="WXX-yp-uFz">
                         <color key="badgeColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="loginButton" destination="HDG-Y1-jOU" id="GEQ-yH-FRN"/>
+                        <outlet property="password" destination="WiL-ic-7Ti" id="uNf-QW-jkp"/>
+                        <outlet property="username" destination="d5g-Pn-QkT" id="adp-fB-E5J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eG-y1-ab5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,7 +279,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

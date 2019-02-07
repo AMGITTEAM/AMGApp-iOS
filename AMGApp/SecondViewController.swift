@@ -19,12 +19,24 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var progressBarText: UITextField!
     
     var klasse: String = ""
+    var password: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         klasse = "EF"
+        let passwordnew = UserDefaults.standard.string(forKey: "loginPassword")
+        if(passwordnew==nil){
+            Variables.shouldShowLoginToast=true
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
+            self.present(newViewController, animated: true, completion: nil)
+            return
+        }
+        else {
+            password=passwordnew!
+        }
         action(date: "Folgetag")
         //webView.loadHTMLString(action(), baseURL: nil)
     }
@@ -73,32 +85,21 @@ class SecondViewController: UIViewController {
             progressBar.setProgress((Float(i))/(Float(realEintraege.count-1)), animated: true)
         }
         
-        for vertretungModel  in vertretungModels{
-            print(vertretungModel.printObj())
-        }
-        
         progressBar.setProgress(0.0, animated: true)
-        progressBarText.text="???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????"
+        progressBarText.text="Einträge werden zusammengestellt..."
         
         (data, fertigeKlassen) = parseKlassenWithProcess(klassen: klassen, fertigeKlassen: fertigeKlassen, vertretungModels: vertretungModels, data: data, progressBar: progressBar)
         
         
         progressBar.setProgress(0.0, animated: true)
-        progressBarText.text="???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????"
+        progressBarText.text="Tabelle wird erstellt..."
         
         let html = buildHTMLWithProcess(progressBar: progressBar, finalFuerDatum: fuerDatum, finalStand: stand, data: data, fertigeKlassen: fertigeKlassen)
         
         progressBar.isHidden=true
         progressBarText.isHidden=true
         
-        print(html)
-        
         webView.loadHTMLString(html, baseURL: nil)
-        
-        /*do {
-        print(try String(contentsOf: URL(string: "http://amgitt.de:8080/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://amg-witten.de/fileadmin/VertretungsplanSUS/Folgetag/subst_001.htm&username=Schueler&password=-1335285687")!))
-        }
-        catch let _{}*/
         
         return ""
     }
@@ -293,7 +294,6 @@ class SecondViewController: UIViewController {
                 while(ie<vertretungModels.count) {
                     if(vertretungModels[ie].getKlasse() == klassen[i]) {
                         rightRows.append(vertretungModels[ie])
-                        vertretungModels[ie].printObj()
                     }
                     ie=ie+1
                 }
@@ -320,12 +320,10 @@ class SecondViewController: UIViewController {
                 String(s[Range($0.range, in: s)!])
             }
             for match in finalResult {
-                allMatches.append(match.replaceAll(of: "<td class=\"list\" align=\"center\">", with: "").replaceAll(of: "<td class=\"list\" align=\"center\" style=\"background-color: #FFFFFF\">", with: "").replaceAll(of: "<td class=\"list\" align=\"center\" style=\"background-color: #FFFFFF\" >", with: "").replaceAll(of: "<td class=\"list\">", with: "").replaceAll(of: "</td>", with: "").replaceAll(of: "<b>", with: "").replaceAll(of: "</b>", with: "").replaceAll(of: "<span style=\"color: #800000\">", with: "").replaceAll(of: "<span style=\"color: #0000FF\">", with: "").replaceAll(of: "<span style=\"color: #010101\">", with: "").replaceAll(of: "<span style=\"color: #008040\">", with: "").replaceAll(of: "<span style=\"color: #008000\">", with: "").replaceAll(of: "</span>", with: "").replaceAll(of: "&nbsp;", with: "").replaceFirst(of: ">",with: ""))
+                allMatches.append(match.replaceAll(of: "<td class=\"list\" align=\"center\">", with: "").replaceAll(of: "<td class=\"list\" align=\"center\" style=\"background-color: #FFFFFF\">", with: "").replaceAll(of: "<td class=\"list\" align=\"center\" style=\"background-color: #FFFFFF\" >", with: "").replaceAll(of: "<td class=\"list\">", with: "").replaceAll(of: "</td>", with: "").replaceAll(of: "<b>", with: "").replaceAll(of: "</b>", with: "").replaceAll(of: "<span style=\"color: #800000\">", with: "").replaceAll(of: "<span style=\"color: #0000FF\">", with: "").replaceAll(of: "<span style=\"color: #010101\">", with: "").replaceAll(of: "<span style=\"color: #008040\">", with: "").replaceAll(of: "<span style=\"color: #008000\">", with: "").replaceAll(of: "<span style=\"color: #FF00FF\">", with: "").replaceAll(of: "</span>", with: "").replaceAll(of: "&nbsp;", with: "").replaceFirst(of: ">",with: ""))
             }
             
             var model = VertretungModel(St: allMatches[0],Kl: allMatches[1], Ar: allMatches[2], Fa: allMatches[3], ErsatzFa: allMatches[4], Vertlehrer: allMatches[5], Ra: allMatches[6], Hin: allMatches[7])
-            
-            model.printObj()
             
             regex = try NSRegularExpression(pattern: "\\d([a-d]){2,4}")
             if(allMatches[1].range(of: "\\d([a-d]){2,4}", options: .regularExpression, range: nil, locale: nil) != nil){
@@ -337,19 +335,15 @@ class SecondViewController: UIViewController {
                 }
                 if(!found) {
                     if(allMatches[1].contains("a")){
-                        print("a") //IRGENDWAS a!!!!!!!!!!!!!
                         neueVertretungModels.append(VertretungModel(St: allMatches[0], Kl: allMatches[1].prefix(2)+"a", Ar: allMatches[2], Fa: allMatches[3], ErsatzFa: allMatches[4], Vertlehrer: allMatches[5], Ra: allMatches[6], Hin: allMatches[7]))
                     }
                     if(allMatches[1].contains("b")){
-                        print("b")
                         neueVertretungModels.append(VertretungModel(St: allMatches[0], Kl: allMatches[1].prefix(2)+"b", Ar: allMatches[2], Fa: allMatches[3], ErsatzFa: allMatches[4], Vertlehrer: allMatches[5], Ra: allMatches[6], Hin: allMatches[7]))
                     }
                     if(allMatches[1].contains("c")){
-                        print("c")
                         neueVertretungModels.append(VertretungModel(St: allMatches[0], Kl: allMatches[1].prefix(2)+"c", Ar: allMatches[2], Fa: allMatches[3], ErsatzFa: allMatches[4], Vertlehrer: allMatches[5], Ra: allMatches[6], Hin: allMatches[7]))
                     }
                     if(allMatches[1].contains("d")){
-                        print("d")
                         neueVertretungModels.append(VertretungModel(St: allMatches[0], Kl: allMatches[1].prefix(2)+"d", Ar: allMatches[2], Fa: allMatches[3], ErsatzFa: allMatches[4], Vertlehrer: allMatches[5], Ra: allMatches[6], Hin: allMatches[7]))
                     }
                     neueFertigeMulti.append(model)
@@ -412,21 +406,16 @@ class SecondViewController: UIViewController {
         
         var i=0
         while i<urlEndings.count {
-            let mainURL = URL(string: main+"subst_"+urlEndings[i]+"&username=Schueler&password=-1335285687")
+            let mainURL = URL(string: main+"subst_"+urlEndings[i]+"&username=Schueler&password="+String(password))
             do {
                 let full = try String(contentsOf: mainURL!)
                 
                 var body = ""
                 do {
-                    print("try")
                     body = try onlyElement(full: full, element: "body")
-                    print("made")
                 }
                 catch let error {
                     if(error.localizedDescription.components(separatedBy: " ( error ")[1].components(separatedBy: ".)")[0]=="200"){
-                        print("CATCH")
-                        print(mainURL)
-                        print(full)
                         body = try onlyElement(full: full, element: "body", params: " bgcolor=\"#F0F0F0\"")
                     }
                 }
@@ -459,7 +448,7 @@ class SecondViewController: UIViewController {
         var urlEndings = Array<String>()
         urlEndings.append("001.htm")
         while !exit {
-            var mainURL = URL(string: main+"subst_"+next+"&username=Schueler&password=-1335285687")
+            var mainURL = URL(string: main+"subst_"+next+"&username=Schueler&password="+String(password))
             
             do {
                 var full = try String(contentsOf: mainURL!)
@@ -480,14 +469,10 @@ class SecondViewController: UIViewController {
                             urlEndings.append(nextURL)
                         }
                     }
-                    catch let error {
-                        print(error)
-                    }
+                    catch _ {}
                 }
             }
-            catch let error {
-                print(error)
-            }
+            catch _ {}
         }
         return urlEndings
     }
