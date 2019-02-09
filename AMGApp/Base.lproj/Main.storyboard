@@ -10,21 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="gCq-AE-XqY">
-            <objects>
-                <viewController id="EQf-aH-7nr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NQ2-3P-UBg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Kes-Ov-I7F"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5uy-RR-Pa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2206" y="-842"/>
-        </scene>
         <!--Item-->
         <scene sceneID="geW-hY-B2V">
             <objects>
@@ -135,22 +120,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Vertretungsplan-->
+        <!--Vertretungsplan-ELEMENT-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VertretungsplanView" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf4-pD-Dpi">
-                                <rect key="frame" x="8" y="28" width="359" height="598"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oal-0a-nxq">
                                 <rect key="frame" x="8" y="332.5" width="359" height="2"/>
                             </progressView>
@@ -160,6 +137,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf4-pD-Dpi">
+                                <rect key="frame" x="8" y="28" width="359" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -176,7 +161,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Vertretungsplan" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Vertretungsplan-ELEMENT" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="progressBar" destination="oal-0a-nxq" id="xwk-u0-Tda"/>
                         <outlet property="progressBarText" destination="LWp-tZ-7eN" id="yfF-6j-66a"/>
@@ -185,7 +170,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="-47" y="1077"/>
         </scene>
         <!--Logout-->
         <scene sceneID="lGN-BK-5O4">
@@ -287,7 +272,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="dCf-DZ-60I" kind="relationship" relationship="viewControllers" id="IDO-Gs-COS"/>
                         <segue destination="KJ1-Sq-hzH" kind="relationship" relationship="viewControllers" id="HJg-Qd-9Hm"/>
                         <segue destination="Her-Ff-sBs" kind="relationship" relationship="viewControllers" id="K2a-5b-e2j"/>
                     </connections>
@@ -295,6 +280,16 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Vertretungsplan-->
+        <scene sceneID="OE8-0H-5Ow">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="dCf-DZ-60I" customClass="VertretungsplanPageViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Vertretungsplan" image="second" id="Gne-MC-Kri"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djw-7r-gEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="1078"/>
         </scene>
     </scenes>
     <resources>

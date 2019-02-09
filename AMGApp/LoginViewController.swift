@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
         do {
             let content = try String(contentsOf: URL(string: url)!)
             
-            var body = content.components(separatedBy: "<body>")[1].components(separatedBy: "</body>")[0].trimmingCharacters(in: .whitespacesAndNewlines)
+            let body = content.components(separatedBy: "<body>")[1].components(separatedBy: "</body>")[0].trimmingCharacters(in: .whitespacesAndNewlines)
             
             if(body.components(separatedBy: "\n")[0]=="0") {
                 showToast(message: "Login fehlgeschlagen, falsches Passwort?")

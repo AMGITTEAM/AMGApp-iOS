@@ -20,6 +20,7 @@ class SecondViewController: UIViewController {
     
     var klasse: String = ""
     var password: String = ""
+    var day: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,7 @@ class SecondViewController: UIViewController {
         else {
             password=passwordnew!
         }
-        action(date: "Folgetag")
+        action(date: day)
         //webView.loadHTMLString(action(), baseURL: nil)
     }
     
@@ -56,7 +57,7 @@ class SecondViewController: UIViewController {
         progressBarText.text="Dateien werden gezählt..."
         progressBar.setProgress(0.0, animated: true)
         
-        var main = "http://amgitt.de:8080/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://amg-witten.de/fileadmin/VertretungsplanSUS/"+date+"/"
+        let main = "http://amgitt.de:8080/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://amg-witten.de/fileadmin/VertretungsplanSUS/"+date+"/"
         
         urlEndings = getAllEndings(argmain: main)
         
@@ -323,7 +324,7 @@ class SecondViewController: UIViewController {
                 allMatches.append(match.replaceAll(of: "<td class=\"list\" align=\"center\">", with: "").replaceAll(of: "<td class=\"list\" align=\"center\" style=\"background-color: #FFFFFF\">", with: "").replaceAll(of: "<td class=\"list\" align=\"center\" style=\"background-color: #FFFFFF\" >", with: "").replaceAll(of: "<td class=\"list\">", with: "").replaceAll(of: "</td>", with: "").replaceAll(of: "<b>", with: "").replaceAll(of: "</b>", with: "").replaceAll(of: "<span style=\"color: #800000\">", with: "").replaceAll(of: "<span style=\"color: #0000FF\">", with: "").replaceAll(of: "<span style=\"color: #010101\">", with: "").replaceAll(of: "<span style=\"color: #008040\">", with: "").replaceAll(of: "<span style=\"color: #008000\">", with: "").replaceAll(of: "<span style=\"color: #FF00FF\">", with: "").replaceAll(of: "</span>", with: "").replaceAll(of: "&nbsp;", with: "").replaceFirst(of: ">",with: ""))
             }
             
-            var model = VertretungModel(St: allMatches[0],Kl: allMatches[1], Ar: allMatches[2], Fa: allMatches[3], ErsatzFa: allMatches[4], Vertlehrer: allMatches[5], Ra: allMatches[6], Hin: allMatches[7])
+            let model = VertretungModel(St: allMatches[0],Kl: allMatches[1], Ar: allMatches[2], Fa: allMatches[3], ErsatzFa: allMatches[4], Vertlehrer: allMatches[5], Ra: allMatches[6], Hin: allMatches[7])
             
             regex = try NSRegularExpression(pattern: "\\d([a-d]){2,4}")
             if(allMatches[1].range(of: "\\d([a-d]){2,4}", options: .regularExpression, range: nil, locale: nil) != nil){
@@ -353,7 +354,7 @@ class SecondViewController: UIViewController {
                 neueVertretungModels.append(model)
             }
         }
-        catch let _ {}
+        catch _ {}
         return (neueVertretungModels,neueFertigeMulti)
     }
     
@@ -362,7 +363,7 @@ class SecondViewController: UIViewController {
         var realEintraege = Array<String>()
         
         while(i<tables.count){
-            var eintraegeArrayUnfertigZwei = tables[i].components(separatedBy: "tr ")
+            let eintraegeArrayUnfertigZwei = tables[i].components(separatedBy: "tr ")
             for eintraegeArrayUnfertigEin in eintraegeArrayUnfertigZwei {
                 if(!(eintraegeArrayUnfertigEin.contains("class=\"list inline_header\"")||eintraegeArrayUnfertigEin.contains("class='list inline_header'")||eintraegeArrayUnfertigEin.contains("(Fach)"))){
                     if(eintraegeArrayUnfertigEin.count != 1){
@@ -423,7 +424,7 @@ class SecondViewController: UIViewController {
                 if(center.contains("http://www.untis.at")) {
                     center = try onlyElement(full: body, element: "CENTER")
                 }
-                var table = try onlyElement(full: center, element: "table", params: " class=\"mon_list\" ")
+                let table = try onlyElement(full: center, element: "table", params: " class=\"mon_list\" ")
                 tables.append(table)
                 if(urlEndings[i]=="001.htm"){
                     let headData = try onlyElement(full: body, element: "td", params: " align=\"right\" valign=\"bottom\"")
@@ -434,7 +435,7 @@ class SecondViewController: UIViewController {
                 }
                 progressBar.setProgress((Float(i))/(Float(urlEndings.count-1)), animated: true)
             }
-            catch let _{}
+            catch _{}
             
             i=i+1
         }
@@ -448,19 +449,19 @@ class SecondViewController: UIViewController {
         var urlEndings = Array<String>()
         urlEndings.append("001.htm")
         while !exit {
-            var mainURL = URL(string: main+"subst_"+next+"&username=Schueler&password="+String(password))
+            let mainURL = URL(string: main+"subst_"+next+"&username=Schueler&password="+String(password))
             
             do {
-                var full = try String(contentsOf: mainURL!)
+                let full = try String(contentsOf: mainURL!)
                 
                 if(full.contains("<frame name\"ticker\" src=\"")){
                     main=main + "f1/"
                 }
                 else {
                     do {
-                        var head = try onlyElement(full: full, element: "head")
-                        var contentMeta = try onlyArgumentOfElement(full: head, element: "meta http-equiv=\"refresh\"",argument: "content")
-                        var nextURL = contentMeta.components(separatedBy: "URL=subst_")[1]
+                        let head = try onlyElement(full: full, element: "head")
+                        let contentMeta = try onlyArgumentOfElement(full: head, element: "meta http-equiv=\"refresh\"",argument: "content")
+                        let nextURL = contentMeta.components(separatedBy: "URL=subst_")[1]
                         next = nextURL
                         if(next == "001.htm"){
                             exit=true
