@@ -38,7 +38,9 @@ class SecondViewController: UIViewController {
         else {
             password=passwordnew!
         }
-        action(date: day)
+        DispatchQueue(label: "network").async {
+            self.action(date: self.day)
+        }
         //webView.loadHTMLString(action(), baseURL: nil)
     }
     
@@ -54,53 +56,70 @@ class SecondViewController: UIViewController {
         var data = Array<VertretungModelArrayModel>()
         var fertigeKlassen = Array<String>()
         
-        progressBarText.text="Dateien werden gezählt..."
-        progressBar.setProgress(0.0, animated: true)
+        DispatchQueue.main.async {
+            self.progressBarText.text="Dateien werden gezählt..."
+            self.progressBar.setProgress(0.0, animated: true)
+        }
         
         let main = "http://amgitt.de:8080/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://amg-witten.de/fileadmin/VertretungsplanSUS/"+date+"/"
         
         urlEndings = getAllEndings(argmain: main)
         
-        progressBarText.text="Dateien werden heruntergeladen..."
+        DispatchQueue.main.async {
+            self.progressBarText.text="Dateien werden heruntergeladen..."
+        }
         
         (stand,fuerDatum,tables) = getTablesWithProcess(main: main, urlEndings: urlEndings, progressBar: progressBar)
         
-        progressBar.setProgress(0.0, animated: true)
-        progressBarText.text="Dateien werden eingelesen..."
+        DispatchQueue.main.async {
+            self.progressBar.setProgress(0.0, animated: true)
+            self.progressBarText.text="Dateien werden eingelesen..."
+        }
         
         klassen = getKlassenListWithProcess(tables: tables,progressBar: progressBar)
         
-        progressBar.setProgress(0.0, animated: true)
-        progressBarText.text="Einträge werden überprüft..."
+        DispatchQueue.main.async {
+            self.progressBar.setProgress(0.0, animated: true)
+            self.progressBarText.text="Einträge werden überprüft..."
+        }
         
         realEintraege = getOnlyRealKlassenListWithProcess(tables: tables,progressBar: progressBar)
         
-        progressBar.setProgress(0.0, animated: true)
-        progressBarText.text="Einträge werden extrahiert..."
+        DispatchQueue.main.async {
+            self.progressBar.setProgress(0.0, animated: true)
+            self.progressBarText.text="Einträge werden extrahiert..."
+        }
         
         var i=0
         
         for s in realEintraege {
             i+=1
             (vertretungModels,fertigeMulti) = tryMatcher(s: s,fertigeMulti: fertigeMulti,vertretungModels: vertretungModels)
-            progressBar.setProgress((Float(i))/(Float(realEintraege.count-1)), animated: true)
+            DispatchQueue.main.async {
+                self.progressBar.setProgress((Float(i))/(Float(realEintraege.count-1)), animated: true)
+            }
         }
         
-        progressBar.setProgress(0.0, animated: true)
-        progressBarText.text="Einträge werden zusammengestellt..."
+        DispatchQueue.main.async {
+            self.progressBar.setProgress(0.0, animated: true)
+            self.progressBarText.text="Einträge werden zusammengestellt..."
+        }
         
         (data, fertigeKlassen) = parseKlassenWithProcess(klassen: klassen, fertigeKlassen: fertigeKlassen, vertretungModels: vertretungModels, data: data, progressBar: progressBar)
         
-        
-        progressBar.setProgress(0.0, animated: true)
-        progressBarText.text="Tabelle wird erstellt..."
+        DispatchQueue.main.async {
+            self.progressBar.setProgress(0.0, animated: true)
+            self.progressBarText.text="Tabelle wird erstellt..."
+        }
         
         let html = buildHTMLWithProcess(progressBar: progressBar, finalFuerDatum: fuerDatum, finalStand: stand, data: data, fertigeKlassen: fertigeKlassen)
         
-        progressBar.isHidden=true
-        progressBarText.isHidden=true
+        DispatchQueue.main.async {
+            self.progressBar.isHidden=true
+            self.progressBarText.isHidden=true
+            self.webView.loadHTMLString(html, baseURL: nil)
+        }
         
-        webView.loadHTMLString(html, baseURL: nil)
         
         return ""
     }
@@ -108,7 +127,9 @@ class SecondViewController: UIViewController {
     func buildHTMLWithProcess(progressBar: UIProgressView, finalFuerDatum: String, finalStand: String, data: Array<VertretungModelArrayModel>, fertigeKlassen:Array<String>) -> String{
         var string = "<!DOCTYPE html>\n"+"<html>\n"
         string = string+htmlhead()
-        progressBar.setProgress(1/Float(fertigeKlassen.count), animated: true)
+        DispatchQueue.main.async {
+            progressBar.setProgress(1/Float(fertigeKlassen.count), animated: true)
+        }
         string = string + "\t<body>\n" +
             "  <div class=\"container\">\n" +
             "  <div class=\"aktuell\">"+"Für "+finalFuerDatum+"</div>\n" +
@@ -301,7 +322,9 @@ class SecondViewController: UIViewController {
                 newData.append(VertretungModelArrayModel(rights: rightRows, kl: klassen[i]))
                 newFertigeKlassen.append(klassen[i])
             }
-            progressBar.setProgress((Float(i))/(Float(klassen.count-1)), animated: true)
+            DispatchQueue.main.async {
+                progressBar.setProgress((Float(i))/(Float(klassen.count-1)), animated: true)
+            }
             i=i+1
         }
         return (newData, newFertigeKlassen)
@@ -371,8 +394,9 @@ class SecondViewController: UIViewController {
                     }
                 }
             }
-            
-            progressBar.setProgress((Float(i))/(Float(tables.count-1)), animated: true)
+            DispatchQueue.main.async {
+                progressBar.setProgress((Float(i))/(Float(tables.count-1)), animated: true)
+            }
             i+=1
         }
         
@@ -394,7 +418,9 @@ class SecondViewController: UIViewController {
                 klassen.append(klassenArrayUnfertig[ie].components(separatedBy: "</td>")[0].trimmingCharacters(in: .whitespacesAndNewlines))
                 ie+=1
             }
-            progressBar.setProgress((Float(i))/(Float(tables.count-1)), animated: true)
+            DispatchQueue.main.async {
+                progressBar.setProgress((Float(i))/(Float(tables.count-1)), animated: true)
+            }
             i+=1
         }
         return klassen
@@ -433,7 +459,9 @@ class SecondViewController: UIViewController {
                     let datumParts = datum.components(separatedBy: " ")
                     fuerDatum = datumParts[1]+", "+datumParts[0]
                 }
-                progressBar.setProgress((Float(i))/(Float(urlEndings.count-1)), animated: true)
+                DispatchQueue.main.async {
+                    progressBar.setProgress((Float(i))/(Float(urlEndings.count-1)), animated: true)
+                }
             }
             catch _{}
             

@@ -36,6 +36,8 @@ class LoginViewController: UIViewController {
         }
         
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @objc func login(_ sender: UIButton) {
