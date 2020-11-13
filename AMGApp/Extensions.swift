@@ -38,6 +38,13 @@ extension String {
         return h
     }
     
+    func encodeUrl() -> String? {
+        return self.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+    }
+    
+    func decodeUrl() -> String? {
+        return self.removingPercentEncoding
+    }
 }
 
 extension Character {

@@ -44,22 +44,25 @@ class LoginViewController: UIViewController {
         let usernameString = username.text!
         let passwordString = password.text!.hashCode()
         
-        var url = "http://amgitt.de:8080/AMGAppServlet/amgapp?requestType=Login&request=&username="+usernameString+"&password="+String(passwordString)+"&datum=&gebaeude=&etage=&raum=&wichtigkeit=&fehler=&beschreibung=&status=&bearbeitetVon="
+        var url = "https://amgitt.de/AMGAppServlet/amgapp?requestType=Login&request=&username="+usernameString+"&password="+String(passwordString)+"&datum=&gebaeude=&etage=&raum=&wichtigkeit=&fehler=&beschreibung=&status=&bearbeitetVon="
         
-        url = url.replaceAll(of: " ",with: "%20")
+        url = url.encodeUrl()!
         
         do {
             let content = try String(contentsOf: URL(string: url)!)
             
-            let body = content.components(separatedBy: "<body>")[1].components(separatedBy: "</body>")[0].trimmingCharacters(in: .whitespacesAndNewlines)
+            let body = content.components(separatedBy: "<body>")[1].components(separatedBy: "</body>")[0].trimmingCharacters(in: .whitespacesAndNewlines).decodeUrl()!
             
-            if(body.components(separatedBy: "\n")[0]=="0") {
+            if(body.components(separatedBy: "//")[0]=="0") {
                 showToast(message: "Login fehlgeschlagen, falsches Passwort?")
                 return;
             }
             
-            UserDefaults.standard.set(body.components(separatedBy: "\n")[0], forKey: "login")
-            UserDefaults.standard.set(body.components(separatedBy: "\n")[1], forKey: "passwordVertretungsplanSchueler")
+            print(url)
+            print(body)
+            
+            UserDefaults.standard.set(body.components(separatedBy: "//")[0], forKey: "login")
+            UserDefaults.standard.set(body.components(separatedBy: "//")[1], forKey: "passwordVertretungsplanSchueler")
             UserDefaults.standard.set(usernameString, forKey: "loginUsername")
             UserDefaults.standard.set(passwordString, forKey: "loginPassword")
             

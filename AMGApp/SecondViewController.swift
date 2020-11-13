@@ -19,7 +19,6 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var progressBarText: UITextField!
     
     var klasse: String = ""
-    var password: String = ""
     var day: String = ""
     
     override func viewDidLoad() {
@@ -27,24 +26,22 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         klasse = "EF"
-        let passwordnew = UserDefaults.standard.string(forKey: "loginPassword")
-        if(passwordnew==nil){
+        let username = UserDefaults.standard.string(forKey: "loginUsername")
+        let password = UserDefaults.standard.string(forKey: "loginPassword")
+        if(password==nil){
             Variables.shouldShowLoginToast=true
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
             self.present(newViewController, animated: true, completion: nil)
             return
         }
-        else {
-            password=passwordnew!
-        }
         DispatchQueue(label: "network").async {
-            self.action(date: self.day)
+            self.action(date: self.day, username: username!, password: password!)
         }
         //webView.loadHTMLString(action(), baseURL: nil)
     }
     
-    func action(date: String)-> (String) {
+    func action(date: String, username: String, password: String)-> (String) {
         var fuerDatum: String
         var stand: String
         var urlEndings = Array<String>()
@@ -61,15 +58,17 @@ class SecondViewController: UIViewController {
             self.progressBar.setProgress(0.0, animated: true)
         }
         
-        let main = "http://amgitt.de:8080/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://amg-witten.de/fileadmin/VertretungsplanSUS/"+date+"/"
+        print("doing")
         
-        urlEndings = getAllEndings(argmain: main)
+        let main = "https://amgitt.de/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://sus.amg-witten.de/"+date+"/"
+        
+        urlEndings = getAllEndings(argmain: main, username: username, password: password)
         
         DispatchQueue.main.async {
             self.progressBarText.text="Dateien werden heruntergeladen..."
         }
         
-        (stand,fuerDatum,tables) = getTablesWithProcess(main: main, urlEndings: urlEndings, progressBar: progressBar)
+        (stand,fuerDatum,tables) = getTablesWithProcess(main: main, urlEndings: urlEndings, progressBar: progressBar, username: username, password: password)
         
         DispatchQueue.main.async {
             self.progressBar.setProgress(0.0, animated: true)
@@ -119,6 +118,8 @@ class SecondViewController: UIViewController {
             self.progressBarText.isHidden=true
             self.webView.loadHTMLString(html, baseURL: nil)
         }
+        
+        print("done")
         
         
         return ""
@@ -426,16 +427,16 @@ class SecondViewController: UIViewController {
         return klassen
     }
     
-    func getTablesWithProcess(main: String, urlEndings: Array<String>, progressBar: UIProgressView) -> (stand: String, fuerDatum: String, tables: Array<String>){
+    func getTablesWithProcess(main: String, urlEndings: Array<String>, progressBar: UIProgressView, username: String, password: String) -> (stand: String, fuerDatum: String, tables: Array<String>){
         var stand = ""
         var fuerDatum = ""
         var tables = Array<String>()
         
         var i=0
         while i<urlEndings.count {
-            let mainURL = URL(string: main+"subst_"+urlEndings[i]+"&username=Schueler&password="+String(password))
+            let mainURL = URL(string: main+"subst_"+urlEndings[i]+"&username="+username+"&password="+password)
             do {
-                let full = try String(contentsOf: mainURL!)
+                let full = try String(contentsOf: mainURL!).decodeUrl()!
                 
                 var body = ""
                 do {
@@ -470,17 +471,17 @@ class SecondViewController: UIViewController {
         return (stand, fuerDatum, tables)
     }
     
-    func getAllEndings(argmain: String) -> Array<String> {
+    func getAllEndings(argmain: String, username: String, password: String) -> Array<String> {
         var exit = false
         var next = "001.htm"
         var main = argmain
         var urlEndings = Array<String>()
         urlEndings.append("001.htm")
         while !exit {
-            let mainURL = URL(string: main+"subst_"+next+"&username=Schueler&password="+String(password))
+            let mainURL = URL(string: main+"subst_"+next+"&username="+username+"&password="+password)
             
             do {
-                let full = try String(contentsOf: mainURL!)
+                let full = try String(contentsOf: mainURL!).decodeUrl()!
                 
                 if(full.contains("<frame name\"ticker\" src=\"")){
                     main=main + "f1/"
@@ -498,7 +499,7 @@ class SecondViewController: UIViewController {
                             urlEndings.append(nextURL)
                         }
                     }
-                    catch _ {}
+                    catch _{}
                 }
             }
             catch _ {}
