@@ -20,15 +20,21 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        print("viewDidLoad")
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        
+        print("viewWillAppear")
         if(UserDefaults.standard.string(forKey: "login") != nil){
+            print("logout")
             UserDefaults.standard.removeObject(forKey: "login")
             UserDefaults.standard.removeObject(forKey: "passwordVertretungsplanSchueler")
             UserDefaults.standard.removeObject(forKey: "loginUsername")
             UserDefaults.standard.removeObject(forKey: "loginPassword")
             
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
-            self.present(newViewController, animated: true, completion: nil)
+            tabBarController!.selectedIndex = 0
             
             Variables.shouldShowLogoutSuccessToast=true
             
@@ -58,9 +64,6 @@ class LoginViewController: UIViewController {
                 return;
             }
             
-            print(url)
-            print(body)
-            
             UserDefaults.standard.set(body.components(separatedBy: "//")[0], forKey: "login")
             UserDefaults.standard.set(body.components(separatedBy: "//")[1], forKey: "passwordVertretungsplanSchueler")
             UserDefaults.standard.set(usernameString, forKey: "loginUsername")
@@ -68,9 +71,7 @@ class LoginViewController: UIViewController {
             
             Variables.shouldShowLoginSuccessToast = true
             
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
-            self.present(newViewController, animated: true, completion: nil)
+            tabBarController!.selectedIndex = 0
             
             //TODO AlarmManager für morgendliche Benachrichtigung
             

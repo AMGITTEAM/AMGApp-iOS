@@ -30,15 +30,16 @@ class SecondViewController: UIViewController {
         let password = UserDefaults.standard.string(forKey: "loginPassword")
         if(password==nil){
             Variables.shouldShowLoginToast=true
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
-            self.present(newViewController, animated: true, completion: nil)
+            tabBarController!.selectedIndex = 0
             return
         }
         DispatchQueue(label: "network").async {
-            self.action(date: self.day, username: username!, password: password!)
+            let html = self.action(date: self.day, username: username!, password: password!)
+            
+            DispatchQueue.main.async {
+                self.webView.loadHTMLString(html, baseURL: nil)
+            }
         }
-        //webView.loadHTMLString(action(), baseURL: nil)
     }
     
     func action(date: String, username: String, password: String)-> (String) {
@@ -116,13 +117,10 @@ class SecondViewController: UIViewController {
         DispatchQueue.main.async {
             self.progressBar.isHidden=true
             self.progressBarText.isHidden=true
-            self.webView.loadHTMLString(html, baseURL: nil)
         }
         
-        print("done")
         
-        
-        return ""
+        return html
     }
     
     func buildHTMLWithProcess(progressBar: UIProgressView, finalFuerDatum: String, finalStand: String, data: Array<VertretungModelArrayModel>, fertigeKlassen:Array<String>) -> String{
