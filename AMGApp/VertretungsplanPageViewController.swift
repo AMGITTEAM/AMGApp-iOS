@@ -29,7 +29,7 @@ class VertretungsplanPageViewController: UIPageViewController {
     
     private func newVertretungsplanViewController(count: Int) -> UIViewController {
         let view = UIStoryboard(name: "Main", bundle: nil) .
-            instantiateViewController(withIdentifier: "VertretungsplanView") as? SecondViewController
+            instantiateViewController(withIdentifier: "VertretungsplanView") as? VertretungsplanViewController
         if(count==1){
             view!.day = "Heute"
         }

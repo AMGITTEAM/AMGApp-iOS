@@ -19,16 +19,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        print("viewDidLoad")
     }
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         
-        print("viewWillAppear")
         if(UserDefaults.standard.string(forKey: "login") != nil){
-            print("logout")
             UserDefaults.standard.removeObject(forKey: "login")
             UserDefaults.standard.removeObject(forKey: "passwordVertretungsplanSchueler")
             UserDefaults.standard.removeObject(forKey: "loginUsername")

@@ -11,7 +11,7 @@
 import UIKit
 import WebKit
 
-class SecondViewController: UIViewController {
+class VertretungsplanViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     
     @IBOutlet weak var progressBar: UIProgressView!
