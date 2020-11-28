@@ -12,9 +12,16 @@ import Foundation
 import UIKit
 
 class SonstigesViewController: UITableViewController {
-
+    
+    @IBOutlet weak var loginLabel: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        if(UserDefaults.standard.string(forKey: "loginUsername") != nil){
+            loginLabel.text = "Logout"
+        } else {
+            loginLabel.text = "Login"
+        }
         super.viewWillAppear(animated)
     }
     
