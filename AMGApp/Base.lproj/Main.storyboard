@@ -239,14 +239,43 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <!--Feedback-->
         <scene sceneID="kyg-XD-YwJ">
             <objects>
-                <viewController id="1yR-c8-dAD" userLabel="Feedback" sceneMemberID="viewController">
+                <viewController id="1yR-c8-dAD" userLabel="Feedback" customClass="FeedbackViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rro-Ec-RRW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBi-PP-0uQ">
+                                <rect key="frame" x="27.5" y="60" width="320" height="216"/>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Beschreibung" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hD1-qK-6U5">
+                                <rect key="frame" x="129" y="316.5" width="117" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BR-rR-NLI">
+                                <rect key="frame" x="167" y="572" width="41" height="30"/>
+                                <state key="normal" title="Fertig"/>
+                                <connections>
+                                    <action selector="submit:" destination="1yR-c8-dAD" eventType="touchUpInside" id="Zqb-lT-pcC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aR1-fb-Ppj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hD1-qK-6U5" firstAttribute="centerY" secondItem="rro-Ec-RRW" secondAttribute="centerY" id="1VE-Rm-xiL"/>
+                            <constraint firstItem="hD1-qK-6U5" firstAttribute="centerX" secondItem="rro-Ec-RRW" secondAttribute="centerX" id="8cM-Xw-EM5"/>
+                            <constraint firstItem="6BR-rR-NLI" firstAttribute="centerX" secondItem="rro-Ec-RRW" secondAttribute="centerX" id="DhZ-Cb-Vlv"/>
+                            <constraint firstItem="LBi-PP-0uQ" firstAttribute="top" secondItem="aR1-fb-Ppj" secondAttribute="top" constant="16" id="HEf-Iv-lXS"/>
+                            <constraint firstItem="6BR-rR-NLI" firstAttribute="bottom" secondItem="aR1-fb-Ppj" secondAttribute="bottom" constant="-16" id="Zs6-3G-4Vr"/>
+                            <constraint firstItem="LBi-PP-0uQ" firstAttribute="centerX" secondItem="rro-Ec-RRW" secondAttribute="centerX" id="dLb-SD-ID5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feedback" id="BTU-x3-F8Q"/>
+                    <connections>
+                        <outlet property="beschreibung" destination="hD1-qK-6U5" id="F2T-4z-gdB"/>
+                        <outlet property="typePicker" destination="LBi-PP-0uQ" id="aoi-QH-3gd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aqj-tB-kX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -265,7 +294,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="username"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="desAMG" borderStyle="roundedRect" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-ic-7Ti">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-ic-7Ti">
                                 <rect key="frame" x="70" y="380.5" width="235" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
