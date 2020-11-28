@@ -22,17 +22,16 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool){
-        super.viewWillAppear(animated)
-        
         if(UserDefaults.standard.string(forKey: "login") != nil){
             UserDefaults.standard.removeObject(forKey: "login")
             UserDefaults.standard.removeObject(forKey: "passwordVertretungsplanSchueler")
             UserDefaults.standard.removeObject(forKey: "loginUsername")
             UserDefaults.standard.removeObject(forKey: "loginPassword")
             
-            tabBarController!.selectedIndex = 0
-            
             Variables.shouldShowLogoutSuccessToast=true
+            
+            (tabBarController as!TabViewController).enableDisableItems()
+            navigationController?.popViewController(animated: true)
             
             return
         }
@@ -40,6 +39,8 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         
         self.hideKeyboardWhenTappedAround()
+        
+            super.viewWillAppear(animated)
     }
     
     @objc func login(_ sender: UIButton) {
@@ -65,9 +66,13 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.set(usernameString, forKey: "loginUsername")
             UserDefaults.standard.set(passwordString, forKey: "loginPassword")
             
+            (tabBarController as!TabViewController).enableDisableItems()
+            
             Variables.shouldShowLoginSuccessToast = true
             
-            tabBarController!.selectedIndex = 0
+            navigationController?.popViewController(animated: true)
+            
+            return
             
             //TODO AlarmManager für morgendliche Benachrichtigung
             
