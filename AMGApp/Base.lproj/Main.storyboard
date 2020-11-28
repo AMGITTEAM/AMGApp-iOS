@@ -127,7 +127,132 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             </objects>
             <point key="canvasLocation" x="-1794" y="952"/>
         </scene>
-        <!--Logout-->
+        <!--Einstellungen-->
+        <scene sceneID="b5d-Ed-HUn">
+            <objects>
+                <viewController id="arP-TT-eVR" userLabel="Einstellungen" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I5z-dQ-mHz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="d1j-0O-8Nq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Einstellungen" id="Bld-d1-sBl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pV5-6i-7qr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3201" y="-377"/>
+        </scene>
+        <!--Hilfe-->
+        <scene sceneID="fsI-cq-biu">
+            <objects>
+                <viewController id="Uex-RJ-cRp" userLabel="Hilfe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h6I-WK-UKm" userLabel="Hilfe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dw-1P-cuh">
+                                <rect key="frame" x="16" y="60" width="343" height="368"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Es werden keine Icons mehr im Vertretungsplan angezeigt 	</string>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="systemBold" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="In">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" den Einstellungen die Icons im Vertretungsplan einschalten.  ">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Im Stundenplan werden die Stunden aus dem Vertretungsplan nicht angezeigt ">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="systemBold" size="17"/>
+                                            <font key="NSOriginalFont" metaFont="systemBold" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">	Kurzform des Fachs in folgendem Format eintragen: 		- Unterstufe/Mittelstufe: Normales Kürzel des Fachs wie M oder E5 		- Oberstufe: Kürzel des Fachs mit Kursnummer wie im Vertretungsplan, Beispiele: M G4 oder E5 G2  </string>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Problem wurde nicht behoben/ist hier nicht gelistet">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="systemBold" size="17"/>
+                                            <font key="NSOriginalFont" metaFont="systemBold" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> 	Über folgenden Knopf das Feedback-Formular öffnen und Fehler melden:</string>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03P-tN-o94">
+                                <rect key="frame" x="153.5" y="444" width="68" height="30"/>
+                                <state key="normal" title="Feedback"/>
+                                <connections>
+                                    <segue destination="1yR-c8-dAD" kind="show" id="SAW-jb-nci"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Y1-42-DEF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="03P-tN-o94" firstAttribute="top" secondItem="2dw-1P-cuh" secondAttribute="bottom" constant="16" id="BQF-zm-0UT"/>
+                            <constraint firstItem="2dw-1P-cuh" firstAttribute="top" secondItem="7Y1-42-DEF" secondAttribute="top" constant="16" id="l6q-iY-x1Y"/>
+                            <constraint firstItem="03P-tN-o94" firstAttribute="centerX" secondItem="h6I-WK-UKm" secondAttribute="centerX" id="piS-eR-tCh"/>
+                            <constraint firstItem="7Y1-42-DEF" firstAttribute="trailing" secondItem="2dw-1P-cuh" secondAttribute="trailing" constant="16" id="u7A-np-TjK"/>
+                            <constraint firstItem="2dw-1P-cuh" firstAttribute="leading" secondItem="7Y1-42-DEF" secondAttribute="leading" constant="16" id="uhQ-9x-SBa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Hilfe" id="4wK-Ud-yhO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t34-Rp-THZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3201" y="285"/>
+        </scene>
+        <!--Feedback-->
+        <scene sceneID="kyg-XD-YwJ">
+            <objects>
+                <viewController id="1yR-c8-dAD" userLabel="Feedback" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rro-Ec-RRW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aR1-fb-Ppj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Feedback" id="BTU-x3-F8Q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aqj-tB-kX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3918" y="285"/>
+        </scene>
+        <!--Login-->
         <scene sceneID="lGN-BK-5O4">
             <objects>
                 <viewController id="KJ1-Sq-hzH" customClass="LoginViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -205,7 +330,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                     <tabBarItem key="tabBarItem" title="Logout" badgeValue="Logout" id="WXX-yp-uFz">
                         <color key="badgeColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="eBZ-Dg-vxD"/>
+                    <navigationItem key="navigationItem" title="Login" id="eBZ-Dg-vxD"/>
                     <connections>
                         <outlet property="loginButton" destination="HDG-Y1-jOU" id="GEQ-yH-FRN"/>
                         <outlet property="password" destination="WiL-ic-7Ti" id="uNf-QW-jkp"/>
@@ -245,10 +370,10 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             </objects>
             <point key="canvasLocation" x="-1116" y="951"/>
         </scene>
-        <!--Item-->
+        <!--SonstigesNavigationController-->
         <scene sceneID="YaA-4b-Frs">
             <objects>
-                <navigationController id="CJk-9b-ywy" sceneMemberID="viewController">
+                <navigationController id="CJk-9b-ywy" userLabel="SonstigesNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="GEA-eW-7Ge"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qaA-aX-tvD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -302,6 +427,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                                 <constraint firstItem="Sw8-Cy-tdS" firstAttribute="centerY" secondItem="h9U-i0-BeW" secondAttribute="centerY" id="wJe-Dn-wFz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="arP-TT-eVR" kind="show" id="L0b-OR-kW3"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="43.5" id="b2o-E7-Za4">
                                         <rect key="frame" x="0.0" y="61.5" width="375" height="43.5"/>
@@ -332,6 +460,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                                 <constraint firstItem="ApO-QG-CwH" firstAttribute="top" secondItem="TTV-ne-Z7k" secondAttribute="top" constant="6" id="zaH-6N-zTI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Uex-RJ-cRp" kind="show" id="HSd-cB-BwM"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="43.5" id="pma-Bh-f5r">
                                         <rect key="frame" x="0.0" y="105" width="375" height="43.5"/>
@@ -414,10 +545,10 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             </objects>
             <point key="canvasLocation" x="1980" y="579"/>
         </scene>
-        <!--View Controller-->
+        <!--Info-->
         <scene sceneID="gM9-oW-4y5">
             <objects>
-                <viewController id="vNM-0e-02a" sceneMemberID="viewController">
+                <viewController id="vNM-0e-02a" userLabel="Info" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mfl-Tv-lVR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,7 +570,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                             <constraint firstItem="EMl-Ba-TLG" firstAttribute="leading" secondItem="2vz-IS-bho" secondAttribute="leading" constant="16" id="ROD-YU-vdp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="y1o-in-iBp"/>
+                    <navigationItem key="navigationItem" title="Info" id="y1o-in-iBp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJO-Md-Do3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
