@@ -84,35 +84,35 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oal-0a-nxq">
-                                <rect key="frame" x="8" y="331.5" width="359" height="4"/>
-                            </progressView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testText" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWp-tZ-7eN">
-                                <rect key="frame" x="147.5" y="277.5" width="80" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf4-pD-Dpi">
-                                <rect key="frame" x="8" y="8" width="359" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testText" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWp-tZ-7eN">
+                                <rect key="frame" x="147.5" y="277.5" width="80" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oal-0a-nxq">
+                                <rect key="frame" x="8" y="331.5" width="359" height="4"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Gf4-pD-Dpi" secondAttribute="trailing" constant="8" id="2Lt-vC-btb"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Gf4-pD-Dpi" secondAttribute="trailing" id="2Lt-vC-btb"/>
                             <constraint firstAttribute="trailing" secondItem="oal-0a-nxq" secondAttribute="trailing" constant="8" id="2cA-vB-Hbw"/>
                             <constraint firstItem="oal-0a-nxq" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="5Wi-OZ-H5o"/>
                             <constraint firstItem="oal-0a-nxq" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="92j-dQ-KJf"/>
                             <constraint firstItem="oal-0a-nxq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="8" id="JNA-Gq-eCl"/>
-                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" constant="8" id="Ld9-wd-0gs"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="Ld9-wd-0gs"/>
                             <constraint firstItem="oal-0a-nxq" firstAttribute="top" secondItem="LWp-tZ-7eN" secondAttribute="bottom" constant="20" id="MwX-uq-5hR"/>
-                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="8" id="Ovn-Uo-fYZ"/>
-                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="8" id="U25-jA-lgn"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="Ovn-Uo-fYZ"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="U25-jA-lgn"/>
                             <constraint firstItem="LWp-tZ-7eN" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="uxW-oE-0hw"/>
                         </constraints>
                     </view>
@@ -152,7 +152,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dw-1P-cuh">
-                                <rect key="frame" x="16" y="60" width="343" height="368"/>
+                                <rect key="frame" x="16" y="60" width="343" height="385.5"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Es werden keine Icons mehr im Vertretungsplan angezeigt 	</string>
@@ -213,7 +213,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03P-tN-o94">
-                                <rect key="frame" x="153.5" y="444" width="68" height="30"/>
+                                <rect key="frame" x="153.5" y="461.5" width="68" height="30"/>
                                 <state key="normal" title="Feedback"/>
                                 <connections>
                                     <segue destination="1yR-c8-dAD" kind="show" id="SAW-jb-nci"/>
@@ -265,7 +265,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="username"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-ic-7Ti">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="desAMG" borderStyle="roundedRect" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-ic-7Ti">
                                 <rect key="frame" x="70" y="380.5" width="235" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -341,10 +341,10 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             </objects>
             <point key="canvasLocation" x="3201" y="951"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="49e-Tb-3d3" customClass="TabViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -477,8 +477,8 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                                         <constraint firstAttribute="width" secondItem="GyX-OZ-RxS" secondAttribute="height" multiplier="1:1" id="HyA-pr-ptY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KF-SW-fEX">
-                                                    <rect key="frame" x="63.5" y="11.5" width="54" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login/Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KF-SW-fEX">
+                                                    <rect key="frame" x="63.5" y="11.5" width="100" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -540,6 +540,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Sonstiges" image="ellipsis.rectangle.fill" catalog="system" id="QoU-LN-gt7"/>
                     <navigationItem key="navigationItem" title="Sonstiges" id="TT4-MY-LWW"/>
+                    <connections>
+                        <outlet property="LoginLabel" destination="8KF-SW-fEX" id="lF2-Fg-cJe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcO-Ih-iLP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
