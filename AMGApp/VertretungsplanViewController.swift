@@ -55,11 +55,12 @@ class VertretungsplanViewController: UIViewController {
         var fertigeKlassen = Array<String>()
         
         DispatchQueue.main.async {
+            self.progressBar.isHidden=false
+            self.progressBarText.isHidden=false
+            self.webView.loadHTMLString("", baseURL: nil)
             self.progressBarText.text="Dateien werden gezählt..."
             self.progressBar.setProgress(0.0, animated: true)
         }
-        
-        print("doing")
         
         let main = "https://amgitt.de/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://sus.amg-witten.de/"+date+"/"
         
