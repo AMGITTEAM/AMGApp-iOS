@@ -21,11 +21,11 @@ class VertretungsplanViewController: UIViewController {
     var klasse: String = ""
     var day: String = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
         
-        klasse = "EF"
+        klasse = UserDefaults.standard.string(forKey: "klasse") ?? ""
         let username = UserDefaults.standard.string(forKey: "loginUsername")
         let password = UserDefaults.standard.string(forKey: "loginPassword")
         if(password==nil){
