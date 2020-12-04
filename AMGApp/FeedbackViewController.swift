@@ -37,7 +37,7 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         print("after: "+url)
         
         do {
-            let content = try String(contentsOf: URL(string: url)!)
+            try String(contentsOf: URL(string: url)!)
         } catch _ {}
     }
     
