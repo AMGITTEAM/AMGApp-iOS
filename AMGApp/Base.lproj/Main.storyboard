@@ -289,7 +289,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <rect key="frame" x="27.5" y="60" width="320" height="216"/>
                             </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Beschreibung" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hD1-qK-6U5">
-                                <rect key="frame" x="129" y="316.5" width="117" height="34"/>
+                                <rect key="frame" x="32" y="316.5" width="311" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -305,11 +305,13 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hD1-qK-6U5" firstAttribute="centerY" secondItem="rro-Ec-RRW" secondAttribute="centerY" id="1VE-Rm-xiL"/>
+                            <constraint firstItem="hD1-qK-6U5" firstAttribute="leading" secondItem="aR1-fb-Ppj" secondAttribute="leading" constant="32" id="7Jv-dV-QE8"/>
                             <constraint firstItem="hD1-qK-6U5" firstAttribute="centerX" secondItem="rro-Ec-RRW" secondAttribute="centerX" id="8cM-Xw-EM5"/>
                             <constraint firstItem="6BR-rR-NLI" firstAttribute="centerX" secondItem="rro-Ec-RRW" secondAttribute="centerX" id="DhZ-Cb-Vlv"/>
                             <constraint firstItem="LBi-PP-0uQ" firstAttribute="top" secondItem="aR1-fb-Ppj" secondAttribute="top" constant="16" id="HEf-Iv-lXS"/>
                             <constraint firstItem="6BR-rR-NLI" firstAttribute="bottom" secondItem="aR1-fb-Ppj" secondAttribute="bottom" constant="-16" id="Zs6-3G-4Vr"/>
                             <constraint firstItem="LBi-PP-0uQ" firstAttribute="centerX" secondItem="rro-Ec-RRW" secondAttribute="centerX" id="dLb-SD-ID5"/>
+                            <constraint firstItem="aR1-fb-Ppj" firstAttribute="trailing" secondItem="hD1-qK-6U5" secondAttribute="trailing" constant="32" id="ut2-Lf-PRF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feedback" id="BTU-x3-F8Q"/>
@@ -628,7 +630,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMl-Ba-TLG" userLabel="Info-Text">
                                 <rect key="frame" x="16" y="60" width="375" height="574"/>
-                                <mutableString key="text">Diese App wird programmiert, verwaltet und gewartet von Adrian Kathagen  Version: 1.0  Icons: Silk Icons, by Mark James - famfamfam         Apple System Icons  Diese App wurde programmiert für das     Albert-Martmöller-Gymnasium     Oberdorf 9     58456 Witten      Tel: +49 2302 189172     Fax: +49 2302 189059      amg@schule-witten.de</mutableString>
+                                <string key="text">Diese App wird programmiert, verwaltet und gewartet von Adrian Kathagen  Version: 1.0  Icons: Silk Icons, by Mark James - famfamfam         Apple System Icons  Diese App wurde programmiert für das     Albert-Martmöller-Gymnasium     Oberdorf 9     58456 Witten      Tel: +49 2302 189172     Fax: +49 2302 189059      amg@schule-witten.de</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
