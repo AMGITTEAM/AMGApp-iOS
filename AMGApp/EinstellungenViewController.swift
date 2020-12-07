@@ -12,6 +12,7 @@ import UIKit
 class EinstellungenViewController: UIViewController, UIColorPickerViewControllerDelegate{
     
     @IBOutlet weak var eigeneKlassePicker: UIPickerView!
+    @IBOutlet weak var eigeneKlasseColorPreview: UIView!
     var klassenPicker: KlassenPicker? = nil
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,8 +23,29 @@ class EinstellungenViewController: UIViewController, UIColorPickerViewController
         self.eigeneKlassePicker.dataSource = klassenPicker
         klassenPicker!.refresh()
         
-        //let picker = UIColorPickerViewController()
-        //picker.supportsAlpha = false
-        //present(picker, animated: true, completion: nil)
+        eigeneKlasseColorPreview.backgroundColor = UIColor.fromHexString(hexString: UserDefaults.standard.string(forKey: "vertretungEigeneKlasseFarbe") ?? "#FF0000")
+    }
+    
+    func pickColor() -> UIColor{
+        let picker = UIColorPickerViewController()
+        picker.supportsAlpha = false
+        present(picker, animated: true, completion: nil)
+        while(picker.viewIfLoaded?.window == nil){
+            usleep(1000)
+        }
+        while(picker.viewIfLoaded?.window != nil){
+            usleep(1000)
+        }
+        return picker.selectedColor
+    }
+    
+    @IBAction func changeEigeneKlasseColor(_ sender: Any) {
+        DispatchQueue.global(qos: .background).async {
+            let pickedColor = self.pickColor()
+            DispatchQueue.main.async { [self] in
+                UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungEigeneKlasseFarbe")
+                eigeneKlasseColorPreview.backgroundColor = pickedColor
+            }
+        }
     }
 }

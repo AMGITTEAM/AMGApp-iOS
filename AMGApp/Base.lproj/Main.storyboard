@@ -143,17 +143,17 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLS-ZV-AeM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLS-ZV-AeM" userLabel="AktuelleKlasseView">
                                 <rect key="frame" x="0.0" y="44" width="375" height="216"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="Aktuelle Klasse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usg-0E-mqq">
-                                        <rect key="frame" x="0.0" y="97.5" width="115.5" height="21"/>
+                                        <rect key="frame" x="16" y="97.5" width="115.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qys-AZ-sl0">
-                                        <rect key="frame" x="131.5" y="0.0" width="243.5" height="216"/>
+                                        <rect key="frame" x="147.5" y="0.0" width="227.5" height="216"/>
                                     </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -162,21 +162,64 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                     <constraint firstItem="qys-AZ-sl0" firstAttribute="leading" secondItem="Usg-0E-mqq" secondAttribute="trailing" constant="16" id="C2F-vd-Z3e"/>
                                     <constraint firstItem="qys-AZ-sl0" firstAttribute="top" secondItem="dLS-ZV-AeM" secondAttribute="top" id="GqA-Bh-H3s"/>
                                     <constraint firstItem="Usg-0E-mqq" firstAttribute="centerY" secondItem="dLS-ZV-AeM" secondAttribute="centerY" id="jyr-jA-NLq"/>
-                                    <constraint firstItem="Usg-0E-mqq" firstAttribute="leading" secondItem="dLS-ZV-AeM" secondAttribute="leading" id="kzr-kO-mmf"/>
+                                    <constraint firstItem="Usg-0E-mqq" firstAttribute="leading" secondItem="dLS-ZV-AeM" secondAttribute="leading" constant="16" id="kzr-kO-mmf"/>
                                     <constraint firstAttribute="bottom" secondItem="qys-AZ-sl0" secondAttribute="bottom" id="oOn-Yh-r0Y"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqY-qy-soh" userLabel="FarbeEigeneKlasseView">
+                                <rect key="frame" x="0.0" y="260" width="375" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farbe eigene Klasse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJJ-ED-5Xo">
+                                        <rect key="frame" x="16" y="16" width="153" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3r-8M-KG2">
+                                        <rect key="frame" x="284" y="11.5" width="75" height="30"/>
+                                        <state key="normal" title="Bearbeiten"/>
+                                        <connections>
+                                            <action selector="changeEigeneKlasseColor:" destination="arP-TT-eVR" eventType="touchUpInside" id="4Cg-u9-OyW"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7i-2x-gBk" userLabel="EigeneKlasseColorPreview">
+                                        <rect key="frame" x="247" y="16" width="21" height="21"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="D7i-2x-gBk" secondAttribute="height" multiplier="1:1" id="5JR-dm-V3b"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="a3r-8M-KG2" firstAttribute="centerY" secondItem="NqY-qy-soh" secondAttribute="centerY" id="1Th-Rf-MKF"/>
+                                    <constraint firstAttribute="bottom" secondItem="D7i-2x-gBk" secondAttribute="bottom" constant="16" id="8oc-FY-Qsv"/>
+                                    <constraint firstItem="D7i-2x-gBk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WJJ-ED-5Xo" secondAttribute="trailing" constant="16" id="JaH-jy-cRn"/>
+                                    <constraint firstItem="WJJ-ED-5Xo" firstAttribute="leading" secondItem="NqY-qy-soh" secondAttribute="leading" constant="16" id="Mgw-6I-7Ib"/>
+                                    <constraint firstItem="D7i-2x-gBk" firstAttribute="top" secondItem="NqY-qy-soh" secondAttribute="top" constant="16" id="OVO-hm-BLy"/>
+                                    <constraint firstAttribute="trailing" secondItem="a3r-8M-KG2" secondAttribute="trailing" constant="16" id="T5a-xL-Hwi"/>
+                                    <constraint firstItem="a3r-8M-KG2" firstAttribute="leading" secondItem="D7i-2x-gBk" secondAttribute="trailing" constant="16" id="X1s-zv-7th"/>
+                                    <constraint firstItem="WJJ-ED-5Xo" firstAttribute="top" secondItem="NqY-qy-soh" secondAttribute="top" constant="16" id="Y7f-Nr-3ie"/>
+                                    <constraint firstAttribute="bottom" secondItem="WJJ-ED-5Xo" secondAttribute="bottom" constant="16" id="eBD-z3-0id"/>
+                                    <constraint firstItem="D7i-2x-gBk" firstAttribute="centerY" secondItem="NqY-qy-soh" secondAttribute="centerY" id="h3j-dc-4dO"/>
+                                    <constraint firstItem="WJJ-ED-5Xo" firstAttribute="centerY" secondItem="NqY-qy-soh" secondAttribute="centerY" id="uhn-x3-SqP"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d1j-0O-8Nq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="NqY-qy-soh" firstAttribute="leading" secondItem="d1j-0O-8Nq" secondAttribute="leading" id="5lv-aT-1n1"/>
+                            <constraint firstItem="d1j-0O-8Nq" firstAttribute="trailing" secondItem="NqY-qy-soh" secondAttribute="trailing" id="Cja-FV-UCp"/>
                             <constraint firstItem="dLS-ZV-AeM" firstAttribute="top" secondItem="d1j-0O-8Nq" secondAttribute="top" id="IEF-dw-ozO"/>
+                            <constraint firstItem="NqY-qy-soh" firstAttribute="top" secondItem="dLS-ZV-AeM" secondAttribute="bottom" id="Oae-PA-jzb"/>
                             <constraint firstItem="d1j-0O-8Nq" firstAttribute="trailing" secondItem="dLS-ZV-AeM" secondAttribute="trailing" id="rEL-oV-Pnh"/>
                             <constraint firstItem="dLS-ZV-AeM" firstAttribute="leading" secondItem="d1j-0O-8Nq" secondAttribute="leading" id="w4R-J4-kgG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Einstellungen" id="Bld-d1-sBl"/>
                     <connections>
+                        <outlet property="eigeneKlasseColorPreview" destination="D7i-2x-gBk" id="UTO-9x-axF"/>
                         <outlet property="eigeneKlassePicker" destination="qys-AZ-sl0" id="8YK-UF-5em"/>
                     </connections>
                 </viewController>
@@ -664,6 +707,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <image name="second" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
