@@ -20,13 +20,11 @@ class KlassenPicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource  {
         self.picker = pickerView
         
         let gesamtKlasse = UserDefaults.standard.string(forKey: "klasse") ?? ""
-        print(gesamtKlasse)
         if(gesamtKlasse != ""){
             let stufe = String(gesamtKlasse.prefix(2))
             let klasse = String(gesamtKlasse.suffix(1))
             
             selectedStufe = klassen[0].firstIndex(of: stufe)!
-            print(klasse)
             if(gesamtKlasse.count == 3){ //oberstufe only has two
                 selectedKlasse = klassen[1].firstIndex(of: klasse)!
             }
