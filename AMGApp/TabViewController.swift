@@ -16,12 +16,12 @@ class TabViewController:UITabBarController {
     }
     
     func enableDisableItems(){
-        for item in tabBar.items! {
-            item.isEnabled = true
-        }
-        
         if(UserDefaults.standard.string(forKey: "loginUsername") == nil){
             tabBar.items![1].isEnabled = false
+            tabBar.items![1].title = "Vertretungsplan (zuerst einloggen!)"
+        } else {
+            tabBar.items![1].isEnabled = true
+            tabBar.items![1].title = "Vertretungsplan"
         }
     }
 }
