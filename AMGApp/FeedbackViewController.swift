@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var typePicker: UIPickerView!
     @IBOutlet weak var beschreibung: UITextField!
@@ -25,6 +25,7 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         pickerData = ["Bug/Fehler", "Idee/Anregung", "Anderes"]
         
         self.hideKeyboardWhenTappedAround()
+        beschreibung.delegate = self
     }
     
     @IBAction func submit(_ sender: Any) {
@@ -51,6 +52,11 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }
