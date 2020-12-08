@@ -84,7 +84,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Vertretungsplan-ELEMENT-->
+        <!--Vertretungsplan View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController storyboardIdentifier="VertretungsplanView" id="8rJ-Kc-sve" customClass="VertretungsplanViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -124,7 +124,6 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                             <constraint firstItem="LWp-tZ-7eN" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="uxW-oE-0hw"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Vertretungsplan-ELEMENT" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="progressBar" destination="oal-0a-nxq" id="xwk-u0-Tda"/>
                         <outlet property="progressBarText" destination="LWp-tZ-7eN" id="yfF-6j-66a"/>
@@ -516,13 +515,13 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="pG8-8j-Lyg">
-                                <rect key="frame" x="20" y="114" width="335" height="120"/>
+                                <rect key="frame" x="20" y="70" width="335" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pG8-8j-Lyg" secondAttribute="height" multiplier="67:24" id="KIn-N6-JRU"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Anmeldedaten für Schüler sind die des Schüleraccounts an den Schul-PCs." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-hQ-UjY">
-                                <rect key="frame" x="16" y="566" width="343" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Anmeldedaten für Schüler sind die des (alten) Schüleraccounts an den Schul-PCs." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-hQ-UjY">
+                                <rect key="frame" x="16" y="615" width="343" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -586,10 +585,10 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             </objects>
             <point key="canvasLocation" x="3201" y="951"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" id="49e-Tb-3d3" customClass="TabViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -610,6 +609,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="dCf-DZ-60I" customClass="VertretungsplanPageViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Vertretungsplan" image="person.2.fill" catalog="system" id="Gne-MC-Kri"/>
+                    <connections>
+                        <segue destination="KJ1-Sq-hzH" kind="presentation" identifier="vPlanToLogin" modalPresentationStyle="fullScreen" id="XNN-cv-kRs"/>
+                    </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djw-7r-gEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -825,6 +827,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <point key="canvasLocation" x="3201" y="1639"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XNN-cv-kRs"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="ellipsis.rectangle.fill" catalog="system" width="128" height="81"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
@@ -834,7 +839,6 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="power" catalog="system" width="128" height="124"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="second" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
