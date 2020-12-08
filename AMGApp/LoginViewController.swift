@@ -28,9 +28,8 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.removeObject(forKey: "loginUsername")
             UserDefaults.standard.removeObject(forKey: "loginPassword")
             
-            Variables.shouldShowLogoutSuccessToast=true
+            tabBarController?.showToast(message: "Logout erfolgreich")
             
-            (tabBarController as!TabViewController).enableDisableItems()
             navigationController?.popViewController(animated: true)
             
             return
@@ -40,7 +39,7 @@ class LoginViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
-            super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
     }
     
     @objc func login(_ sender: UIButton) {
@@ -66,11 +65,10 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.set(usernameString, forKey: "loginUsername")
             UserDefaults.standard.set(passwordString, forKey: "loginPassword")
             
-            (tabBarController as!TabViewController).enableDisableItems()
-            
-            Variables.shouldShowLoginSuccessToast = true
-            
+            presentingViewController?.dismiss(animated: true, completion: nil)
             navigationController?.popViewController(animated: true)
+            
+            tabBarController?.showToast(message: "Login erfolgreich")
             
             return
             
