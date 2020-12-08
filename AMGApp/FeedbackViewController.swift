@@ -23,6 +23,8 @@ class FeedbackViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.typePicker.dataSource = self
         
         pickerData = ["Bug/Fehler", "Idee/Anregung", "Anderes"]
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func submit(_ sender: Any) {
