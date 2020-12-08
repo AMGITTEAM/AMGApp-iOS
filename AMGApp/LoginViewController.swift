@@ -8,12 +8,10 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var username: UITextField!
-    
     @IBOutlet weak var password: UITextField!
     
     override func viewDidLoad() {
@@ -35,14 +33,14 @@ class LoginViewController: UIViewController {
             return
         }
         
-        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
-        
+        username.delegate = self
+        password.delegate = self
         self.hideKeyboardWhenTappedAround()
         
         super.viewWillAppear(animated)
     }
     
-    @objc func login(_ sender: UIButton) {
+    @IBAction func login(_ sender: Any?) {
         let usernameString = username.text!
         let passwordString = password.text!.hashCode()
         
@@ -76,6 +74,16 @@ class LoginViewController: UIViewController {
             
         }
         catch _ {}
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case username:
+            password.becomeFirstResponder()
+        default:
+            login(nil)
+        }
+        return false
     }
     
     
