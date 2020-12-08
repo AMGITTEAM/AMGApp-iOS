@@ -591,7 +591,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="49e-Tb-3d3" customClass="TabBarController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -610,14 +610,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <!--Vertretungsplan-->
         <scene sceneID="OE8-0H-5Ow">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="djw-7r-gEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarItem title="Vertretungsplan" image="person.2.fill" catalog="system" id="I6N-lP-pyD"/>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="dCf-DZ-60I" customClass="VertretungsplanPageViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Vertretungsplan" image="person.2.fill" catalog="system" id="Gne-MC-Kri"/>
                     <connections>
                         <segue destination="KJ1-Sq-hzH" kind="presentation" identifier="vPlanToLogin" modalPresentationStyle="fullScreen" id="XNN-cv-kRs"/>
                     </connections>
                 </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djw-7r-gEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarItem title="Vertretungsplan" image="person.2.fill" catalog="system" id="I6N-lP-pyD"/>
             </objects>
             <point key="canvasLocation" x="-1116" y="951"/>
         </scene>

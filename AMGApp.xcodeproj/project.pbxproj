@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12158BA02580084200CA7151 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12158B9F2580084200CA7151 /* TabBarController.swift */; };
 		1232E8BD2571586700577945 /* VertretungsplanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1232E8BC2571586700577945 /* VertretungsplanViewController.swift */; };
 		125B845B2575541200A1651A /* KlassenPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B845A2575541200A1651A /* KlassenPicker.swift */; };
 		129C7E7825719D21005BEB6F /* SonstigesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C7E7725719D21005BEB6F /* SonstigesViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12158B9F2580084200CA7151 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1232E8BC2571586700577945 /* VertretungsplanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VertretungsplanViewController.swift; sourceTree = "<group>"; };
 		125B845A2575541200A1651A /* KlassenPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlassenPicker.swift; sourceTree = "<group>"; };
 		129C7E7725719D21005BEB6F /* SonstigesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonstigesViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */,
+				12158B9F2580084200CA7151 /* TabBarController.swift */,
 				7B73D48B21C5ABAB005AB6D0 /* Main.storyboard */,
 				7B73D48E21C5ABAD005AB6D0 /* Assets.xcassets */,
 				7B73D49021C5ABAD005AB6D0 /* LaunchScreen.storyboard */,
@@ -162,6 +165,7 @@
 			files = (
 				129C7E7825719D21005BEB6F /* SonstigesViewController.swift in Sources */,
 				7B1244DB21EFA3F800EC7A0C /* Extensions.swift in Sources */,
+				12158BA02580084200CA7151 /* TabBarController.swift in Sources */,
 				12DD00082572C2B300DBD4BE /* FeedbackViewController.swift in Sources */,
 				7B749958220F2B16002C7D0A /* VertretungsplanPageViewController.swift in Sources */,
 				125B845B2575541200A1651A /* KlassenPicker.swift in Sources */,
@@ -325,6 +329,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "www.amg-witten.de.AMGApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -344,6 +349,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "www.amg-witten.de.AMGApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
