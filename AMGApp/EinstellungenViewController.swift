@@ -30,6 +30,11 @@ class EinstellungenViewController: UIViewController, UIColorPickerViewController
         unterstufeColorPreview.backgroundColor = UIColor.fromHexString(hexString: UserDefaults.standard.string(forKey: "vertretungUnterstufeFarbe") ?? "#4aa3df")
         mittelstufeColorPreview.backgroundColor = UIColor.fromHexString(hexString: UserDefaults.standard.string(forKey: "vertretungMittelstufeFarbe") ?? "#3498db")
         oberstufeColorPreview.backgroundColor = UIColor.fromHexString(hexString: UserDefaults.standard.string(forKey: "vertretungOberstufeFarbe") ?? "#258cd1")
+        
+        eigeneKlasseColorPreview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.changeEigeneKlasseColor)))
+        unterstufeColorPreview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.changeUnterstufeColor)))
+        mittelstufeColorPreview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.changeMittelstufeColor)))
+        oberstufeColorPreview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.changeOberstufeColor)))
     }
     
     func pickColor(color: UIColor) -> UIColor {
