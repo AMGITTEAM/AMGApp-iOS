@@ -11,7 +11,7 @@
         <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="Home" id="9pv-A4-QxB" customClass="FirstViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="9pv-A4-QxB" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
