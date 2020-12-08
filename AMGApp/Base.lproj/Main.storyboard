@@ -112,15 +112,15 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Gf4-pD-Dpi" secondAttribute="trailing" id="2Lt-vC-btb"/>
+                            <constraint firstAttribute="trailing" secondItem="Gf4-pD-Dpi" secondAttribute="trailing" id="2Lt-vC-btb"/>
                             <constraint firstAttribute="trailing" secondItem="oal-0a-nxq" secondAttribute="trailing" constant="8" id="2cA-vB-Hbw"/>
                             <constraint firstItem="oal-0a-nxq" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="5Wi-OZ-H5o"/>
                             <constraint firstItem="oal-0a-nxq" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="92j-dQ-KJf"/>
                             <constraint firstItem="oal-0a-nxq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="8" id="JNA-Gq-eCl"/>
-                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="Ld9-wd-0gs"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="bottom" secondItem="QS5-Rx-YEW" secondAttribute="bottom" id="Ld9-wd-0gs"/>
                             <constraint firstItem="oal-0a-nxq" firstAttribute="top" secondItem="LWp-tZ-7eN" secondAttribute="bottom" constant="20" id="MwX-uq-5hR"/>
-                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="Ovn-Uo-fYZ"/>
-                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="U25-jA-lgn"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="Ovn-Uo-fYZ"/>
+                            <constraint firstItem="Gf4-pD-Dpi" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="U25-jA-lgn"/>
                             <constraint firstItem="LWp-tZ-7eN" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="uxW-oE-0hw"/>
                         </constraints>
                     </view>
@@ -610,13 +610,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <!--Vertretungsplan-->
         <scene sceneID="OE8-0H-5Ow">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djw-7r-gEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarItem title="Vertretungsplan" image="person.2.fill" catalog="system" id="I6N-lP-pyD"/>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="dCf-DZ-60I" customClass="VertretungsplanPageViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Vertretungsplan" image="person.2.fill" catalog="system" id="Gne-MC-Kri"/>
                     <connections>
                         <segue destination="KJ1-Sq-hzH" kind="presentation" identifier="vPlanToLogin" modalPresentationStyle="fullScreen" id="XNN-cv-kRs"/>
                     </connections>
                 </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="djw-7r-gEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1116" y="951"/>
         </scene>
