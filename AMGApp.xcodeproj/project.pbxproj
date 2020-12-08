@@ -11,7 +11,6 @@
 		125B845B2575541200A1651A /* KlassenPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B845A2575541200A1651A /* KlassenPicker.swift */; };
 		129C7E7825719D21005BEB6F /* SonstigesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C7E7725719D21005BEB6F /* SonstigesViewController.swift */; };
 		129C7E7B25719D42005BEB6F /* StartseiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C7E7A25719D41005BEB6F /* StartseiteViewController.swift */; };
-		129C7E8225727E7E005BEB6F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C7E8125727E7E005BEB6F /* TabViewController.swift */; };
 		12C420B12572F61F00660356 /* EinstellungenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C420B02572F61F00660356 /* EinstellungenViewController.swift */; };
 		12DD00082572C2B300DBD4BE /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */; };
 		7B1244DB21EFA3F800EC7A0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1244DA21EFA3F800EC7A0C /* Extensions.swift */; };
@@ -29,7 +28,6 @@
 		125B845A2575541200A1651A /* KlassenPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlassenPicker.swift; sourceTree = "<group>"; };
 		129C7E7725719D21005BEB6F /* SonstigesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonstigesViewController.swift; sourceTree = "<group>"; };
 		129C7E7A25719D41005BEB6F /* StartseiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartseiteViewController.swift; sourceTree = "<group>"; };
-		129C7E8125727E7E005BEB6F /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		12C420B02572F61F00660356 /* EinstellungenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EinstellungenViewController.swift; sourceTree = "<group>"; };
 		12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		7B1244DA21EFA3F800EC7A0C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				129C7E7A25719D41005BEB6F /* StartseiteViewController.swift */,
 				1232E8BC2571586700577945 /* VertretungsplanViewController.swift */,
 				129C7E7725719D21005BEB6F /* SonstigesViewController.swift */,
-				129C7E8125727E7E005BEB6F /* TabViewController.swift */,
 				12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */,
 				12C420B02572F61F00660356 /* EinstellungenViewController.swift */,
 				125B845A2575541200A1651A /* KlassenPicker.swift */,
@@ -174,7 +171,6 @@
 				125B845B2575541200A1651A /* KlassenPicker.swift in Sources */,
 				7B73D48621C5ABAB005AB6D0 /* AppDelegate.swift in Sources */,
 				7B749956220A16EC002C7D0A /* Variables.swift in Sources */,
-				129C7E8225727E7E005BEB6F /* TabViewController.swift in Sources */,
 				7BF3F31922037B3600CA006B /* LoginViewController.swift in Sources */,
 				12C420B12572F61F00660356 /* EinstellungenViewController.swift in Sources */,
 				1232E8BD2571586700577945 /* VertretungsplanViewController.swift in Sources */,

@@ -23,14 +23,11 @@ class VertretungsplanViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Do any additional setup after loading the view, typically from a nib.
         
         klasse = UserDefaults.standard.string(forKey: "klasse") ?? ""
         let username = UserDefaults.standard.string(forKey: "loginUsername")
         let password = UserDefaults.standard.string(forKey: "loginPassword")
-        if(password==nil){
-            Variables.shouldShowLoginToast=true
-            tabBarController!.selectedIndex = 0
+        if(password == nil){
             return
         }
         DispatchQueue(label: "network").async {
