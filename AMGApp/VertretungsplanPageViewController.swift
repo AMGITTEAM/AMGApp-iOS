@@ -21,6 +21,16 @@ class VertretungsplanPageViewController: UIPageViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let password = UserDefaults.standard.string(forKey: "loginPassword")
+        if(password==nil){
+            performSegue(withIdentifier: "vPlanToLogin", sender: self)
+            return
+        }
+    }
+    
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         let UIViewControllers: [UIViewController] = [self.newVertretungsplanViewController(count: 1),
                                                      self.newVertretungsplanViewController(count: 2)]
