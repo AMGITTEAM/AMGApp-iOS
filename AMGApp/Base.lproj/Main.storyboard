@@ -665,11 +665,92 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                     <connections>
                         <outlet property="scrollView" destination="MVa-Sq-tAM" id="Snn-ms-UAj"/>
                         <outlet property="wochentagSelector" destination="Jhf-yl-xb3" id="qLe-MC-lIg"/>
+                        <segue destination="kUH-gZ-29V" kind="presentation" id="J7h-of-Lh6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIP-1u-HBP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="82" y="1326"/>
+        </scene>
+        <!--Stundenplan Entry View Controller-->
+        <scene sceneID="xIe-BR-k8C">
+            <objects>
+                <viewController id="kUH-gZ-29V" customClass="StundenplanEntryViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wid-g1-4Gi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fFK-1j-YCY">
+                                <rect key="frame" x="16" y="64" width="343" height="567"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fachname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d34-z2-bzO">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fach Abkürzung (Mit Kursnummer)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taQ-yJ-CEJ">
+                                        <rect key="frame" x="0.0" y="134.5" width="343" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lehrer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzE-JJ-YjN">
+                                        <rect key="frame" x="0.0" y="268.5" width="343" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Raum" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9f-lC-vEH">
+                                        <rect key="frame" x="0.0" y="403" width="343" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nLG-iz-Pbu">
+                                        <rect key="frame" x="0.0" y="537" width="343" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RT0-Z8-ILf">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="30"/>
+                                                <state key="normal" title="Abbrechen"/>
+                                                <connections>
+                                                    <action selector="pressAbbrechen:" destination="kUH-gZ-29V" eventType="touchUpInside" id="agl-Pu-Z0j"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFP-hW-qhM">
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="30"/>
+                                                <state key="normal" title="Löschen"/>
+                                                <connections>
+                                                    <action selector="pressDelete:" destination="kUH-gZ-29V" eventType="touchUpInside" id="aam-yI-AxL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG4-Ph-K6e">
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="30"/>
+                                                <state key="normal" title="Speichern"/>
+                                                <connections>
+                                                    <action selector="pressSpeichern:" destination="kUH-gZ-29V" eventType="touchUpInside" id="IRB-R7-dV2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9eG-xf-19m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9eG-xf-19m" firstAttribute="bottom" secondItem="fFK-1j-YCY" secondAttribute="bottom" constant="16" id="Cn2-zi-LFL"/>
+                            <constraint firstItem="fFK-1j-YCY" firstAttribute="leading" secondItem="9eG-xf-19m" secondAttribute="leading" constant="16" id="DaS-Bb-RpO"/>
+                            <constraint firstItem="fFK-1j-YCY" firstAttribute="top" secondItem="9eG-xf-19m" secondAttribute="top" constant="64" id="JGC-lm-grf"/>
+                            <constraint firstItem="9eG-xf-19m" firstAttribute="trailing" secondItem="fFK-1j-YCY" secondAttribute="trailing" constant="16" id="n1I-Ft-QtC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fachAbk" destination="taQ-yJ-CEJ" id="mJW-VM-ubF"/>
+                        <outlet property="fachname" destination="d34-z2-bzO" id="OZJ-8e-rIG"/>
+                        <outlet property="lehrer" destination="NzE-JJ-YjN" id="z4L-bC-fFP"/>
+                        <outlet property="raum" destination="c9f-lC-vEH" id="0pZ-nE-NxS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vd0-TU-mnE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="1325"/>
         </scene>
         <!--SonstigesNavigationController-->
         <scene sceneID="YaA-4b-Frs">
