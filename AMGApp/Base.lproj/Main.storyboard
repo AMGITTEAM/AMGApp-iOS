@@ -639,6 +639,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                     <segment title="Donnerstag"/>
                                     <segment title="Freitag"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeWochentag:" destination="IfF-5w-wLu" eventType="valueChanged" id="Cfu-K7-bdX"/>
+                                </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVa-Sq-tAM">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
@@ -661,6 +664,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                     <tabBarItem key="tabBarItem" title="Stundenplan" image="tablecells" catalog="system" id="SRQ-FS-VDv"/>
                     <connections>
                         <outlet property="scrollView" destination="MVa-Sq-tAM" id="Snn-ms-UAj"/>
+                        <outlet property="wochentagSelector" destination="Jhf-yl-xb3" id="qLe-MC-lIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIP-1u-HBP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

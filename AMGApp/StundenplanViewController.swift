@@ -12,19 +12,25 @@ import UIKit
 class StundenplanViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIView!
+    @IBOutlet weak var wochentagSelector: UISegmentedControl!
+    
+    var stackView: UIStackView = UIStackView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        var weekday = Calendar(identifier: .gregorian).component(.weekday, from: Date())
+        weekday-=1
+        if(weekday == 0){
+            weekday = 7
+        } //1=monday, not sunday
+        weekday-=1 //0-indexed
+        createStundenplan(wochentag: weekday)
+        wochentagSelector.selectedSegmentIndex = weekday
         
-        let testView = makeStunde(stunde:1, fach: "Informatik", lehrer: "Ni", raum: "A104")
-        let testView1 = makeStunde(stunde:2, fach: "Informatik", lehrer: "Ni", raum: "A104")
-        let testViews = [testView, testView1]
-        
-        let stackView = UIStackView(arrangedSubviews: testViews)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
-        stackView.addHorizontalSeparators(color:.lightGray)
         self.scrollView.addSubview(stackView)
         
         scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .leading, relatedBy: .equal, toItem: self.scrollView, attribute: .leading, multiplier: 1.0, constant: 0))
@@ -33,6 +39,23 @@ class StundenplanViewController: UIViewController {
         scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .bottom, relatedBy: .equal, toItem: self.scrollView, attribute: .bottom, multiplier: 1, constant: 0))
 
         scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .width, relatedBy: .equal, toItem: self.scrollView, attribute: .width, multiplier: 1.0, constant: 0))
+    }
+    
+    @IBAction func changeWochentag(_ sender: Any) {
+        let wochentag = (sender as! UISegmentedControl).selectedSegmentIndex
+        
+        createStundenplan(wochentag: wochentag)
+    }
+    
+    func createStundenplan(wochentag: Int) {
+        stackView.removeAllArrangedSubviews()
+        
+        let testView = makeStunde(stunde:1, fach: "Informatik", lehrer: "Ni", raum: "A104")
+        let testView1 = makeStunde(stunde:2, fach: "Informatik", lehrer: "Ni", raum: "A104")
+        
+        stackView.addArrangedSubview(testView)
+        stackView.addArrangedSubview(testView1)
+        stackView.addHorizontalSeparators(color:.lightGray)
     }
     
     func makeStunde(stunde: Int, fach: String, lehrer: String, raum: String) -> UIView {
