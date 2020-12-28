@@ -648,24 +648,108 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <viewLayoutGuide key="contentLayoutGuide" id="oRl-1b-kn3"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Q7C-oP-yM5"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMY-1f-eGi">
+                                <rect key="frame" x="299" y="542.5" width="60" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Atv-cp-Som"/>
+                                    <constraint firstAttribute="width" constant="60" id="IEN-yH-qjZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" backgroundImage="pencil.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="openCloseMenu:" destination="IfF-5w-wLu" eventType="touchUpInside" id="xPd-l6-K2C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfL-Gh-OGP">
+                                <rect key="frame" x="309" y="486.5" width="40" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6np-r0-JHo"/>
+                                    <constraint firstAttribute="width" constant="40" id="7Uv-k2-Q9Q"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="checkmark.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="editStundenplan:" destination="IfF-5w-wLu" eventType="touchUpInside" id="pYk-Io-P0R"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fertig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vou-tS-gdC">
+                                <rect key="frame" x="263" y="497.5" width="38" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zk-SD-KIc">
+                                <rect key="frame" x="309" y="438.5" width="40" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="hAH-es-bSE"/>
+                                    <constraint firstAttribute="height" constant="40" id="tfU-Uq-fCd"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="trash.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteStundenplan:" destination="IfF-5w-wLu" eventType="touchUpInside" id="rbs-bb-QV6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stundenplan löschen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix1-Rw-92v">
+                                <rect key="frame" x="165" y="449.5" width="136" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbZ-DW-zI5">
+                                <rect key="frame" x="309" y="390.5" width="40" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1y5-Mb-osy"/>
+                                    <constraint firstAttribute="width" constant="40" id="qGt-HS-aaq"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="addStunde:" destination="IfF-5w-wLu" eventType="touchUpInside" id="qui-nQ-QsD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stunde hinzufügen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eal-yb-0nz">
+                                <rect key="frame" x="178.5" y="401.5" width="122.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A6a-ih-LYe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="7Zk-SD-KIc" firstAttribute="top" secondItem="KbZ-DW-zI5" secondAttribute="bottom" constant="8" id="5HR-qp-dfu"/>
+                            <constraint firstItem="KbZ-DW-zI5" firstAttribute="centerY" secondItem="eal-yb-0nz" secondAttribute="centerY" id="5gf-wA-ja7"/>
+                            <constraint firstItem="bfL-Gh-OGP" firstAttribute="centerY" secondItem="Vou-tS-gdC" secondAttribute="centerY" id="F67-Bh-vgH"/>
+                            <constraint firstItem="7Zk-SD-KIc" firstAttribute="centerY" secondItem="ix1-Rw-92v" secondAttribute="centerY" id="IJ5-ne-heW"/>
+                            <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="KbZ-DW-zI5" secondAttribute="trailing" constant="26" id="IOG-jY-yki"/>
+                            <constraint firstItem="bfL-Gh-OGP" firstAttribute="leading" secondItem="Vou-tS-gdC" secondAttribute="trailing" constant="8" id="Ipe-Mn-rP2"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="Jhf-yl-xb3" secondAttribute="trailing" id="KDI-cQ-78x"/>
                             <constraint firstItem="MVa-Sq-tAM" firstAttribute="leading" secondItem="A6a-ih-LYe" secondAttribute="leading" id="Kv9-d2-A67"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="bottom" secondItem="MVa-Sq-tAM" secondAttribute="bottom" id="LhP-0M-sOs"/>
+                            <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="7Zk-SD-KIc" secondAttribute="trailing" constant="26" id="PEa-f3-NUb"/>
+                            <constraint firstItem="KbZ-DW-zI5" firstAttribute="leading" secondItem="eal-yb-0nz" secondAttribute="trailing" constant="8" id="Rvh-zf-sDO"/>
+                            <constraint firstItem="mMY-1f-eGi" firstAttribute="top" secondItem="bfL-Gh-OGP" secondAttribute="bottom" constant="16" id="UT5-Q9-rea"/>
+                            <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="mMY-1f-eGi" secondAttribute="trailing" constant="16" id="UnN-hI-AQQ"/>
                             <constraint firstItem="MVa-Sq-tAM" firstAttribute="top" secondItem="Jhf-yl-xb3" secondAttribute="bottom" id="Wqo-lE-uVR"/>
                             <constraint firstItem="Jhf-yl-xb3" firstAttribute="leading" secondItem="A6a-ih-LYe" secondAttribute="leading" id="Z9j-Yg-r6O"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="MVa-Sq-tAM" secondAttribute="trailing" id="apE-59-3yb"/>
+                            <constraint firstItem="7Zk-SD-KIc" firstAttribute="leading" secondItem="ix1-Rw-92v" secondAttribute="trailing" constant="8" id="f9u-tl-uXa"/>
+                            <constraint firstItem="bfL-Gh-OGP" firstAttribute="top" secondItem="7Zk-SD-KIc" secondAttribute="bottom" constant="8" id="fh2-L1-d9t"/>
+                            <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="bfL-Gh-OGP" secondAttribute="trailing" constant="26" id="fpo-Bl-dF1"/>
                             <constraint firstItem="Jhf-yl-xb3" firstAttribute="top" secondItem="A6a-ih-LYe" secondAttribute="top" id="fzs-Or-sz0"/>
+                            <constraint firstItem="A6a-ih-LYe" firstAttribute="bottom" secondItem="mMY-1f-eGi" secondAttribute="bottom" constant="16" id="oZO-P8-YeH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stundenplan" image="tablecells" catalog="system" id="SRQ-FS-VDv"/>
                     <connections>
+                        <outlet property="deleteButton" destination="7Zk-SD-KIc" id="1Y0-m4-dTA"/>
+                        <outlet property="deleteLabel" destination="ix1-Rw-92v" id="jb0-VL-a5a"/>
+                        <outlet property="doneButton" destination="bfL-Gh-OGP" id="Vhq-Zn-Ln6"/>
+                        <outlet property="doneLabel" destination="Vou-tS-gdC" id="zO1-Hc-2p9"/>
+                        <outlet property="mainEditButton" destination="mMY-1f-eGi" id="WwC-GV-227"/>
+                        <outlet property="plusStundeButton" destination="KbZ-DW-zI5" id="DOM-dp-Yt8"/>
+                        <outlet property="plusStundeLabel" destination="eal-yb-0nz" id="W0I-7e-Pam"/>
                         <outlet property="scrollView" destination="MVa-Sq-tAM" id="Snn-ms-UAj"/>
                         <outlet property="wochentagSelector" destination="Jhf-yl-xb3" id="qLe-MC-lIg"/>
-                        <segue destination="kUH-gZ-29V" kind="presentation" id="J7h-of-Lh6"/>
+                        <segue destination="kUH-gZ-29V" kind="presentation" identifier="editStunde" id="ra8-Tc-qJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIP-1u-HBP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -966,15 +1050,19 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <segue reference="XNN-cv-kRs"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="ellipsis.rectangle.fill" catalog="system" width="128" height="81"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="logo_amg" width="1281" height="529"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="power" catalog="system" width="128" height="124"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
+        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

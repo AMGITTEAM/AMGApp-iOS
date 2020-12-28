@@ -15,11 +15,28 @@ class StundenplanEntryViewController: UIViewController {
     @IBOutlet weak var lehrer: UITextField!
     @IBOutlet weak var raum: UITextField!
     
+    public var stunde: StundenplanViewController.StundenplanEintragModel? = nil
+    public var delegate: StundenplanViewController? = nil
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fachname.text = stunde?.fachName.trimmingCharacters(in: .whitespaces)
+        fachAbk.text = stunde?.fach.trimmingCharacters(in: .whitespaces)
+        lehrer.text = stunde?.lehrer.trimmingCharacters(in: .whitespaces)
+        raum.text = stunde?.raum.trimmingCharacters(in: .whitespaces)
+    }
+    
     @IBAction func pressAbbrechen(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func pressDelete(_ sender: Any) {
+        self.delegate?.delete()
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func pressSpeichern(_ sender: Any) {
+        let newStunde = StundenplanViewController.StundenplanEintragModel(stunde: stunde!.stunde, fachName: fachname.text!, fachAbk: fachAbk.text!, lehrer: lehrer.text!, raum: raum.text!)
+        self.delegate?.override(stundeNeu: newStunde)
+        dismiss(animated: true, completion: nil)
     }
 }
