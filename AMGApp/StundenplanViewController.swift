@@ -54,6 +54,20 @@ class StundenplanViewController: UIViewController {
         
         plusStundeLabel.layer.shadowOpacity = 0.5
         updateMenu()
+        
+        if(UserDefaults.standard.string(forKey: "login") != nil && UserDefaults.standard.string(forKey: "klasse") != nil){
+            editStundenplanByVertretungsplan(username: UserDefaults.standard.string(forKey: "loginUsername")!, password: UserDefaults.standard.string(forKey: "loginPassword")!, klasse: UserDefaults.standard.string(forKey: "klasse")!)
+        }
+    }
+    
+    func editStundenplanByVertretungsplan(username: String, password: String, klasse: String){
+        let dataHeute = loadVertretungsplan(date: "Heute", username: username, password: password)
+        let dataFolgetag = loadVertretungsplan(date: "Folgetag", username: username, password: password)
+        
+        let klasseHeute = dataHeute.first(where: {$0.klasse == klasse})
+        let klasseFolgetag = dataFolgetag.first(where: {$0.klasse == klasse})
+        
+        
     }
     
     func loadStundenplanFromUserdata(){
@@ -260,6 +274,38 @@ class StundenplanViewController: UIViewController {
         
         self.performSegue(withIdentifier: "editStunde", sender: self)
         openCloseMenu(nil)
+    }
+    
+    func loadVertretungsplan(date: String, username: String, password: String) -> Array<VertretungsplanViewController.VertretungModelArrayModel>{
+        var urlEndings = Array<String>()
+        var tables = Array<String>()
+        var klassen = Array<String>()
+        var realEintraege = Array<String>()
+        var vertretungModels = Array<VertretungsplanViewController.VertretungModel>()
+        var fertigeMulti = Array<VertretungsplanViewController.VertretungModel>()
+        var data = Array<VertretungsplanViewController.VertretungModelArrayModel>()
+        var fertigeKlassen = Array<String>()
+        
+        let main = "https://amgitt.de/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://sus.amg-witten.de/"+date+"/"
+        
+        urlEndings = VertretungsplanViewController.getAllEndings(argmain: main, username: username, password: password)
+        
+        (_,_,tables) = VertretungsplanViewController.getTablesWithProcess(main: main, urlEndings: urlEndings, progressBar: nil, username: username, password: password)
+        
+        klassen = VertretungsplanViewController.getKlassenListWithProcess(tables: tables,progressBar: nil)
+        
+        realEintraege = VertretungsplanViewController.getOnlyRealKlassenListWithProcess(tables: tables,progressBar: nil)
+        
+        var i=0
+        
+        for s in realEintraege {
+            i+=1
+            (vertretungModels,fertigeMulti) = VertretungsplanViewController.tryMatcher(s: s,fertigeMulti: fertigeMulti,vertretungModels: vertretungModels)
+        }
+        
+        (data, fertigeKlassen) = VertretungsplanViewController.parseKlassenWithProcess(klassen: klassen, fertigeKlassen: fertigeKlassen, vertretungModels: vertretungModels, data: data, progressBar: nil)
+        
+        return data
     }
     
     func stundeToTime(stunde:Int, moveNeunteStunde:Bool) -> String {

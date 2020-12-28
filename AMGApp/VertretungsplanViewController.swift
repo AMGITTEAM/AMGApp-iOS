@@ -61,27 +61,27 @@ class VertretungsplanViewController: UIViewController {
         
         let main = "https://amgitt.de/AMGAppServlet/amgapp?requestType=HTMLRequest&request=http://sus.amg-witten.de/"+date+"/"
         
-        urlEndings = getAllEndings(argmain: main, username: username, password: password)
+        urlEndings = VertretungsplanViewController.getAllEndings(argmain: main, username: username, password: password)
         
         DispatchQueue.main.async {
             self.progressBarText.text="Dateien werden heruntergeladen..."
         }
         
-        (stand,fuerDatum,tables) = getTablesWithProcess(main: main, urlEndings: urlEndings, progressBar: progressBar, username: username, password: password)
+        (stand,fuerDatum,tables) = VertretungsplanViewController.getTablesWithProcess(main: main, urlEndings: urlEndings, progressBar: progressBar, username: username, password: password)
         
         DispatchQueue.main.async {
             self.progressBar.setProgress(0.0, animated: true)
             self.progressBarText.text="Dateien werden eingelesen..."
         }
         
-        klassen = getKlassenListWithProcess(tables: tables,progressBar: progressBar)
+        klassen = VertretungsplanViewController.getKlassenListWithProcess(tables: tables,progressBar: progressBar)
         
         DispatchQueue.main.async {
             self.progressBar.setProgress(0.0, animated: true)
             self.progressBarText.text="Einträge werden überprüft..."
         }
         
-        realEintraege = getOnlyRealKlassenListWithProcess(tables: tables,progressBar: progressBar)
+        realEintraege = VertretungsplanViewController.getOnlyRealKlassenListWithProcess(tables: tables,progressBar: progressBar)
         
         DispatchQueue.main.async {
             self.progressBar.setProgress(0.0, animated: true)
@@ -92,7 +92,7 @@ class VertretungsplanViewController: UIViewController {
         
         for s in realEintraege {
             i+=1
-            (vertretungModels,fertigeMulti) = tryMatcher(s: s,fertigeMulti: fertigeMulti,vertretungModels: vertretungModels)
+            (vertretungModels,fertigeMulti) = VertretungsplanViewController.tryMatcher(s: s,fertigeMulti: fertigeMulti,vertretungModels: vertretungModels)
             DispatchQueue.main.async {
                 self.progressBar.setProgress((Float(i))/(Float(realEintraege.count-1)), animated: true)
             }
@@ -103,7 +103,7 @@ class VertretungsplanViewController: UIViewController {
             self.progressBarText.text="Einträge werden zusammengestellt..."
         }
         
-        (data, fertigeKlassen) = parseKlassenWithProcess(klassen: klassen, fertigeKlassen: fertigeKlassen, vertretungModels: vertretungModels, data: data, progressBar: progressBar)
+        (data, fertigeKlassen) = VertretungsplanViewController.parseKlassenWithProcess(klassen: klassen, fertigeKlassen: fertigeKlassen, vertretungModels: vertretungModels, data: data, progressBar: progressBar)
         
         DispatchQueue.main.async {
             self.progressBar.setProgress(0.0, animated: true)
@@ -301,7 +301,7 @@ class VertretungsplanViewController: UIViewController {
         return string
     }
     
-    func parseKlassenWithProcess(klassen: Array<String>, fertigeKlassen: Array<String>, vertretungModels: Array<VertretungModel>, data: Array<VertretungModelArrayModel>, progressBar: UIProgressView) -> (Array<VertretungModelArrayModel>, Array<String>){
+    static func parseKlassenWithProcess(klassen: Array<String>, fertigeKlassen: Array<String>, vertretungModels: Array<VertretungModel>, data: Array<VertretungModelArrayModel>, progressBar: UIProgressView?) -> (Array<VertretungModelArrayModel>, Array<String>){
         var newData = data
         var newFertigeKlassen = fertigeKlassen
         
@@ -320,14 +320,14 @@ class VertretungsplanViewController: UIViewController {
                 newFertigeKlassen.append(klassen[i])
             }
             DispatchQueue.main.async {
-                progressBar.setProgress((Float(i))/(Float(klassen.count-1)), animated: true)
+                progressBar?.setProgress((Float(i))/(Float(klassen.count-1)), animated: true)
             }
             i=i+1
         }
         return (newData, newFertigeKlassen)
     }
     
-    func tryMatcher(s: String, fertigeMulti: Array<VertretungModel>, vertretungModels: Array<VertretungModel>) -> (Array<VertretungModel>,Array<VertretungModel>){
+    static func tryMatcher(s: String, fertigeMulti: Array<VertretungModel>, vertretungModels: Array<VertretungModel>) -> (Array<VertretungModel>,Array<VertretungModel>){
         
         var neueFertigeMulti = fertigeMulti
         var neueVertretungModels = vertretungModels
@@ -378,7 +378,7 @@ class VertretungsplanViewController: UIViewController {
         return (neueVertretungModels,neueFertigeMulti)
     }
     
-    func getOnlyRealKlassenListWithProcess(tables: Array<String>, progressBar: UIProgressView) -> Array<String>{
+    static func getOnlyRealKlassenListWithProcess(tables: Array<String>, progressBar: UIProgressView?) -> Array<String>{
         var i=0
         var realEintraege = Array<String>()
         
@@ -392,7 +392,7 @@ class VertretungsplanViewController: UIViewController {
                 }
             }
             DispatchQueue.main.async {
-                progressBar.setProgress((Float(i))/(Float(tables.count-1)), animated: true)
+                progressBar?.setProgress((Float(i))/(Float(tables.count-1)), animated: true)
             }
             i+=1
         }
@@ -400,7 +400,7 @@ class VertretungsplanViewController: UIViewController {
         return realEintraege
     }
     
-    func getKlassenListWithProcess(tables: Array<String>, progressBar: UIProgressView) -> Array<String> {
+    static func getKlassenListWithProcess(tables: Array<String>, progressBar: UIProgressView?) -> Array<String> {
         var i=0
         var klassen = Array<String>()
         while(i<tables.count){
@@ -416,14 +416,14 @@ class VertretungsplanViewController: UIViewController {
                 ie+=1
             }
             DispatchQueue.main.async {
-                progressBar.setProgress((Float(i))/(Float(tables.count-1)), animated: true)
+                progressBar?.setProgress((Float(i))/(Float(tables.count-1)), animated: true)
             }
             i+=1
         }
         return klassen
     }
     
-    func getTablesWithProcess(main: String, urlEndings: Array<String>, progressBar: UIProgressView, username: String, password: String) -> (stand: String, fuerDatum: String, tables: Array<String>){
+    static func getTablesWithProcess(main: String, urlEndings: Array<String>, progressBar: UIProgressView?, username: String, password: String) -> (stand: String, fuerDatum: String, tables: Array<String>){
         var stand = ""
         var fuerDatum = ""
         var tables = Array<String>()
@@ -457,7 +457,7 @@ class VertretungsplanViewController: UIViewController {
                     fuerDatum = datumParts[1]+", "+datumParts[0]
                 }
                 DispatchQueue.main.async {
-                    progressBar.setProgress((Float(i))/(Float(urlEndings.count-1)), animated: true)
+                    progressBar?.setProgress((Float(i))/(Float(urlEndings.count-1)), animated: true)
                 }
             }
             catch _{}
@@ -467,7 +467,7 @@ class VertretungsplanViewController: UIViewController {
         return (stand, fuerDatum, tables)
     }
     
-    func getAllEndings(argmain: String, username: String, password: String) -> Array<String> {
+    static func getAllEndings(argmain: String, username: String, password: String) -> Array<String> {
         var exit = false
         var next = "001.htm"
         var main = argmain
@@ -503,11 +503,11 @@ class VertretungsplanViewController: UIViewController {
         return urlEndings
     }
     
-    func onlyElement(full: String, element: String) throws -> String {
+    static func onlyElement(full: String, element: String) throws -> String {
         return try onlyElement(full: full, element: element, params: "")
     }
     
-    func onlyElement(full: String, element: String, params: String) throws -> String {
+    static func onlyElement(full: String, element: String, params: String) throws -> String {
         let arrayOne = full.components(separatedBy: "<"+element+params+">")
         if(2>arrayOne.count){
             throw NSError(domain: "", code: 200, userInfo: nil)
@@ -516,7 +516,7 @@ class VertretungsplanViewController: UIViewController {
         return partOne.components(separatedBy: "</"+element+">")[0]
     }
     
-    func onlyArgumentOfElement(full: String, element: String, argument: String) throws -> String{
+    static func onlyArgumentOfElement(full: String, element: String, argument: String) throws -> String{
         let arrayOne = full.components(separatedBy: "<"+element)
         if(2>arrayOne.count) {
             throw NSError(domain: "", code: 200, userInfo: nil)
