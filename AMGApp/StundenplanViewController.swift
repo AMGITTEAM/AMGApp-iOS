@@ -27,18 +27,16 @@ class StundenplanViewController: UIViewController {
     var editingStundenplan = false
     var stundenModels = [[StundenplanEintragModel]]()
     
+    var vertretungHeute: VertretungsplanViewController.VertretungModelArrayModel? = nil
+    var vertretungFolgetag: VertretungsplanViewController.VertretungModelArrayModel? = nil
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         loadStundenplanFromUserdata()
         
-        var weekday = Calendar(identifier: .gregorian).component(.weekday, from: Date())
-        weekday-=1
-        if(weekday == 0){
-            weekday = 7
-        } //1=monday, not sunday
-        createStundenplan(wochentag: weekday-1)
-        wochentagSelector.selectedSegmentIndex = weekday-1
+        createStundenplan(wochentag: getWeekday()-1)
+        wochentagSelector.selectedSegmentIndex = getWeekday()-1
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -60,14 +58,21 @@ class StundenplanViewController: UIViewController {
         }
     }
     
+    func getWeekday() -> Int {
+        var weekday = Calendar(identifier: .gregorian).component(.weekday, from: Date())
+        weekday-=1
+        if(weekday == 0){
+            weekday = 7
+        } //1=monday, not sunday
+        return weekday
+    }
+    
     func editStundenplanByVertretungsplan(username: String, password: String, klasse: String){
         let dataHeute = loadVertretungsplan(date: "Heute", username: username, password: password)
         let dataFolgetag = loadVertretungsplan(date: "Folgetag", username: username, password: password)
         
-        let klasseHeute = dataHeute.first(where: {$0.klasse == klasse})
-        let klasseFolgetag = dataFolgetag.first(where: {$0.klasse == klasse})
-        
-        
+        vertretungHeute = dataHeute.first(where: {$0.klasse == klasse})
+        vertretungFolgetag = dataFolgetag.first(where: {$0.klasse == klasse})
     }
     
     func loadStundenplanFromUserdata(){
@@ -137,14 +142,30 @@ class StundenplanViewController: UIViewController {
     }
     
     func createStundenplan(wochentag: Int) {
+        var vertretungsplanModel: VertretungsplanViewController.VertretungModelArrayModel? = nil
+        if(wochentag == getWeekday()-1){
+            vertretungsplanModel = vertretungHeute
+        } else if(wochentag == getWeekday()){
+            vertretungsplanModel = vertretungFolgetag
+        }
+        
         stackView.removeAllArrangedSubviews()
-        stundenModels[wochentag].forEach{
-            stackView.addArrangedSubview(makeStunde(stunde: $0.stunde, fach: $0.fachName, lehrer: $0.lehrer, raum: $0.raum, moveNeunteStunde: stundenModels[wochentag].count >= 10))
+        stundenModels[wochentag].forEach{stunde in
+            let vertretungModel = vertretungsplanModel?.getRightRows().first(where: {vModel in
+                if(vModel.getStunde().contains(" - ")){ //erstreckt sich über mehrere Stunden
+                    return vModel.getStunde().components(separatedBy: " - ").contains(where: {stundeNr in
+                        return (Int(stundeNr) == stunde.stunde && vModel.getFach() == stunde.fach)
+                    })
+                }
+                return (Int(vModel.getStunde()) == stunde.stunde && vModel.getFach() == stunde.fach)
+            })
+            
+            stackView.addArrangedSubview(makeStunde(stunde: stunde.stunde, fach: stunde.fachName, lehrer: stunde.lehrer, raum: stunde.raum, moveNeunteStunde: stundenModels[wochentag].count >= 10, vertretungModel: vertretungModel))
         }
         stackView.addHorizontalSeparators(color:.lightGray)
     }
     
-    func makeStunde(stunde: Int, fach: String, lehrer: String, raum: String, moveNeunteStunde: Bool) -> UIView {
+    func makeStunde(stunde: Int, fach: String, lehrer: String, raum: String, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?) -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
