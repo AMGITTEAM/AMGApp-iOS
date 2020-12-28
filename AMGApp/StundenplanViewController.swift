@@ -52,14 +52,8 @@ class StundenplanViewController: UIViewController {
 
         scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .width, relatedBy: .equal, toItem: self.scrollView, attribute: .width, multiplier: 1.0, constant: 0))
         
-        
-        doneButton.alpha = 0
-        deleteButton.alpha = 0
-        doneLabel.alpha = 0
-        deleteLabel.alpha = 0
-        plusStundeButton.alpha = 0
-        plusStundeLabel.alpha = 0
         plusStundeLabel.layer.shadowOpacity = 0.5
+        updateMenu()
     }
     
     func loadStundenplanFromUserdata(){
