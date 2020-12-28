@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class StundenplanEntryViewController: UIViewController {
+class StundenplanEntryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fachname: UITextField!
     @IBOutlet weak var fachAbk: UITextField!
     @IBOutlet weak var lehrer: UITextField!
@@ -25,6 +25,13 @@ class StundenplanEntryViewController: UIViewController {
         fachAbk.text = stunde?.fach.trimmingCharacters(in: .whitespaces)
         lehrer.text = stunde?.lehrer.trimmingCharacters(in: .whitespaces)
         raum.text = stunde?.raum.trimmingCharacters(in: .whitespaces)
+        
+        fachname.delegate = self
+        fachAbk.delegate = self
+        lehrer.delegate = self
+        raum.delegate = self
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func pressAbbrechen(_ sender: Any) {
@@ -38,5 +45,20 @@ class StundenplanEntryViewController: UIViewController {
         let newStunde = StundenplanViewController.StundenplanEintragModel(stunde: stunde!.stunde, fachName: fachname.text!, fachAbk: fachAbk.text!, lehrer: lehrer.text!, raum: raum.text!)
         self.delegate?.override(stundeNeu: newStunde)
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case fachname:
+            fachAbk.becomeFirstResponder()
+        case fachAbk:
+            lehrer.becomeFirstResponder()
+        case lehrer:
+            raum.becomeFirstResponder()
+        default:
+            dismissKeyboard()
+        }
+        return false
     }
 }
