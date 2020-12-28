@@ -124,7 +124,7 @@ class StundenplanViewController: UIViewController {
     
     func createStundenplan(wochentag: Int) {
         stackView.removeAllArrangedSubviews()
-        stundenModels[wochentag].map{
+        stundenModels[wochentag].forEach{
             stackView.addArrangedSubview(makeStunde(stunde: $0.stunde, fach: $0.fachName, lehrer: $0.lehrer, raum: $0.raum, moveNeunteStunde: stundenModels[wochentag].count >= 10))
         }
         stackView.addHorizontalSeparators(color:.lightGray)
