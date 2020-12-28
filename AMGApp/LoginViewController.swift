@@ -21,14 +21,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool){
         if(UserDefaults.standard.string(forKey: "login") != nil){
-            UserDefaults.standard.removeObject(forKey: "login")
-            UserDefaults.standard.removeObject(forKey: "passwordVertretungsplanSchueler")
-            UserDefaults.standard.removeObject(forKey: "loginUsername")
-            UserDefaults.standard.removeObject(forKey: "loginPassword")
-            
-            tabBarController?.showToast(message: "Logout erfolgreich")
-            
-            navigationController?.popViewController(animated: true)
+            let alert = UIAlertController(title: "Logout", message: "Möchtest du dich wirklich ausloggen?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: {[self]_ in
+                navigationController?.popViewController(animated: true)
+            }))
+            alert.addAction(UIAlertAction(title: "Ja", style: .destructive, handler: { [self]_ in
+                UserDefaults.standard.removeObject(forKey: "passwordVertretungsplanSchueler")
+                UserDefaults.standard.removeObject(forKey: "loginUsername")
+                UserDefaults.standard.removeObject(forKey: "loginPassword")
+                UserDefaults.standard.removeObject(forKey: "login")
+                
+                tabBarController?.showToast(message: "Logout erfolgreich")
+                
+                navigationController?.popViewController(animated: true)
+            }))
+            present(alert, animated: true)
             
             return
         }

@@ -108,7 +108,6 @@ class StundenplanViewController: UIViewController {
     }
     
     @IBAction func deleteStundenplan(_ sender: Any) {
-        #warning("do a confirmation before?")
         let alert = UIAlertController(title: "Stundenplan löschen", message: "Bist du sicher, dass du deinen ganzen Stundenplan löschen willst?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Ja", style: .destructive, handler: { [self]_ in
