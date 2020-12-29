@@ -55,6 +55,7 @@ class StundenplanViewController: UIViewController {
         
         if(UserDefaults.standard.string(forKey: "login") != nil && UserDefaults.standard.string(forKey: "klasse") != nil){
             editStundenplanByVertretungsplan(username: UserDefaults.standard.string(forKey: "loginUsername")!, password: UserDefaults.standard.string(forKey: "loginPassword")!, klasse: UserDefaults.standard.string(forKey: "klasse")!)
+            changeWochentag(nil)
         }
     }
     
@@ -160,12 +161,14 @@ class StundenplanViewController: UIViewController {
                 return (Int(vModel.getStunde()) == stunde.stunde && vModel.getFach() == stunde.fach)
             })
             
-            stackView.addArrangedSubview(makeStunde(stunde: stunde.stunde, fach: stunde.fachName, lehrer: stunde.lehrer, raum: stunde.raum, moveNeunteStunde: stundenModels[wochentag].count >= 10, vertretungModel: vertretungModel))
+            stackView.addArrangedSubview(makeStunde(stunde: stunde.stunde, fach: stunde.fachName, fachId: stunde.fach, lehrer: stunde.lehrer, raum: stunde.raum, moveNeunteStunde: stundenModels[wochentag].count >= 10, vertretungModel: vertretungModel))
         }
         stackView.addHorizontalSeparators(color:.lightGray)
     }
     
-    func makeStunde(stunde: Int, fach: String, lehrer: String, raum: String, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?) -> UIView {
+    func makeStunde(stunde: Int, fach: String, fachId: String, lehrer: String, raum: String, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?) -> UIView {
+        let vertretungStrikethrough: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#FE2E2E"), .strikethroughStyle: NSUnderlineStyle.single.rawValue, .baselineOffset: 0]
+        let vertretungNew: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#04B404")]
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -200,7 +203,15 @@ class StundenplanViewController: UIViewController {
         view.addConstraint(NSLayoutConstraint(item: stundenZeitLabel, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 0.75, constant: 0))
         
         let fachLabel = UILabel()
-        fachLabel.attributedText = NSAttributedString(string:String(fach), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)])
+        let fachLabelText = NSMutableAttributedString(string:String(fach))
+        if(vertretungModel != nil && fachId != vertretungModel?.getErsatzFach()){
+            fachLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: fachLabelText.length))
+            if(vertretungModel?.getErsatzFach() != "---"){
+                fachLabelText.append(NSAttributedString(string: (vertretungModel?.getErsatzFach())!, attributes: vertretungNew))
+            }
+        }
+        fachLabelText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)], range: NSRange(location: 0, length: fachLabelText.length))
+        fachLabel.attributedText = fachLabelText
         fachLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(fachLabel)
         
@@ -234,7 +245,15 @@ class StundenplanViewController: UIViewController {
         }
         
         let lehrerLabel = UILabel()
-        lehrerLabel.attributedText = NSAttributedString(string:String(lehrer), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
+        let lehrerLabelText = NSMutableAttributedString(string:String(lehrer))
+        if(vertretungModel != nil && lehrer != vertretungModel?.getVertretungslehrer()){
+            lehrerLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: lehrerLabelText.length))
+            if(vertretungModel?.getVertretungslehrer() != "---"){
+                lehrerLabelText.append(NSAttributedString(string: (vertretungModel?.getVertretungslehrer())!, attributes: vertretungNew))
+            }
+        }
+        lehrerLabelText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], range: NSRange(location: 0, length: lehrerLabelText.length))
+        lehrerLabel.attributedText = lehrerLabelText
         lehrerLabel.textAlignment = .right
         lehrerLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(lehrerLabel)
@@ -243,7 +262,15 @@ class StundenplanViewController: UIViewController {
         view.addConstraint(NSLayoutConstraint(item: lehrerLabel, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 0.35, constant: 0))
         
         let raumLabel = UILabel()
-        raumLabel.attributedText = NSAttributedString(string:String(raum), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
+        let raumLabelText = NSMutableAttributedString(string:String(raum))
+        if(vertretungModel != nil && raum != vertretungModel?.getRaum()){
+            raumLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: raumLabelText.length))
+            if(vertretungModel?.getRaum() != "---"){
+                raumLabelText.append(NSAttributedString(string: (vertretungModel?.getRaum())!, attributes: vertretungNew))
+            }
+        }
+        raumLabelText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], range: NSRange(location: 0, length: raumLabelText.length))
+        raumLabel.attributedText = raumLabelText
         raumLabel.textAlignment = .right
         raumLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(raumLabel)
