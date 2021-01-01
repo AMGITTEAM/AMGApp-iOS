@@ -57,8 +57,12 @@ class StundenplanViewController: UIViewController {
         updateMenu()
         
         if(UserDefaults.standard.string(forKey: "login") != nil && UserDefaults.standard.string(forKey: "klasse") != nil){
-            editStundenplanByVertretungsplan(username: UserDefaults.standard.string(forKey: "loginUsername")!, password: UserDefaults.standard.string(forKey: "loginPassword")!, klasse: UserDefaults.standard.string(forKey: "klasse")!)
-            changeWochentag(nil)
+            DispatchQueue.init(label: "network").async { [self] in
+                editStundenplanByVertretungsplan(username: UserDefaults.standard.string(forKey: "loginUsername")!, password: UserDefaults.standard.string(forKey: "loginPassword")!, klasse: UserDefaults.standard.string(forKey: "klasse")!)
+                DispatchQueue.main.async {
+                    changeWochentag(nil)
+                }
+            }
         }
     }
     

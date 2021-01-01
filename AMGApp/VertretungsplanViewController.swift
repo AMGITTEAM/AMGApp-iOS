@@ -37,7 +37,7 @@ class VertretungsplanViewController: UIViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshWebView(_:)), for: UIControl.Event.valueChanged)
         webView.scrollView.addSubview(refreshControl)
-        //webView.scrollView.bounces = true
+        webView.scrollView.bounces = true
         
         DispatchQueue(label: "network").async { [self] in
             let html = self.action(date: self.day, username: username!, password: password!)
