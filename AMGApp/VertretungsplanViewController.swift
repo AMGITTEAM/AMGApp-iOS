@@ -21,20 +21,41 @@ class VertretungsplanViewController: UIViewController {
     var klasse: String = ""
     var day: String = ""
     
+    var username: String? = ""
+    var password: String? = ""
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         klasse = UserDefaults.standard.string(forKey: "klasse") ?? ""
-        let username = UserDefaults.standard.string(forKey: "loginUsername")
-        let password = UserDefaults.standard.string(forKey: "loginPassword")
+        username = UserDefaults.standard.string(forKey: "loginUsername")
+        password = UserDefaults.standard.string(forKey: "loginPassword")
         if(password == nil){
             return
         }
-        DispatchQueue(label: "network").async {
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshWebView(_:)), for: UIControl.Event.valueChanged)
+        webView.scrollView.addSubview(refreshControl)
+        //webView.scrollView.bounces = true
+        
+        DispatchQueue(label: "network").async { [self] in
             let html = self.action(date: self.day, username: username!, password: password!)
             
             DispatchQueue.main.async {
                 self.webView.loadHTMLString(html, baseURL: nil)
+            }
+        }
+    }
+    
+    @objc
+    func refreshWebView(_ sender: UIRefreshControl){
+        DispatchQueue(label: "network").async { [self] in
+            let html = self.action(date: self.day, username: username!, password: password!)
+            
+            DispatchQueue.main.async {
+                self.webView.loadHTMLString(html, baseURL: nil)
+                sender.endRefreshing()
             }
         }
     }
