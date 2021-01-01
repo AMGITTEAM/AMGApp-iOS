@@ -515,13 +515,13 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="pG8-8j-Lyg">
-                                <rect key="frame" x="20" y="70" width="335" height="120"/>
+                                <rect key="frame" x="20" y="114" width="335" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pG8-8j-Lyg" secondAttribute="height" multiplier="67:24" id="KIn-N6-JRU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Anmeldedaten für Schüler sind die des (alten) Schüleraccounts an den Schul-PCs." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-hQ-UjY">
-                                <rect key="frame" x="16" y="615" width="343" height="36"/>
+                                <rect key="frame" x="16" y="566" width="343" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -711,6 +711,23 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQh-2y-wkq">
+                                <rect key="frame" x="309" y="342.5" width="40" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="c4D-Uz-d7R"/>
+                                    <constraint firstAttribute="width" constant="40" id="vDB-DT-APj"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="paperplane.circle.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="ZyO-3R-6Z4" kind="show" id="Bfq-Cp-zjL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senden &amp; Empfangen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCg-Mr-pV1">
+                                <rect key="frame" x="161" y="353.5" width="140" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A6a-ih-LYe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -720,21 +737,25 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                             <constraint firstItem="bfL-Gh-OGP" firstAttribute="centerY" secondItem="Vou-tS-gdC" secondAttribute="centerY" id="F67-Bh-vgH"/>
                             <constraint firstItem="7Zk-SD-KIc" firstAttribute="centerY" secondItem="ix1-Rw-92v" secondAttribute="centerY" id="IJ5-ne-heW"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="KbZ-DW-zI5" secondAttribute="trailing" constant="26" id="IOG-jY-yki"/>
+                            <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="xQh-2y-wkq" secondAttribute="trailing" constant="26" id="IXx-Ug-per"/>
                             <constraint firstItem="bfL-Gh-OGP" firstAttribute="leading" secondItem="Vou-tS-gdC" secondAttribute="trailing" constant="8" id="Ipe-Mn-rP2"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="Jhf-yl-xb3" secondAttribute="trailing" id="KDI-cQ-78x"/>
                             <constraint firstItem="MVa-Sq-tAM" firstAttribute="leading" secondItem="A6a-ih-LYe" secondAttribute="leading" id="Kv9-d2-A67"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="bottom" secondItem="MVa-Sq-tAM" secondAttribute="bottom" id="LhP-0M-sOs"/>
+                            <constraint firstItem="xQh-2y-wkq" firstAttribute="centerY" secondItem="wCg-Mr-pV1" secondAttribute="centerY" id="NYA-UJ-3rp"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="7Zk-SD-KIc" secondAttribute="trailing" constant="26" id="PEa-f3-NUb"/>
                             <constraint firstItem="KbZ-DW-zI5" firstAttribute="leading" secondItem="eal-yb-0nz" secondAttribute="trailing" constant="8" id="Rvh-zf-sDO"/>
                             <constraint firstItem="mMY-1f-eGi" firstAttribute="top" secondItem="bfL-Gh-OGP" secondAttribute="bottom" constant="16" id="UT5-Q9-rea"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="mMY-1f-eGi" secondAttribute="trailing" constant="16" id="UnN-hI-AQQ"/>
                             <constraint firstItem="MVa-Sq-tAM" firstAttribute="top" secondItem="Jhf-yl-xb3" secondAttribute="bottom" id="Wqo-lE-uVR"/>
                             <constraint firstItem="Jhf-yl-xb3" firstAttribute="leading" secondItem="A6a-ih-LYe" secondAttribute="leading" id="Z9j-Yg-r6O"/>
+                            <constraint firstItem="KbZ-DW-zI5" firstAttribute="top" secondItem="xQh-2y-wkq" secondAttribute="bottom" constant="8" id="a6j-Aa-fqL"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="MVa-Sq-tAM" secondAttribute="trailing" id="apE-59-3yb"/>
                             <constraint firstItem="7Zk-SD-KIc" firstAttribute="leading" secondItem="ix1-Rw-92v" secondAttribute="trailing" constant="8" id="f9u-tl-uXa"/>
                             <constraint firstItem="bfL-Gh-OGP" firstAttribute="top" secondItem="7Zk-SD-KIc" secondAttribute="bottom" constant="8" id="fh2-L1-d9t"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="bfL-Gh-OGP" secondAttribute="trailing" constant="26" id="fpo-Bl-dF1"/>
                             <constraint firstItem="Jhf-yl-xb3" firstAttribute="top" secondItem="A6a-ih-LYe" secondAttribute="top" id="fzs-Or-sz0"/>
+                            <constraint firstItem="xQh-2y-wkq" firstAttribute="leading" secondItem="wCg-Mr-pV1" secondAttribute="trailing" constant="8" id="k3d-ea-zbF"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="bottom" secondItem="mMY-1f-eGi" secondAttribute="bottom" constant="16" id="oZO-P8-YeH"/>
                         </constraints>
                     </view>
@@ -748,6 +769,8 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <outlet property="plusStundeButton" destination="KbZ-DW-zI5" id="DOM-dp-Yt8"/>
                         <outlet property="plusStundeLabel" destination="eal-yb-0nz" id="W0I-7e-Pam"/>
                         <outlet property="scrollView" destination="MVa-Sq-tAM" id="Snn-ms-UAj"/>
+                        <outlet property="sendButton" destination="xQh-2y-wkq" id="8df-vf-xmA"/>
+                        <outlet property="sendLabel" destination="wCg-Mr-pV1" id="JJc-95-p8F"/>
                         <outlet property="wochentagSelector" destination="Jhf-yl-xb3" id="qLe-MC-lIg"/>
                         <segue destination="kUH-gZ-29V" kind="presentation" identifier="editStunde" id="ra8-Tc-qJZ"/>
                     </connections>
@@ -835,6 +858,174 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vd0-TU-mnE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="919" y="1325"/>
+        </scene>
+        <!--SendReceiveStundenplan-->
+        <scene sceneID="jF7-r5-Akw">
+            <objects>
+                <tableViewController id="C5g-pl-GUN" userLabel="SendReceiveStundenplan" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZLN-j3-hSC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="dXF-pY-peE">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="vgt-qo-zwp">
+                                        <rect key="frame" x="0.0" y="18" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vgt-qo-zwp" id="lwj-Mo-FZI">
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vks-B9-4Lq">
+                                                    <rect key="frame" x="16" y="7" width="32" height="29.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Vks-B9-4Lq" secondAttribute="height" multiplier="1:1" id="X6f-5G-X0e"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code erstellen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k7-I8-Qr4">
+                                                    <rect key="frame" x="64" y="11.5" width="138" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0k7-I8-Qr4" firstAttribute="centerY" secondItem="lwj-Mo-FZI" secondAttribute="centerY" id="2ps-I0-cI8"/>
+                                                <constraint firstItem="Vks-B9-4Lq" firstAttribute="centerY" secondItem="lwj-Mo-FZI" secondAttribute="centerY" id="eMT-UK-GRo"/>
+                                                <constraint firstItem="Vks-B9-4Lq" firstAttribute="top" secondItem="lwj-Mo-FZI" secondAttribute="top" constant="6" id="l1A-9Q-d8S"/>
+                                                <constraint firstItem="0k7-I8-Qr4" firstAttribute="leading" secondItem="Vks-B9-4Lq" secondAttribute="trailing" constant="16" id="tVy-tl-gZ1"/>
+                                                <constraint firstItem="Vks-B9-4Lq" firstAttribute="leading" secondItem="lwj-Mo-FZI" secondAttribute="leading" constant="16" id="wvC-Kj-Dy2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="92h-hc-kUt" kind="show" id="rxQ-Zz-7Af"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="meH-aG-WPu">
+                                        <rect key="frame" x="0.0" y="61.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="meH-aG-WPu" id="7LG-1I-TQ7">
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-X0-BrJ">
+                                                    <rect key="frame" x="16" y="6.5" width="32" height="30.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="mNe-X0-BrJ" secondAttribute="height" multiplier="1:1" id="7JG-Zb-tcM"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code lesen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUC-dk-rlo">
+                                                    <rect key="frame" x="64" y="11.5" width="113.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EUC-dk-rlo" firstAttribute="leading" secondItem="mNe-X0-BrJ" secondAttribute="trailing" constant="16" id="2Xs-ac-rRb"/>
+                                                <constraint firstItem="mNe-X0-BrJ" firstAttribute="leading" secondItem="7LG-1I-TQ7" secondAttribute="leading" constant="16" id="8Jf-7y-ThX"/>
+                                                <constraint firstItem="mNe-X0-BrJ" firstAttribute="centerY" secondItem="7LG-1I-TQ7" secondAttribute="centerY" id="o6o-R3-kQg"/>
+                                                <constraint firstItem="mNe-X0-BrJ" firstAttribute="top" secondItem="7LG-1I-TQ7" secondAttribute="top" constant="6" id="oOM-8B-PYq"/>
+                                                <constraint firstItem="EUC-dk-rlo" firstAttribute="centerY" secondItem="7LG-1I-TQ7" secondAttribute="centerY" id="pXi-ww-VTW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="OhH-ej-kgM" kind="show" id="fpq-Tw-D3U"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Edh-Y4-HUG">
+                                        <rect key="frame" x="0.0" y="105" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Edh-Y4-HUG" id="80E-iI-FJh">
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="bQv-zc-M97">
+                                        <rect key="frame" x="0.0" y="148.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bQv-zc-M97" id="GgN-BT-9sO">
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="C5g-pl-GUN" id="BSl-P1-p9F"/>
+                            <outlet property="delegate" destination="C5g-pl-GUN" id="5Kt-cl-LeV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="H5y-PK-gmH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2O4-7B-cYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="940" y="2089"/>
+        </scene>
+        <!--QR Code erstellen-->
+        <scene sceneID="P04-aT-PHB">
+            <objects>
+                <viewController id="92h-hc-kUt" customClass="StundenplanQRGenerator" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q2s-Qb-Uou">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hB3-IP-GMM" userLabel="QRCode">
+                                <rect key="frame" x="0.0" y="56" width="375" height="591"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9YM-r8-YRZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9YM-r8-YRZ" firstAttribute="trailing" secondItem="hB3-IP-GMM" secondAttribute="trailing" id="Ggc-sT-Vja"/>
+                            <constraint firstItem="hB3-IP-GMM" firstAttribute="top" secondItem="9YM-r8-YRZ" secondAttribute="top" id="bhq-Yq-PS2"/>
+                            <constraint firstItem="hB3-IP-GMM" firstAttribute="leading" secondItem="9YM-r8-YRZ" secondAttribute="leading" id="dpQ-Vv-Ywg"/>
+                            <constraint firstItem="9YM-r8-YRZ" firstAttribute="bottom" secondItem="hB3-IP-GMM" secondAttribute="bottom" id="hRc-Qj-ffA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Code erstellen" id="mF3-3N-soB"/>
+                    <connections>
+                        <outlet property="QRCodeImageView" destination="hB3-IP-GMM" id="24B-yg-ace"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFi-Bl-Sod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="1830"/>
+        </scene>
+        <!--QR Code lesen-->
+        <scene sceneID="F7v-0z-pyO">
+            <objects>
+                <viewController id="OhH-ej-kgM" customClass="StundenplanQRScanner" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Llr-vo-v1f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Kjc-e9-wNd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Code lesen" id="5sS-rG-J9X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jev-Sv-XTZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1847" y="2516"/>
+        </scene>
+        <!--StundenplanSendReceiveNavigation-->
+        <scene sceneID="jeI-AX-O5s">
+            <objects>
+                <navigationController id="ZyO-3R-6Z4" userLabel="StundenplanSendReceiveNavigation" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7mw-Sa-rxy"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XUa-Qb-TrY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="C5g-pl-GUN" kind="relationship" relationship="rootViewController" id="kS7-JR-uor"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L34-OB-ky3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="81" y="2089"/>
         </scene>
         <!--SonstigesNavigationController-->
         <scene sceneID="YaA-4b-Frs">
@@ -1047,7 +1238,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XNN-cv-kRs"/>
+        <segue reference="OYL-gy-q7I"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
@@ -1056,10 +1247,13 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="logo_amg" width="1281" height="529"/>
+        <image name="paperplane.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="power" catalog="system" width="128" height="124"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
+        <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
         <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
