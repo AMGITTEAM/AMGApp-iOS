@@ -304,8 +304,14 @@ class StundenplanViewController: UIViewController {
     }
     
     func delete(){
-        let stundeNeu = StundenplanEintragModel(stunde: stunde!.stunde, fachName: " ", fachAbk: " ", lehrer: " ", raum: " ")
-        override(stundeNeu: stundeNeu)
+        if(stunde!.stunde != stundenModels[wochentagSelector.selectedSegmentIndex].count){
+            let stundeNeu = StundenplanEintragModel(stunde: stunde!.stunde, fachName: " ", fachAbk: " ", lehrer: " ", raum: " ")
+            override(stundeNeu: stundeNeu)
+        } else {
+            stundenModels[wochentagSelector.selectedSegmentIndex].remove(at: stunde!.stunde-1)
+            saveStundenModels()
+            changeWochentag(nil)
+        }
     }
     func override(stundeNeu: StundenplanEintragModel){
         stundenModels[wochentagSelector.selectedSegmentIndex][stunde!.stunde-1] = stundeNeu
