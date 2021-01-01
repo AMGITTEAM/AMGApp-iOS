@@ -21,6 +21,8 @@ class StundenplanViewController: UIViewController {
     @IBOutlet weak var deleteLabel: UILabel!
     @IBOutlet weak var plusStundeButton: UIButton!
     @IBOutlet weak var plusStundeLabel: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var sendLabel: UILabel!
     
     var stackView = UIStackView()
     var menuOpen = false
@@ -33,6 +35,7 @@ class StundenplanViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        stundenModels.removeAll()
         loadStundenplanFromUserdata()
         
         createStundenplan(wochentag: getWeekday()-1)
@@ -79,11 +82,14 @@ class StundenplanViewController: UIViewController {
     func loadStundenplanFromUserdata(){
         for i in 0...4 {
             let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+wochentagToString(wochentag: i+1))
-            if(jsonString == nil){
-                return
+            do {
+                let stundenStrings: [String] = try JSONDecoder().decode([String].self, from: (jsonString!.data(using: .utf8)!))
+                stundenModels.append(stundenStrings.map{StundenplanEintragModel(allString: $0)})
+            } catch {
+                stundenModels.append([])
+                continue
             }
-            let stundenStrings: [String] = try! JSONDecoder().decode([String].self, from: (jsonString!.data(using: .utf8)!))
-            stundenModels.append(stundenStrings.map{StundenplanEintragModel(allString: $0)})
+            stundenModels[i].sort(by: {return $0.stunde < $1.stunde})
         }
     }
     
@@ -101,9 +107,11 @@ class StundenplanViewController: UIViewController {
         doneButton.alpha = alpha
         deleteButton.alpha = alpha
         plusStundeButton.alpha = alpha
+        sendButton.alpha = alpha
         doneLabel.alpha = alpha
         deleteLabel.alpha = alpha
         plusStundeLabel.alpha = alpha
+        sendLabel.alpha = alpha
         
         if(menuOpen){
             mainEditButton.setBackgroundImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
