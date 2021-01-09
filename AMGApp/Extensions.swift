@@ -156,3 +156,10 @@ extension UIStackView {
             removedSubviews.forEach({ $0.removeFromSuperview() })
         }
 }
+
+extension UIView {
+    func addShadow(){
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 1, height: 1)
+    }
+}

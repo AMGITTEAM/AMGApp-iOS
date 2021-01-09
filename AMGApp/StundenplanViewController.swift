@@ -38,8 +38,12 @@ class StundenplanViewController: UIViewController {
         stundenModels.removeAll()
         loadStundenplanFromUserdata()
         
-        createStundenplan(wochentag: getWeekday()-1)
-        wochentagSelector.selectedSegmentIndex = getWeekday()-1
+        var weekday = getWeekday()-1
+        if(weekday >= 5) {
+            weekday = 0
+        }
+        createStundenplan(wochentag: weekday)
+        wochentagSelector.selectedSegmentIndex = weekday
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -53,7 +57,6 @@ class StundenplanViewController: UIViewController {
 
         scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .width, relatedBy: .equal, toItem: self.scrollView, attribute: .width, multiplier: 1.0, constant: 0))
         
-        plusStundeLabel.layer.shadowOpacity = 0.5
         updateMenu()
         
         if(UserDefaults.standard.string(forKey: "login") != nil && UserDefaults.standard.string(forKey: "klasse") != nil){
@@ -85,9 +88,9 @@ class StundenplanViewController: UIViewController {
     
     func loadStundenplanFromUserdata(){
         for i in 0...4 {
-            let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+wochentagToString(wochentag: i+1))
+            let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+wochentagToString(wochentag: i+1)) ?? ""
             do {
-                let stundenStrings: [String] = try JSONDecoder().decode([String].self, from: (jsonString!.data(using: .utf8)!))
+                let stundenStrings: [String] = try JSONDecoder().decode([String].self, from: (jsonString.data(using: .utf8)!))
                 stundenModels.append(stundenStrings.map{StundenplanEintragModel(allString: $0)})
             } catch {
                 stundenModels.append([])
@@ -116,6 +119,12 @@ class StundenplanViewController: UIViewController {
         deleteLabel.alpha = alpha
         plusStundeLabel.alpha = alpha
         sendLabel.alpha = alpha
+        
+        doneLabel.addShadow()
+        deleteLabel.addShadow()
+        plusStundeLabel.addShadow()
+        sendLabel.addShadow()
+        
         
         if(menuOpen){
             mainEditButton.setBackgroundImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
