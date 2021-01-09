@@ -37,6 +37,7 @@
 		12961ABB259C9FB3001380F1 /* StundenplanQRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanQRScanner.swift; sourceTree = "<group>"; };
 		12961ABE259CB0E3001380F1 /* StundenplanQRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanQRGenerator.swift; sourceTree = "<group>"; };
 		12961AC1259F62EF001380F1 /* Startseite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Startseite.swift; sourceTree = "<group>"; };
+		12961AC425AA52B8001380F1 /* AMGApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AMGApp.entitlements; sourceTree = "<group>"; };
 		129C7E7725719D21005BEB6F /* SonstigesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonstigesViewController.swift; sourceTree = "<group>"; };
 		12C420B02572F61F00660356 /* EinstellungenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EinstellungenViewController.swift; sourceTree = "<group>"; };
 		12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		7B73D48421C5ABAB005AB6D0 /* AMGApp */ = {
 			isa = PBXGroup;
 			children = (
+				12961AC425AA52B8001380F1 /* AMGApp.entitlements */,
 				7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */,
 				12158B9F2580084200CA7151 /* TabBarController.swift */,
 				7B73D48B21C5ABAB005AB6D0 /* Main.storyboard */,
@@ -341,6 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AMGApp/AMGApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SQUK3268G;
 				INFOPLIST_FILE = AMGApp/Info.plist;
@@ -361,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AMGApp/AMGApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SQUK3268G;
 				INFOPLIST_FILE = AMGApp/Info.plist;
