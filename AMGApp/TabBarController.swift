@@ -21,7 +21,7 @@ class TabBarController: UITabBarController {
             let font = UIFont.preferredFont(forTextStyle: .body).withSize(14)
              
             let messageText = NSMutableAttributedString(
-                string: """
+                /*string(1.0.1): """
                                           - \"Beschreibung\" in Feedback verbreitert, schließe die Tastatur auf Enter und beim umherklicken
                                           - Eigene Farbe für Unter-, Mittel- und Oberstufe
                                           - Login-Hinweis spezifiziert
@@ -29,6 +29,13 @@ class TabBarController: UITabBarController {
                                           - Zeige \"Login\", wenn im Vertretungsplan nicht eingeloggt
                                           - Indikator für Vertretungsplan-Seite hinzugefügt
                                           - Changelog hinzugefügt
+                                          """,*/
+                string: """
+                                          - \"Stundenplan\" hinzugefügt
+                                          - Stundenpläne können per QR-Code geteilt werden
+                                          - \"Vertretungsplan\" unterstützt \"Swipe to Refresh\"
+                                          - Kalender auf der Startseite hinzugefügt
+                                          - amgitt.de als associated-link: Öffnet mit der App
                                           """,
                 attributes: [
                     NSAttributedString.Key.paragraphStyle: paragraphStyle,
