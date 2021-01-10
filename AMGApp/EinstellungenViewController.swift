@@ -37,54 +37,41 @@ class EinstellungenViewController: UIViewController, UIColorPickerViewController
         oberstufeColorPreview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.changeOberstufeColor)))
     }
     
-    func pickColor(color: UIColor) -> UIColor {
-        let picker = UIColorPickerViewController()
-        picker.supportsAlpha = false
-        picker.selectedColor = color
-        present(picker, animated: true, completion: nil)
-        while(picker.viewIfLoaded?.window == nil){
-            usleep(1000)
+    func pickColor(color: UIColor, completion: @escaping ((UIColor)->Void)) {
+        if #available(iOS 14.0, *) {
+            let picker: UIColorPickerViewController = UIColorPickerViewController()
+            picker.supportsAlpha = false
+            picker.selectedColor = color
+            self.present(picker, animated: true, completion: {
+                completion(picker.selectedColor)
+            })
+        } else {
+            tabBarController?.showToast(message: "Diese Funktion ist erst ab iOS 14 verfügbar!")
         }
-        while(picker.viewIfLoaded?.window != nil){
-            usleep(1000)
-        }
-        return picker.selectedColor
     }
     
     @IBAction func changeEigeneKlasseColor(_ sender: Any) {
-        DispatchQueue.global(qos: .background).async {
-            let pickedColor = self.pickColor(color: self.eigeneKlasseColorPreview.backgroundColor!)
-            DispatchQueue.main.async { [self] in
-                UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungEigeneKlasseFarbe")
-                eigeneKlasseColorPreview.backgroundColor = pickedColor
-            }
-        }
+        self.pickColor(color: self.eigeneKlasseColorPreview.backgroundColor!, completion: { [self] (pickedColor) in
+            UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungEigeneKlasseFarbe")
+            eigeneKlasseColorPreview.backgroundColor = pickedColor
+        })
     }
     @IBAction func changeUnterstufeColor(_ sender: Any) {
-        DispatchQueue.global(qos: .background).async {
-            let pickedColor = self.pickColor(color: self.unterstufeColorPreview.backgroundColor!)
-            DispatchQueue.main.async { [self] in
-                UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungUnterstufeFarbe")
-                unterstufeColorPreview.backgroundColor = pickedColor
-            }
-        }
+        self.pickColor(color: self.unterstufeColorPreview.backgroundColor!, completion: { [self] (pickedColor) in
+            UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungUnterstufeFarbe")
+            unterstufeColorPreview.backgroundColor = pickedColor
+        })
     }
     @IBAction func changeMittelstufeColor(_ sender: Any) {
-        DispatchQueue.global(qos: .background).async {
-            let pickedColor = self.pickColor(color: self.mittelstufeColorPreview.backgroundColor!)
-            DispatchQueue.main.async { [self] in
-                UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungMittelstufeFarbe")
-                mittelstufeColorPreview.backgroundColor = pickedColor
-            }
-        }
+        self.pickColor(color: self.mittelstufeColorPreview.backgroundColor!, completion: { [self] (pickedColor) in
+            UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungMittelstufeFarbe")
+            mittelstufeColorPreview.backgroundColor = pickedColor
+        })
     }
     @IBAction func changeOberstufeColor(_ sender: Any) {
-        DispatchQueue.global(qos: .background).async {
-            let pickedColor = self.pickColor(color: self.oberstufeColorPreview.backgroundColor!)
-            DispatchQueue.main.async { [self] in
-                UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungOberstufeFarbe")
-                oberstufeColorPreview.backgroundColor = pickedColor
-            }
-        }
+        self.pickColor(color: self.oberstufeColorPreview.backgroundColor!, completion: { [self] (pickedColor) in
+            UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungOberstufeFarbe")
+            oberstufeColorPreview.backgroundColor = pickedColor
+        })
     }
 }
