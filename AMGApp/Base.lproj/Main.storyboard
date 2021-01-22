@@ -670,7 +670,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" backgroundImage="pencil.circle.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="openCloseMenu:" destination="IfF-5w-wLu" eventType="touchUpInside" id="xPd-l6-K2C"/>
+                                    <action selector="openCloseMenu:" destination="IfF-5w-wLu" eventType="touchUpInside" id="NU7-k2-u7u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfL-Gh-OGP">

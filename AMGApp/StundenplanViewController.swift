@@ -24,14 +24,15 @@ class StundenplanViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var sendLabel: UILabel!
     
-    let scrollView = UIScrollView()
-    let stackView = UIStackView()
     var menuOpen = false
     var editingStundenplan = false
     var stundenModels = [[StundenplanEintragModel]]()
     
     var vertretungHeute: VertretungsplanViewController.VertretungModelArrayModel? = nil
     var vertretungFolgetag: VertretungsplanViewController.VertretungModelArrayModel? = nil
+    
+    var days = [StundenplanDay]()
+    let dayView = UIView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,27 +44,20 @@ class StundenplanViewController: UIViewController {
         if(weekday >= 5) {
             weekday = 0
         }
-        createStundenplan(wochentag: weekday)
+        
+        for i in 1...5 {
+            days.append(createStundenplan(wochentag: i))
+        }
+        mainView.insertSubview(dayView, belowSubview: mainEditButton)
+        mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .top, relatedBy: .equal, toItem: wochentagSelector, attribute: .bottom, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .leading, relatedBy: .equal, toItem: mainView, attribute: .leading, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .trailing, relatedBy: .equal, toItem: mainView, attribute: .trailing, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1, constant: 0))
+        
+        dayView.translatesAutoresizingMaskIntoConstraints = false
         wochentagSelector.selectedSegmentIndex = weekday
-        
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        mainView.insertSubview(scrollView, belowSubview: mainEditButton)
-        mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .trailing, relatedBy: .equal, toItem: self.mainView, attribute: .trailing, multiplier: 1.0, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .leading, relatedBy: .equal, toItem: self.mainView, attribute: .leading, multiplier: 1.0, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .top, relatedBy: .equal, toItem: self.wochentagSelector, attribute: .bottom, multiplier: 1.0, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .bottom, relatedBy: .equal, toItem: self.mainView, attribute: .bottom, multiplier: 1.0, constant: 0))
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        self.scrollView.addSubview(stackView)
-        
-        scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .leading, relatedBy: .equal, toItem: self.scrollView, attribute: .leading, multiplier: 1.0, constant: 0))
-        scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: self.scrollView, attribute: .trailing, multiplier: 1.0, constant: 0))
-        scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .top, relatedBy: .equal, toItem: self.scrollView, attribute: .top, multiplier: 1.0, constant: 0))
-        scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .bottom, relatedBy: .equal, toItem: self.scrollView, attribute: .bottom, multiplier: 1, constant: 0))
-
-        scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .width, relatedBy: .equal, toItem: self.scrollView, attribute: .width, multiplier: 1.0, constant: 0))
+        changeWochentag(nil)
+        //to bottom of weekday
         
         updateMenu()
         
@@ -168,31 +162,25 @@ class StundenplanViewController: UIViewController {
     @IBAction func changeWochentag(_ sender: Any?) {
         let wochentag = wochentagSelector.selectedSegmentIndex
         
-        createStundenplan(wochentag: wochentag)
+        while(dayView.subviews.count > 0){
+            dayView.subviews[0].removeFromSuperview()
+        }
+        let newSubview = days[wochentag]
+        dayView.addSubview(newSubview)
+        dayView.addConstraint(NSLayoutConstraint(item: newSubview, attribute: .top, relatedBy: .equal, toItem: dayView, attribute: .top, multiplier: 1, constant: 0))
+        dayView.addConstraint(NSLayoutConstraint(item: newSubview, attribute: .bottom, relatedBy: .equal, toItem: dayView, attribute: .bottom, multiplier: 1, constant: 0))
+        dayView.addConstraint(NSLayoutConstraint(item: newSubview, attribute: .leading, relatedBy: .equal, toItem: dayView, attribute: .leading, multiplier: 1, constant: 0))
+        dayView.addConstraint(NSLayoutConstraint(item: newSubview, attribute: .trailing, relatedBy: .equal, toItem: dayView, attribute: .trailing, multiplier: 1, constant: 0))
     }
     
-    func createStundenplan(wochentag: Int) {
+    func createStundenplan(wochentag: Int) -> StundenplanDay {
         var vertretungsplanModel: VertretungsplanViewController.VertretungModelArrayModel? = nil
         if(wochentag == getWeekday()-1){
             vertretungsplanModel = vertretungHeute
         } else if(wochentag == getWeekday()){
             vertretungsplanModel = vertretungFolgetag
         }
-        
-        stackView.removeAllArrangedSubviews()
-        stundenModels[wochentag].forEach{stunde in
-            let vertretungModel = vertretungsplanModel?.getRightRows().first(where: {vModel in
-                if(vModel.getStunde().contains(" - ")){ //erstreckt sich über mehrere Stunden
-                    return vModel.getStunde().components(separatedBy: " - ").contains(where: {stundeNr in
-                        return (Int(stundeNr) == stunde.stunde && vModel.getFach() == stunde.fach)
-                    })
-                }
-                return (Int(vModel.getStunde()) == stunde.stunde && vModel.getFach() == stunde.fach)
-            })
-            
-            stackView.addArrangedSubview(StundenplanEntry(stunde: stunde.stunde, fach: stunde.fachName, fachId: stunde.fach, lehrer: stunde.lehrer, raum: stunde.raum, moveNeunteStunde: stundenModels[wochentag].count >= 10, vertretungModel: vertretungModel, delegate: self, editingStundenplan: editingStundenplan))
-        }
-        stackView.addHorizontalSeparators(color:.lightGray)
+        return StundenplanDay(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, stunden: stundenModels[wochentag-1], editingStundenplan: editingStundenplan, delegate: self)
     }
     
     var stunde: StundenplanViewController.StundenplanEintragModel? = nil

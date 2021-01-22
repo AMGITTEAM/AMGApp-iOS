@@ -21,6 +21,7 @@
 		129C7E7825719D21005BEB6F /* SonstigesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C7E7725719D21005BEB6F /* SonstigesViewController.swift */; };
 		12C420B12572F61F00660356 /* EinstellungenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C420B02572F61F00660356 /* EinstellungenViewController.swift */; };
 		12DD00082572C2B300DBD4BE /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */; };
+		12FD8A0225BB6B1600C89B1C /* StundenplanDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD8A0125BB6B1600C89B1C /* StundenplanDay.swift */; };
 		7B1244DB21EFA3F800EC7A0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1244DA21EFA3F800EC7A0C /* Extensions.swift */; };
 		7B73D48621C5ABAB005AB6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */; };
 		7B73D48D21C5ABAB005AB6D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B73D48B21C5ABAB005AB6D0 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		129C7E7725719D21005BEB6F /* SonstigesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonstigesViewController.swift; sourceTree = "<group>"; };
 		12C420B02572F61F00660356 /* EinstellungenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EinstellungenViewController.swift; sourceTree = "<group>"; };
 		12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		12FD8A0125BB6B1600C89B1C /* StundenplanDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanDay.swift; sourceTree = "<group>"; };
 		7B1244DA21EFA3F800EC7A0C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7B73D48221C5ABAB005AB6D0 /* AMGApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMGApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				12961AC1259F62EF001380F1 /* Startseite.swift */,
 				12961ACE25BB2CD9001380F1 /* StundenplanTextGenerator.swift */,
 				12961AD125BB2DA8001380F1 /* StundenplanTextInput.swift */,
+				12FD8A0125BB6B1600C89B1C /* StundenplanDay.swift */,
 			);
 			path = AMGApp;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				7B749956220A16EC002C7D0A /* Variables.swift in Sources */,
 				12961ACF25BB2CDA001380F1 /* StundenplanTextGenerator.swift in Sources */,
 				7BF3F31922037B3600CA006B /* LoginViewController.swift in Sources */,
+				12FD8A0225BB6B1600C89B1C /* StundenplanDay.swift in Sources */,
 				12961ABF259CB0E3001380F1 /* StundenplanQRGenerator.swift in Sources */,
 				12C420B12572F61F00660356 /* EinstellungenViewController.swift in Sources */,
 				12961AD225BB2DA8001380F1 /* StundenplanTextInput.swift in Sources */,
