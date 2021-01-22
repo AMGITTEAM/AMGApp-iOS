@@ -661,11 +661,6 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                     <action selector="changeWochentag:" destination="IfF-5w-wLu" eventType="valueChanged" id="Cfu-K7-bdX"/>
                                 </connections>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVa-Sq-tAM">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="oRl-1b-kn3"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Q7C-oP-yM5"/>
-                            </scrollView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMY-1f-eGi">
                                 <rect key="frame" x="352" y="768" width="60" height="58.666666666666629"/>
                                 <constraints>
@@ -764,17 +759,13 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="xQh-2y-wkq" secondAttribute="trailing" constant="26" id="IXx-Ug-per"/>
                             <constraint firstItem="bfL-Gh-OGP" firstAttribute="leading" secondItem="Vou-tS-gdC" secondAttribute="trailing" constant="8" id="Ipe-Mn-rP2"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="Jhf-yl-xb3" secondAttribute="trailing" id="KDI-cQ-78x"/>
-                            <constraint firstItem="MVa-Sq-tAM" firstAttribute="leading" secondItem="A6a-ih-LYe" secondAttribute="leading" id="Kv9-d2-A67"/>
-                            <constraint firstItem="A6a-ih-LYe" firstAttribute="bottom" secondItem="MVa-Sq-tAM" secondAttribute="bottom" id="LhP-0M-sOs"/>
                             <constraint firstItem="xQh-2y-wkq" firstAttribute="centerY" secondItem="wCg-Mr-pV1" secondAttribute="centerY" id="NYA-UJ-3rp"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="7Zk-SD-KIc" secondAttribute="trailing" constant="26" id="PEa-f3-NUb"/>
                             <constraint firstItem="KbZ-DW-zI5" firstAttribute="leading" secondItem="eal-yb-0nz" secondAttribute="trailing" constant="8" id="Rvh-zf-sDO"/>
                             <constraint firstItem="mMY-1f-eGi" firstAttribute="top" secondItem="bfL-Gh-OGP" secondAttribute="bottom" constant="16" id="UT5-Q9-rea"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="mMY-1f-eGi" secondAttribute="trailing" constant="16" id="UnN-hI-AQQ"/>
-                            <constraint firstItem="MVa-Sq-tAM" firstAttribute="top" secondItem="Jhf-yl-xb3" secondAttribute="bottom" id="Wqo-lE-uVR"/>
                             <constraint firstItem="Jhf-yl-xb3" firstAttribute="leading" secondItem="A6a-ih-LYe" secondAttribute="leading" id="Z9j-Yg-r6O"/>
                             <constraint firstItem="KbZ-DW-zI5" firstAttribute="top" secondItem="xQh-2y-wkq" secondAttribute="bottom" constant="8" id="a6j-Aa-fqL"/>
-                            <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="MVa-Sq-tAM" secondAttribute="trailing" id="apE-59-3yb"/>
                             <constraint firstItem="7Zk-SD-KIc" firstAttribute="leading" secondItem="ix1-Rw-92v" secondAttribute="trailing" constant="8" id="f9u-tl-uXa"/>
                             <constraint firstItem="bfL-Gh-OGP" firstAttribute="top" secondItem="7Zk-SD-KIc" secondAttribute="bottom" constant="8" id="fh2-L1-d9t"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="bfL-Gh-OGP" secondAttribute="trailing" constant="26" id="fpo-Bl-dF1"/>
@@ -793,9 +784,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <outlet property="doneButton" destination="bfL-Gh-OGP" id="Vhq-Zn-Ln6"/>
                         <outlet property="doneLabel" destination="Vou-tS-gdC" id="zO1-Hc-2p9"/>
                         <outlet property="mainEditButton" destination="mMY-1f-eGi" id="WwC-GV-227"/>
+                        <outlet property="mainView" destination="4us-rf-9NR" id="Sc3-mv-eg3"/>
                         <outlet property="plusStundeButton" destination="KbZ-DW-zI5" id="DOM-dp-Yt8"/>
                         <outlet property="plusStundeLabel" destination="eal-yb-0nz" id="W0I-7e-Pam"/>
-                        <outlet property="scrollView" destination="MVa-Sq-tAM" id="Snn-ms-UAj"/>
                         <outlet property="sendButton" destination="xQh-2y-wkq" id="8df-vf-xmA"/>
                         <outlet property="sendLabel" destination="wCg-Mr-pV1" id="JJc-95-p8F"/>
                         <outlet property="wochentagSelector" destination="Jhf-yl-xb3" id="qLe-MC-lIg"/>

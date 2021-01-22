@@ -11,7 +11,7 @@ import UIKit
 
 class StundenplanViewController: UIViewController {
     
-    @IBOutlet weak var scrollView: UIView!
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var wochentagSelector: UISegmentedControl!
     
     @IBOutlet weak var mainEditButton: UIButton!
@@ -24,7 +24,8 @@ class StundenplanViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var sendLabel: UILabel!
     
-    var stackView = UIStackView()
+    let scrollView = UIScrollView()
+    let stackView = UIStackView()
     var menuOpen = false
     var editingStundenplan = false
     var stundenModels = [[StundenplanEintragModel]]()
@@ -44,6 +45,13 @@ class StundenplanViewController: UIViewController {
         }
         createStundenplan(wochentag: weekday)
         wochentagSelector.selectedSegmentIndex = weekday
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        mainView.addSubview(scrollView)
+        mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .trailing, relatedBy: .equal, toItem: self.mainView, attribute: .trailing, multiplier: 1.0, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .leading, relatedBy: .equal, toItem: self.mainView, attribute: .leading, multiplier: 1.0, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .top, relatedBy: .equal, toItem: self.wochentagSelector, attribute: .bottom, multiplier: 1.0, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .bottom, relatedBy: .equal, toItem: self.mainView, attribute: .bottom, multiplier: 1.0, constant: 0))
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
