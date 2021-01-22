@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -14,23 +14,23 @@
             <objects>
                 <viewController storyboardIdentifier="Home" id="9pv-A4-QxB" customClass="Startseite" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mw2-25-nkt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3W-Vh-g91" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1032"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="986.33333333333337"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_amg" highlightedImage="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="Dml-DH-ZNP">
-                                                <rect key="frame" x="8" y="8" width="359" height="148.5"/>
+                                                <rect key="frame" x="8" y="8" width="412" height="170"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Dml-DH-ZNP" secondAttribute="height" multiplier="1281:529" id="RJU-F2-5gg"/>
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ixi-OU-I8E" userLabel="text">
-                                                <rect key="frame" x="8" y="164.5" width="359" height="467.5"/>
+                                                <rect key="frame" x="8" y="185.99999999999997" width="412" height="400.33333333333326"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
                                                     <fragment>
@@ -47,7 +47,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDo-iY-O9M">
-                                                <rect key="frame" x="8" y="640" width="359" height="400"/>
+                                                <rect key="frame" x="8" y="594.33333333333337" width="412" height="400"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="MMg-BE-I65"/>
@@ -107,11 +107,11 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController storyboardIdentifier="VertretungsplanView" id="8rJ-Kc-sve" customClass="VertretungsplanViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf4-pD-Dpi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -119,12 +119,12 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testText" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWp-tZ-7eN">
-                                <rect key="frame" x="147.5" y="277.5" width="80" height="34"/>
+                                <rect key="frame" x="174" y="407" width="80" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oal-0a-nxq">
-                                <rect key="frame" x="8" y="331.5" width="359" height="4"/>
+                                <rect key="frame" x="8" y="461" width="412" height="4"/>
                             </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
@@ -157,20 +157,20 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="arP-TT-eVR" userLabel="Einstellungen" customClass="EinstellungenViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I5z-dQ-mHz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLS-ZV-AeM" userLabel="AktuelleKlasseView">
-                                <rect key="frame" x="0.0" y="44" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="88" width="428" height="216"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="Aktuelle Klasse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usg-0E-mqq">
-                                        <rect key="frame" x="16" y="97.5" width="115.5" height="21"/>
+                                        <rect key="frame" x="16.000000000000007" y="97.666666666666657" width="115.66666666666669" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qys-AZ-sl0">
-                                        <rect key="frame" x="147.5" y="0.0" width="227.5" height="216"/>
+                                        <rect key="frame" x="147.66666666666666" y="0.0" width="280.33333333333337" height="216"/>
                                     </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -184,7 +184,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7i-EC-Y1Q" userLabel="FarbeEigeneKlasseView">
-                                <rect key="frame" x="0.0" y="260" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="304" width="428" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farbe eigene Klasse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0a-8W-Ciz">
                                         <rect key="frame" x="16" y="16" width="153" height="21"/>
@@ -193,14 +193,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXT-bx-C4B">
-                                        <rect key="frame" x="284" y="11.5" width="75" height="30"/>
+                                        <rect key="frame" x="337" y="11.666666666666686" width="75" height="30"/>
                                         <state key="normal" title="Bearbeiten"/>
                                         <connections>
                                             <action selector="changeEigeneKlasseColor:" destination="arP-TT-eVR" eventType="touchUpInside" id="Yvy-hn-sRO"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZN-94-xFj" userLabel="EigeneKlasseColorPreview">
-                                        <rect key="frame" x="247" y="16" width="21" height="21"/>
+                                        <rect key="frame" x="300" y="16" width="21" height="21"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QZN-94-xFj" secondAttribute="height" multiplier="1:1" id="ed7-gB-XsF"/>
@@ -223,23 +223,23 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZ9-wk-1me" userLabel="FarbeUnterstufe">
-                                <rect key="frame" x="0.0" y="313" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="357" width="428" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farbe Unterstufe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="306-Yn-vom">
-                                        <rect key="frame" x="16" y="16" width="128.5" height="21"/>
+                                        <rect key="frame" x="16" y="16" width="128.66666666666666" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4X-jp-4s7">
-                                        <rect key="frame" x="284" y="11.5" width="75" height="30"/>
+                                        <rect key="frame" x="337" y="11.666666666666686" width="75" height="30"/>
                                         <state key="normal" title="Bearbeiten"/>
                                         <connections>
                                             <action selector="changeUnterstufeColor:" destination="arP-TT-eVR" eventType="touchUpInside" id="AFt-3L-hGJ"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeg-RE-bSg" userLabel="UnterstufeColorPreview">
-                                        <rect key="frame" x="247" y="16" width="21" height="21"/>
+                                        <rect key="frame" x="300" y="16" width="21" height="21"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zeg-RE-bSg" secondAttribute="height" multiplier="1:1" id="P3M-WL-zz7"/>
@@ -262,7 +262,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqY-qy-soh" userLabel="FarbeOberstufe">
-                                <rect key="frame" x="0.0" y="419" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="463" width="428" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farbe Oberstufe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJJ-ED-5Xo">
                                         <rect key="frame" x="16" y="16" width="124" height="21"/>
@@ -271,14 +271,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3r-8M-KG2">
-                                        <rect key="frame" x="284" y="11.5" width="75" height="30"/>
+                                        <rect key="frame" x="337" y="11.666666666666686" width="75" height="30"/>
                                         <state key="normal" title="Bearbeiten"/>
                                         <connections>
                                             <action selector="changeOberstufeColor:" destination="arP-TT-eVR" eventType="touchUpInside" id="Cqb-72-mUR"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7i-2x-gBk" userLabel="OberstufeColorPreview">
-                                        <rect key="frame" x="247" y="16" width="21" height="21"/>
+                                        <rect key="frame" x="300" y="16" width="21" height="21"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="D7i-2x-gBk" secondAttribute="height" multiplier="1:1" id="5JR-dm-V3b"/>
@@ -301,7 +301,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drw-Cf-E3K" userLabel="FarbeMittelstufe">
-                                <rect key="frame" x="0.0" y="366" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="410" width="428" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farbe Mittelstufe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hga-gb-3wO">
                                         <rect key="frame" x="16" y="16" width="129" height="21"/>
@@ -310,14 +310,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6R0-EQ-fdt">
-                                        <rect key="frame" x="284" y="11.5" width="75" height="30"/>
+                                        <rect key="frame" x="337" y="11.666666666666686" width="75" height="30"/>
                                         <state key="normal" title="Bearbeiten"/>
                                         <connections>
                                             <action selector="changeMittelstufeColor:" destination="arP-TT-eVR" eventType="touchUpInside" id="w7S-Ir-Uvf"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3S-f2-1mU" userLabel="MittelstufeColorPreview">
-                                        <rect key="frame" x="247" y="16" width="21" height="21"/>
+                                        <rect key="frame" x="300" y="16" width="21" height="21"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="x3S-f2-1mU" secondAttribute="height" multiplier="1:1" id="TEx-qE-jd8"/>
@@ -379,11 +379,11 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController id="Uex-RJ-cRp" userLabel="Hilfe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h6I-WK-UKm" userLabel="Hilfe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dw-1P-cuh">
-                                <rect key="frame" x="16" y="60" width="343" height="385.5"/>
+                                <rect key="frame" x="16" y="104.00000000000003" width="396" height="385.66666666666674"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Es werden keine Icons mehr im Vertretungsplan angezeigt 	</string>
@@ -444,7 +444,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03P-tN-o94">
-                                <rect key="frame" x="153.5" y="461.5" width="68" height="30"/>
+                                <rect key="frame" x="180" y="505.66666666666674" width="68" height="30"/>
                                 <state key="normal" title="Feedback"/>
                                 <connections>
                                     <segue destination="1yR-c8-dAD" kind="show" id="SAW-jb-nci"/>
@@ -472,19 +472,19 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController id="1yR-c8-dAD" userLabel="Feedback" customClass="FeedbackViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rro-Ec-RRW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBi-PP-0uQ">
-                                <rect key="frame" x="27.5" y="60" width="320" height="216"/>
+                                <rect key="frame" x="54" y="104" width="320" height="216"/>
                             </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Beschreibung" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hD1-qK-6U5">
-                                <rect key="frame" x="32" y="316.5" width="311" height="34"/>
+                                <rect key="frame" x="32" y="446" width="364" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BR-rR-NLI">
-                                <rect key="frame" x="167" y="572" width="41" height="30"/>
+                                <rect key="frame" x="193.66666666666666" y="797" width="41" height="30"/>
                                 <state key="normal" title="Fertig"/>
                                 <connections>
                                     <action selector="submit:" destination="1yR-c8-dAD" eventType="touchUpInside" id="Zqb-lT-pcC"/>
@@ -519,33 +519,33 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController id="KJ1-Sq-hzH" customClass="LoginViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jpn-LZ-XBh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Benutzername" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5g-Pn-QkT">
-                                <rect key="frame" x="70" y="316.5" width="235" height="34"/>
+                                <rect key="frame" x="70" y="446" width="288" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-ic-7Ti">
-                                <rect key="frame" x="70" y="380.5" width="235" height="34"/>
+                                <rect key="frame" x="70" y="510" width="288" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="pG8-8j-Lyg">
-                                <rect key="frame" x="20" y="114" width="335" height="120"/>
+                                <rect key="frame" x="20" y="158" width="388" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pG8-8j-Lyg" secondAttribute="height" multiplier="67:24" id="KIn-N6-JRU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Anmeldedaten für Schüler sind die des (alten) Schüleraccounts an den Schul-PCs." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-hQ-UjY">
-                                <rect key="frame" x="16" y="566" width="343" height="36"/>
+                                <rect key="frame" x="16" y="791.33333333333337" width="396" height="35.666666666666629"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDG-Y1-jOU">
-                                <rect key="frame" x="267" y="464.5" width="38" height="30"/>
+                                <rect key="frame" x="320" y="594" width="38" height="30"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Login">
@@ -645,11 +645,11 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController id="IfF-5w-wLu" userLabel="Stundenplan" customClass="StundenplanViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4us-rf-9NR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jhf-yl-xb3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="32"/>
                                 <segments>
                                     <segment title="Montag"/>
                                     <segment title="Dienstag"/>
@@ -667,7 +667,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <viewLayoutGuide key="frameLayoutGuide" id="Q7C-oP-yM5"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMY-1f-eGi">
-                                <rect key="frame" x="299" y="542.5" width="60" height="59"/>
+                                <rect key="frame" x="352" y="768" width="60" height="58.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Atv-cp-Som"/>
                                     <constraint firstAttribute="width" constant="60" id="IEN-yH-qjZ"/>
@@ -679,7 +679,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfL-Gh-OGP">
-                                <rect key="frame" x="309" y="486.5" width="40" height="39"/>
+                                <rect key="frame" x="362" y="712" width="40" height="38.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6np-r0-JHo"/>
                                     <constraint firstAttribute="width" constant="40" id="7Uv-k2-Q9Q"/>
@@ -690,14 +690,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fertig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vou-tS-gdC">
-                                <rect key="frame" x="263" y="497.5" width="38" height="17"/>
+                                <rect key="frame" x="316" y="722.66666666666663" width="38" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zk-SD-KIc">
-                                <rect key="frame" x="309" y="438.5" width="40" height="39"/>
+                                <rect key="frame" x="362" y="664" width="40" height="38.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="hAH-es-bSE"/>
                                     <constraint firstAttribute="height" constant="40" id="tfU-Uq-fCd"/>
@@ -708,14 +708,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stundenplan löschen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix1-Rw-92v">
-                                <rect key="frame" x="165" y="449.5" width="136" height="17"/>
+                                <rect key="frame" x="218" y="674.66666666666663" width="136" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbZ-DW-zI5">
-                                <rect key="frame" x="309" y="390.5" width="40" height="39"/>
+                                <rect key="frame" x="362" y="616" width="40" height="38.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1y5-Mb-osy"/>
                                     <constraint firstAttribute="width" constant="40" id="qGt-HS-aaq"/>
@@ -726,14 +726,14 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stunde hinzufügen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eal-yb-0nz">
-                                <rect key="frame" x="178.5" y="401.5" width="122.5" height="17"/>
+                                <rect key="frame" x="231.66666666666663" y="626.66666666666663" width="122.33333333333334" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQh-2y-wkq">
-                                <rect key="frame" x="309" y="342.5" width="40" height="39"/>
+                                <rect key="frame" x="362" y="568" width="40" height="38.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="c4D-Uz-d7R"/>
                                     <constraint firstAttribute="width" constant="40" id="vDB-DT-APj"/>
@@ -744,7 +744,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senden &amp; Empfangen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCg-Mr-pV1">
-                                <rect key="frame" x="161" y="353.5" width="140" height="17"/>
+                                <rect key="frame" x="214" y="578.66666666666663" width="140" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -806,54 +806,54 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController id="kUH-gZ-29V" customClass="StundenplanEntryViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wid-g1-4Gi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fFK-1j-YCY">
-                                <rect key="frame" x="16" y="64" width="343" height="567"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="be2-F8-egU">
+                                <rect key="frame" x="16" y="64" width="396" height="758"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fachname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d34-z2-bzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fachname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Fh-tq-k6o">
+                                        <rect key="frame" x="0.0" y="0.0" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fach Abkürzung (Mit Kursnummer)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taQ-yJ-CEJ">
-                                        <rect key="frame" x="0.0" y="134.5" width="343" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fach Abkürzung (Mit Kursnummer)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4g-iW-sVk">
+                                        <rect key="frame" x="0.0" y="182" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lehrer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzE-JJ-YjN">
-                                        <rect key="frame" x="0.0" y="268.5" width="343" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lehrer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dfn-7g-VZA">
+                                        <rect key="frame" x="0.0" y="364" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Raum" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9f-lC-vEH">
-                                        <rect key="frame" x="0.0" y="403" width="343" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Raum" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgL-M2-brC">
+                                        <rect key="frame" x="0.0" y="546" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nLG-iz-Pbu">
-                                        <rect key="frame" x="0.0" y="537" width="343" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pkz-uw-D4H">
+                                        <rect key="frame" x="0.0" y="728" width="396" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RT0-Z8-ILf">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfC-Ng-0Nk">
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="30"/>
                                                 <state key="normal" title="Abbrechen"/>
                                                 <connections>
-                                                    <action selector="pressAbbrechen:" destination="kUH-gZ-29V" eventType="touchUpInside" id="agl-Pu-Z0j"/>
+                                                    <action selector="pressAbbrechen:" destination="kUH-gZ-29V" eventType="touchUpInside" id="pea-RI-Oqm"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFP-hW-qhM">
-                                                <rect key="frame" x="114.5" y="0.0" width="114" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpp-2U-0ID">
+                                                <rect key="frame" x="132" y="0.0" width="132" height="30"/>
                                                 <state key="normal" title="Löschen"/>
                                                 <connections>
-                                                    <action selector="pressDelete:" destination="kUH-gZ-29V" eventType="touchUpInside" id="aam-yI-AxL"/>
+                                                    <action selector="pressDelete:" destination="kUH-gZ-29V" eventType="touchUpInside" id="7ZD-ec-nQD"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG4-Ph-K6e">
-                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8U-Md-IfX">
+                                                <rect key="frame" x="264" y="0.0" width="132" height="30"/>
                                                 <state key="normal" title="Speichern"/>
                                                 <connections>
-                                                    <action selector="pressSpeichern:" destination="kUH-gZ-29V" eventType="touchUpInside" id="IRB-R7-dV2"/>
+                                                    <action selector="pressSpeichern:" destination="kUH-gZ-29V" eventType="touchUpInside" id="zKF-Vo-xY8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -864,17 +864,19 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <viewLayoutGuide key="safeArea" id="9eG-xf-19m"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9eG-xf-19m" firstAttribute="bottom" secondItem="fFK-1j-YCY" secondAttribute="bottom" constant="16" id="Cn2-zi-LFL"/>
-                            <constraint firstItem="fFK-1j-YCY" firstAttribute="leading" secondItem="9eG-xf-19m" secondAttribute="leading" constant="16" id="DaS-Bb-RpO"/>
-                            <constraint firstItem="fFK-1j-YCY" firstAttribute="top" secondItem="9eG-xf-19m" secondAttribute="top" constant="64" id="JGC-lm-grf"/>
-                            <constraint firstItem="9eG-xf-19m" firstAttribute="trailing" secondItem="fFK-1j-YCY" secondAttribute="trailing" constant="16" id="n1I-Ft-QtC"/>
+                            <constraint firstItem="be2-F8-egU" firstAttribute="leading" secondItem="9eG-xf-19m" secondAttribute="leading" constant="16" id="66u-4x-Eoi"/>
+                            <constraint firstItem="9eG-xf-19m" firstAttribute="bottom" secondItem="be2-F8-egU" secondAttribute="bottom" constant="16" id="86L-LD-F5p"/>
+                            <constraint firstItem="be2-F8-egU" firstAttribute="top" secondItem="9eG-xf-19m" secondAttribute="top" constant="64" id="MD5-rc-XMk"/>
+                            <constraint firstItem="9eG-xf-19m" firstAttribute="trailing" secondItem="be2-F8-egU" secondAttribute="trailing" constant="16" id="NIE-o5-3pg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fachAbk" destination="taQ-yJ-CEJ" id="mJW-VM-ubF"/>
-                        <outlet property="fachname" destination="d34-z2-bzO" id="OZJ-8e-rIG"/>
-                        <outlet property="lehrer" destination="NzE-JJ-YjN" id="z4L-bC-fFP"/>
-                        <outlet property="raum" destination="c9f-lC-vEH" id="0pZ-nE-NxS"/>
+                        <outlet property="contentView" destination="Wid-g1-4Gi" id="fID-7a-9is"/>
+                        <outlet property="fachAbk" destination="a4g-iW-sVk" id="zKD-on-Zmn"/>
+                        <outlet property="fachname" destination="4Fh-tq-k6o" id="OXS-Lr-PzV"/>
+                        <outlet property="innerViewBottomConstraint" destination="86L-LD-F5p" id="JnP-WV-NNT"/>
+                        <outlet property="lehrer" destination="Dfn-7g-VZA" id="86c-5O-Axu"/>
+                        <outlet property="raum" destination="lgL-M2-brC" id="T35-FM-JDz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vd0-TU-mnE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -886,27 +888,27 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <tableViewController id="C5g-pl-GUN" userLabel="SendReceiveStundenplan" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZLN-j3-hSC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
                             <tableViewSection id="dXF-pY-peE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="vgt-qo-zwp">
-                                        <rect key="frame" x="0.0" y="18" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="18" width="428" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vgt-qo-zwp" id="lwj-Mo-FZI">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vks-B9-4Lq">
-                                                    <rect key="frame" x="16" y="7" width="32" height="29.5"/>
+                                                    <rect key="frame" x="16" y="7.6666666666666625" width="32" height="29.000000000000007"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Vks-B9-4Lq" secondAttribute="height" multiplier="1:1" id="X6f-5G-X0e"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code erstellen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k7-I8-Qr4">
-                                                    <rect key="frame" x="64" y="11.5" width="138" height="21"/>
+                                                    <rect key="frame" x="64" y="11.666666666666664" width="138" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -925,20 +927,20 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="meH-aG-WPu">
-                                        <rect key="frame" x="0.0" y="61.5" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="61.5" width="428" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="meH-aG-WPu" id="7LG-1I-TQ7">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-X0-BrJ">
-                                                    <rect key="frame" x="16" y="6.5" width="32" height="30.5"/>
+                                                    <rect key="frame" x="16" y="7.3333333333333357" width="32" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mNe-X0-BrJ" secondAttribute="height" multiplier="1:1" id="7JG-Zb-tcM"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code lesen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUC-dk-rlo">
-                                                    <rect key="frame" x="64" y="11.5" width="113.5" height="21"/>
+                                                    <rect key="frame" x="64" y="11.666666666666664" width="113.66666666666669" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -957,18 +959,18 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Edh-Y4-HUG">
-                                        <rect key="frame" x="0.0" y="105" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="105" width="428" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Edh-Y4-HUG" id="80E-iI-FJh">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="bQv-zc-M97">
-                                        <rect key="frame" x="0.0" y="148.5" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="148.5" width="428" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bQv-zc-M97" id="GgN-BT-9sO">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -991,11 +993,11 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController id="92h-hc-kUt" customClass="StundenplanQRGenerator" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q2s-Qb-Uou">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hB3-IP-GMM" userLabel="QRCode">
-                                <rect key="frame" x="0.0" y="56" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="56" width="428" height="782"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9YM-r8-YRZ"/>
@@ -1021,7 +1023,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController id="OhH-ej-kgM" customClass="StundenplanQRScanner" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Llr-vo-v1f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Kjc-e9-wNd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1038,7 +1040,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 <navigationController id="ZyO-3R-6Z4" userLabel="StundenplanSendReceiveNavigation" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="7mw-Sa-rxy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XUa-Qb-TrY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1055,7 +1057,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 <navigationController id="CJk-9b-ywy" userLabel="SonstigesNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="GEA-eW-7Ge"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qaA-aX-tvD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1071,27 +1073,27 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <tableViewController id="iPW-4Q-euK" customClass="SonstigesViewController" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="eyc-GC-beA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
                             <tableViewSection id="i82-wf-KpE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="43.5" id="Yad-2J-38c">
-                                        <rect key="frame" x="0.0" y="18" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="18" width="428" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yad-2J-38c" id="h9U-i0-BeW">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gearshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Sw8-Cy-tdS">
-                                                    <rect key="frame" x="16" y="6" width="31.5" height="31"/>
+                                                    <rect key="frame" x="16" y="6.3333333333333339" width="31.666666666666671" height="31.000000000000004"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Sw8-Cy-tdS" secondAttribute="height" multiplier="1:1" id="T6T-W2-1j8"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Einstellungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwQ-yZ-Q1g">
-                                                    <rect key="frame" x="63.5" y="11.5" width="102" height="21"/>
+                                                    <rect key="frame" x="63.666666666666657" y="11.333333333333336" width="102" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1111,20 +1113,20 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="43.5" id="b2o-E7-Za4">
-                                        <rect key="frame" x="0.0" y="61.5" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="61.5" width="428" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b2o-E7-Za4" id="TTV-ne-Z7k">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ApO-QG-CwH">
-                                                    <rect key="frame" x="16" y="6.5" width="31.5" height="30.5"/>
+                                                    <rect key="frame" x="16" y="6.9999999999999964" width="31.666666666666671" height="30.333333333333343"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ApO-QG-CwH" secondAttribute="height" multiplier="1:1" id="UEA-eZ-G4z"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hilfe und Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MO-kr-7I5">
-                                                    <rect key="frame" x="63.5" y="11.5" width="147" height="21"/>
+                                                    <rect key="frame" x="63.666666666666657" y="11.333333333333336" width="147" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1144,20 +1146,20 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="43.5" id="pma-Bh-f5r">
-                                        <rect key="frame" x="0.0" y="105" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="105" width="428" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pma-Bh-f5r" id="XQN-lN-4VG">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="power" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GyX-OZ-RxS">
-                                                    <rect key="frame" x="16" y="6" width="31.5" height="31"/>
+                                                    <rect key="frame" x="16" y="6.3333333333333339" width="31.666666666666671" height="31.000000000000004"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="GyX-OZ-RxS" secondAttribute="height" multiplier="1:1" id="HyA-pr-ptY"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login/Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KF-SW-fEX">
-                                                    <rect key="frame" x="63.5" y="11.5" width="100" height="21"/>
+                                                    <rect key="frame" x="63.666666666666657" y="11.333333333333336" width="100" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1177,20 +1179,20 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="43.5" id="k1W-aR-nkt">
-                                        <rect key="frame" x="0.0" y="148.5" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="148.5" width="428" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k1W-aR-nkt" id="xgg-Zy-P7n">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mdr-LP-OD7">
-                                                    <rect key="frame" x="16" y="6.5" width="31.5" height="30.5"/>
+                                                    <rect key="frame" x="16" y="6.9999999999999964" width="31.666666666666671" height="30.333333333333343"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Mdr-LP-OD7" secondAttribute="height" multiplier="1:1" id="KhV-2h-63u"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VX6-5f-jKL">
-                                                    <rect key="frame" x="63.5" y="11.5" width="29" height="21"/>
+                                                    <rect key="frame" x="63.666666666666657" y="11.333333333333336" width="29" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1232,11 +1234,11 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
             <objects>
                 <viewController id="vNM-0e-02a" userLabel="Info" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mfl-Tv-lVR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMl-Ba-TLG" userLabel="Info-Text">
-                                <rect key="frame" x="16" y="60" width="375" height="574"/>
+                                <rect key="frame" x="16" y="104" width="428" height="755"/>
                                 <string key="text">Diese App wird programmiert, verwaltet und gewartet von Adrian Kathagen  Version: 1.0  Icons: Silk Icons, by Mark James - famfamfam         Apple System Icons  Diese App wurde programmiert für das     Albert-Martmöller-Gymnasium     Oberdorf 9     58456 Witten      Tel: +49 2302 189172     Fax: +49 2302 189059      amg@schule-witten.de</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>

@@ -14,9 +14,12 @@ class StundenplanEntryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fachAbk: UITextField!
     @IBOutlet weak var lehrer: UITextField!
     @IBOutlet weak var raum: UITextField!
+    @IBOutlet weak var innerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var contentView: UIView!
     
     public var stunde: StundenplanViewController.StundenplanEintragModel? = nil
     public var delegate: StundenplanViewController? = nil
+    private var newHeightConstraint: NSLayoutConstraint? = nil
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,6 +35,20 @@ class StundenplanEntryViewController: UIViewController, UITextFieldDelegate {
         raum.delegate = self
         
         self.hideKeyboardWhenTappedAround()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            innerViewBottomConstraint.constant = keyboardSize.height
+            contentView.layoutIfNeeded()
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        innerViewBottomConstraint.constant = 16
+        contentView.layoutIfNeeded()
     }
     
     @IBAction func pressAbbrechen(_ sender: Any) {
