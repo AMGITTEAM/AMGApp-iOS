@@ -908,7 +908,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code erstellen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k7-I8-Qr4">
-                                                    <rect key="frame" x="64" y="11.666666666666664" width="138" height="21"/>
+                                                    <rect key="frame" x="64" y="11.666666666666664" width="316.66666666666669" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -916,6 +916,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0k7-I8-Qr4" firstAttribute="centerY" secondItem="lwj-Mo-FZI" secondAttribute="centerY" id="2ps-I0-cI8"/>
+                                                <constraint firstAttribute="trailing" secondItem="0k7-I8-Qr4" secondAttribute="trailing" constant="16" id="8lu-Zt-fYu"/>
                                                 <constraint firstItem="Vks-B9-4Lq" firstAttribute="centerY" secondItem="lwj-Mo-FZI" secondAttribute="centerY" id="eMT-UK-GRo"/>
                                                 <constraint firstItem="Vks-B9-4Lq" firstAttribute="top" secondItem="lwj-Mo-FZI" secondAttribute="top" constant="6" id="l1A-9Q-d8S"/>
                                                 <constraint firstItem="0k7-I8-Qr4" firstAttribute="leading" secondItem="Vks-B9-4Lq" secondAttribute="trailing" constant="16" id="tVy-tl-gZ1"/>
@@ -940,7 +941,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code lesen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUC-dk-rlo">
-                                                    <rect key="frame" x="64" y="11.666666666666664" width="113.66666666666669" height="21"/>
+                                                    <rect key="frame" x="64" y="11.666666666666664" width="316.66666666666669" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -949,6 +950,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                             <constraints>
                                                 <constraint firstItem="EUC-dk-rlo" firstAttribute="leading" secondItem="mNe-X0-BrJ" secondAttribute="trailing" constant="16" id="2Xs-ac-rRb"/>
                                                 <constraint firstItem="mNe-X0-BrJ" firstAttribute="leading" secondItem="7LG-1I-TQ7" secondAttribute="leading" constant="16" id="8Jf-7y-ThX"/>
+                                                <constraint firstAttribute="trailing" secondItem="EUC-dk-rlo" secondAttribute="trailing" constant="16" id="dlT-g5-VTO"/>
                                                 <constraint firstItem="mNe-X0-BrJ" firstAttribute="centerY" secondItem="7LG-1I-TQ7" secondAttribute="centerY" id="o6o-R3-kQg"/>
                                                 <constraint firstItem="mNe-X0-BrJ" firstAttribute="top" secondItem="7LG-1I-TQ7" secondAttribute="top" constant="6" id="oOM-8B-PYq"/>
                                                 <constraint firstItem="EUC-dk-rlo" firstAttribute="centerY" secondItem="7LG-1I-TQ7" secondAttribute="centerY" id="pXi-ww-VTW"/>
@@ -964,7 +966,32 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Edh-Y4-HUG" id="80E-iI-FJh">
                                             <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.insert" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UFc-MU-KWs">
+                                                    <rect key="frame" x="16" y="8.3333333333333339" width="32" height="28.000000000000004"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="UFc-MU-KWs" secondAttribute="height" multiplier="1:1" id="zAd-pu-xax"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Als Text exportieren" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="012-Hy-f3U">
+                                                    <rect key="frame" x="64" y="11.666666666666664" width="316.66666666666669" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UFc-MU-KWs" firstAttribute="centerY" secondItem="80E-iI-FJh" secondAttribute="centerY" id="45W-Cm-3iB"/>
+                                                <constraint firstItem="UFc-MU-KWs" firstAttribute="top" secondItem="80E-iI-FJh" secondAttribute="top" constant="6" id="5pK-Ns-0ok"/>
+                                                <constraint firstItem="UFc-MU-KWs" firstAttribute="leading" secondItem="80E-iI-FJh" secondAttribute="leading" constant="16" id="Bd4-yz-qbZ"/>
+                                                <constraint firstItem="012-Hy-f3U" firstAttribute="leading" secondItem="UFc-MU-KWs" secondAttribute="trailing" constant="16" id="Sx2-jl-zGN"/>
+                                                <constraint firstAttribute="trailing" secondItem="012-Hy-f3U" secondAttribute="trailing" constant="16" id="jZv-sw-WMe"/>
+                                                <constraint firstItem="012-Hy-f3U" firstAttribute="centerY" secondItem="80E-iI-FJh" secondAttribute="centerY" id="t6M-r7-YEs"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7Rh-AA-jLL" kind="show" id="saY-Kh-Ade"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="bQv-zc-M97">
                                         <rect key="frame" x="0.0" y="148.5" width="428" height="43.5"/>
@@ -972,7 +999,32 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bQv-zc-M97" id="GgN-BT-9sO">
                                             <rect key="frame" x="0.0" y="0.0" width="396.66666666666669" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail.and.text.magnifyingglass.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oWn-qb-acp">
+                                                    <rect key="frame" x="16" y="7.3333333333333304" width="32" height="29.666666666666668"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="oWn-qb-acp" secondAttribute="height" multiplier="1:1" id="tkN-Yi-5EL"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aus Text importieren" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo2-N6-6EE">
+                                                    <rect key="frame" x="64" y="11.666666666666664" width="316.66666666666669" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oWn-qb-acp" firstAttribute="top" secondItem="GgN-BT-9sO" secondAttribute="top" constant="6" id="5uC-R2-xOw"/>
+                                                <constraint firstItem="fo2-N6-6EE" firstAttribute="centerY" secondItem="GgN-BT-9sO" secondAttribute="centerY" id="BnY-qZ-7rG"/>
+                                                <constraint firstItem="oWn-qb-acp" firstAttribute="centerY" secondItem="GgN-BT-9sO" secondAttribute="centerY" id="GH5-uX-mGO"/>
+                                                <constraint firstItem="oWn-qb-acp" firstAttribute="leading" secondItem="GgN-BT-9sO" secondAttribute="leading" constant="16" id="bw6-dO-eRU"/>
+                                                <constraint firstAttribute="trailing" secondItem="fo2-N6-6EE" secondAttribute="trailing" constant="16" id="gEX-S3-Sbe"/>
+                                                <constraint firstItem="fo2-N6-6EE" firstAttribute="leading" secondItem="oWn-qb-acp" secondAttribute="trailing" constant="16" id="pLw-Op-9O5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jtJ-Zb-Q5O" kind="show" id="hED-Xb-Xn8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -987,6 +1039,124 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2O4-7B-cYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="940" y="2089"/>
+        </scene>
+        <!--Als Text exportieren-->
+        <scene sceneID="QZS-bE-f4a">
+            <objects>
+                <viewController id="7Rh-AA-jLL" userLabel="Als Text exportieren" customClass="StundenplanTextGenerator" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ya-x2-9pN">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lädt..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EuG-Ty-pPO">
+                                <rect key="frame" x="16" y="416" width="396" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="20" id="Ryg-lN-c1e"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-6W-hIb" userLabel="VerticalDivider">
+                                <rect key="frame" x="0.0" y="436" width="428" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="gO5-zP-MlG"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOo-wV-iEk">
+                                <rect key="frame" x="193.66666666666666" y="500" width="41" height="30"/>
+                                <state key="normal" title="Teilen"/>
+                                <connections>
+                                    <action selector="share:" destination="7Rh-AA-jLL" eventType="touchUpInside" id="JIT-pp-yNd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7aC-eT-QeR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a3I-6W-hIb" firstAttribute="top" secondItem="EuG-Ty-pPO" secondAttribute="bottom" id="2fp-yz-HIH"/>
+                            <constraint firstItem="a3I-6W-hIb" firstAttribute="centerY" secondItem="0Ya-x2-9pN" secondAttribute="centerY" id="CFO-GU-suo"/>
+                            <constraint firstItem="a3I-6W-hIb" firstAttribute="leading" secondItem="7aC-eT-QeR" secondAttribute="leading" id="CJA-4v-qZr"/>
+                            <constraint firstItem="EuG-Ty-pPO" firstAttribute="leading" secondItem="7aC-eT-QeR" secondAttribute="leading" constant="16" id="QA0-97-9JW"/>
+                            <constraint firstItem="EuG-Ty-pPO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7aC-eT-QeR" secondAttribute="top" constant="16" id="SBM-Pg-fjT"/>
+                            <constraint firstItem="7aC-eT-QeR" firstAttribute="trailing" secondItem="EuG-Ty-pPO" secondAttribute="trailing" constant="16" id="YXb-sI-KRC"/>
+                            <constraint firstItem="7aC-eT-QeR" firstAttribute="trailing" secondItem="a3I-6W-hIb" secondAttribute="trailing" id="h4E-eE-Usb"/>
+                            <constraint firstItem="ZOo-wV-iEk" firstAttribute="centerX" secondItem="0Ya-x2-9pN" secondAttribute="centerX" id="pnV-lY-3bX"/>
+                            <constraint firstItem="ZOo-wV-iEk" firstAttribute="top" secondItem="EuG-Ty-pPO" secondAttribute="bottom" constant="64" id="tCR-FG-B21"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Yym-d0-zuj"/>
+                    <connections>
+                        <outlet property="heightConstraint" destination="Ryg-lN-c1e" id="vgt-3q-Oo3"/>
+                        <outlet property="textView" destination="EuG-Ty-pPO" id="B5G-ya-OP8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tbO-eV-S7j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1706" y="2489"/>
+        </scene>
+        <!--Aus Text importieren-->
+        <scene sceneID="4tv-Dw-7Lh">
+            <objects>
+                <viewController id="jtJ-Zb-Q5O" userLabel="Aus Text importieren" customClass="StundenplanTextInput" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Bl-I9-m6a">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpP-Kj-da2" userLabel="VerticalDivider">
+                                <rect key="frame" x="0.0" y="436" width="428" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="fno-EW-MWV"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zB3-zQ-bD6">
+                                <rect key="frame" x="193.66666666666666" y="452" width="41" height="30"/>
+                                <state key="normal" title="Fertig"/>
+                                <connections>
+                                    <action selector="done:" destination="jtJ-Zb-Q5O" eventType="touchUpInside" id="152-JT-sOW"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2MM-6M-vQQ">
+                                <rect key="frame" x="16" y="72" width="396" height="348"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Gib hier den Code ein, der über &quot;Als Text exportieren&quot; generiert wurde!">
+                                        <attributes>
+                                            <color key="NSColor" red="0.5279711787564767" green="0.5279711787564767" blue="0.5279711787564767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZTH-Ps-Co0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kpP-Kj-da2" firstAttribute="leading" secondItem="ZTH-Ps-Co0" secondAttribute="leading" id="1DT-PP-PQg"/>
+                            <constraint firstItem="kpP-Kj-da2" firstAttribute="top" secondItem="2MM-6M-vQQ" secondAttribute="bottom" constant="16" id="2Yp-gR-Zjv"/>
+                            <constraint firstItem="2MM-6M-vQQ" firstAttribute="top" secondItem="ZTH-Ps-Co0" secondAttribute="top" constant="16" id="5iE-7F-IL2"/>
+                            <constraint firstItem="zB3-zQ-bD6" firstAttribute="top" secondItem="kpP-Kj-da2" secondAttribute="bottom" constant="16" id="Cv8-V7-VY5"/>
+                            <constraint firstItem="ZTH-Ps-Co0" firstAttribute="trailing" secondItem="2MM-6M-vQQ" secondAttribute="trailing" constant="16" id="LUe-be-wIo"/>
+                            <constraint firstItem="2MM-6M-vQQ" firstAttribute="leading" secondItem="ZTH-Ps-Co0" secondAttribute="leading" constant="16" id="WT4-3d-tdv"/>
+                            <constraint firstItem="kpP-Kj-da2" firstAttribute="centerX" secondItem="8Bl-I9-m6a" secondAttribute="centerX" id="cEI-h4-1GH"/>
+                            <constraint firstItem="kpP-Kj-da2" firstAttribute="centerY" secondItem="8Bl-I9-m6a" secondAttribute="centerY" id="crt-6Q-LCc"/>
+                            <constraint firstItem="ZTH-Ps-Co0" firstAttribute="trailing" secondItem="kpP-Kj-da2" secondAttribute="trailing" id="qKn-jb-mSw"/>
+                            <constraint firstItem="zB3-zQ-bD6" firstAttribute="centerX" secondItem="8Bl-I9-m6a" secondAttribute="centerX" id="rfh-Fz-kEG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dwd-QB-Lzg"/>
+                    <connections>
+                        <outlet property="textField" destination="2MM-6M-vQQ" id="eHg-fA-pXb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9QL-L7-4E4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2378" y="2489"/>
         </scene>
         <!--QR Code erstellen-->
         <scene sceneID="P04-aT-PHB">
@@ -1016,7 +1186,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFi-Bl-Sod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="1830"/>
+            <point key="canvasLocation" x="1707" y="1832"/>
         </scene>
         <!--QR Code lesen-->
         <scene sceneID="F7v-0z-pyO">
@@ -1032,7 +1202,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jev-Sv-XTZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1847" y="2516"/>
+            <point key="canvasLocation" x="2378" y="1832"/>
         </scene>
         <!--StundenplanSendReceiveNavigation-->
         <scene sceneID="jeI-AX-O5s">
@@ -1271,6 +1441,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="logo_amg" width="1281" height="529"/>
+        <image name="mail.and.text.magnifyingglass.rtl" catalog="system" width="128" height="83"/>
         <image name="paperplane.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
@@ -1280,7 +1451,11 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
+        <image name="text.insert" catalog="system" width="128" height="100"/>
         <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
