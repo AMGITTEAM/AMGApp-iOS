@@ -17,6 +17,7 @@
 		12961AC2259F62EF001380F1 /* Startseite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12961AC1259F62EF001380F1 /* Startseite.swift */; };
 		12961ACF25BB2CDA001380F1 /* StundenplanTextGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12961ACE25BB2CD9001380F1 /* StundenplanTextGenerator.swift */; };
 		12961AD225BB2DA8001380F1 /* StundenplanTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12961AD125BB2DA8001380F1 /* StundenplanTextInput.swift */; };
+		129C0E5625BB617E001DAC0E /* StundenplanEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C0E5525BB617E001DAC0E /* StundenplanEntry.swift */; };
 		129C7E7825719D21005BEB6F /* SonstigesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C7E7725719D21005BEB6F /* SonstigesViewController.swift */; };
 		12C420B12572F61F00660356 /* EinstellungenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C420B02572F61F00660356 /* EinstellungenViewController.swift */; };
 		12DD00082572C2B300DBD4BE /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */; };
@@ -42,6 +43,7 @@
 		12961AC425AA52B8001380F1 /* AMGApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AMGApp.entitlements; sourceTree = "<group>"; };
 		12961ACE25BB2CD9001380F1 /* StundenplanTextGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanTextGenerator.swift; sourceTree = "<group>"; };
 		12961AD125BB2DA8001380F1 /* StundenplanTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanTextInput.swift; sourceTree = "<group>"; };
+		129C0E5525BB617E001DAC0E /* StundenplanEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanEntry.swift; sourceTree = "<group>"; };
 		129C7E7725719D21005BEB6F /* SonstigesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonstigesViewController.swift; sourceTree = "<group>"; };
 		12C420B02572F61F00660356 /* EinstellungenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EinstellungenViewController.swift; sourceTree = "<group>"; };
 		12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				7B73D48B21C5ABAB005AB6D0 /* Main.storyboard */,
 				125FEDA925850D3D006F06BE /* StundenplanEntryViewController.swift */,
 				125FEDA62582797D006F06BE /* StundenplanViewController.swift */,
+				129C0E5525BB617E001DAC0E /* StundenplanEntry.swift */,
 				7B73D48E21C5ABAD005AB6D0 /* Assets.xcassets */,
 				7B73D49021C5ABAD005AB6D0 /* LaunchScreen.storyboard */,
 				7B73D49321C5ABAD005AB6D0 /* Info.plist */,
@@ -193,6 +196,7 @@
 				12DD00082572C2B300DBD4BE /* FeedbackViewController.swift in Sources */,
 				7B749958220F2B16002C7D0A /* VertretungsplanPageViewController.swift in Sources */,
 				125FEDA72582797D006F06BE /* StundenplanViewController.swift in Sources */,
+				129C0E5625BB617E001DAC0E /* StundenplanEntry.swift in Sources */,
 				125B845B2575541200A1651A /* KlassenPicker.swift in Sources */,
 				7B73D48621C5ABAB005AB6D0 /* AppDelegate.swift in Sources */,
 				7B749956220A16EC002C7D0A /* Variables.swift in Sources */,
