@@ -190,7 +190,7 @@ class StundenplanViewController: UIViewController {
                 return (Int(vModel.getStunde()) == stunde.stunde && vModel.getFach() == stunde.fach)
             })
             
-            stackView.addArrangedSubview(StundenplanDay(stunde: stunde.stunde, fach: stunde.fachName, fachId: stunde.fach, lehrer: stunde.lehrer, raum: stunde.raum, moveNeunteStunde: stundenModels[wochentag].count >= 10, vertretungModel: vertretungModel, delegate: self, editingStundenplan: editingStundenplan))
+            stackView.addArrangedSubview(StundenplanEntry(stunde: stunde.stunde, fach: stunde.fachName, fachId: stunde.fach, lehrer: stunde.lehrer, raum: stunde.raum, moveNeunteStunde: stundenModels[wochentag].count >= 10, vertretungModel: vertretungModel, delegate: self, editingStundenplan: editingStundenplan))
         }
         stackView.addHorizontalSeparators(color:.lightGray)
     }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class StundenplanDay: UIView {
+class StundenplanEntry: UIView {
     
     var delegate: StundenplanViewController
     
