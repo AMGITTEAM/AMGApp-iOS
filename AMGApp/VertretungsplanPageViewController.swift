@@ -31,15 +31,10 @@ class VertretungsplanPageViewController: UIPageViewController {
         }
     }
     
-    private(set) lazy var orderedViewControllers: [UIViewController] = {
-        let UIViewControllers: [UIViewController] = [self.newVertretungsplanViewController(count: 1),
-                                                     self.newVertretungsplanViewController(count: 2)]
-        return UIViewControllers
-    }()
+    private var orderedViewControllers = [newVertretungsplanViewController(count: 1), newVertretungsplanViewController(count: 2)]
     
-    private func newVertretungsplanViewController(count: Int) -> UIViewController {
-        let view = UIStoryboard(name: "Main", bundle: nil) .
-            instantiateViewController(withIdentifier: "VertretungsplanView") as? VertretungsplanViewController
+    private static func newVertretungsplanViewController(count: Int) -> UIViewController {
+        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VertretungsplanView") as? VertretungsplanViewController
         if(count==1){
             view!.day = "Heute"
         }
