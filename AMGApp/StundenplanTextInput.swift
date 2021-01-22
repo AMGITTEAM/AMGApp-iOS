@@ -37,6 +37,9 @@ class StundenplanTextInput: UIViewController, UITextViewDelegate {
         } catch {
             print(error.localizedDescription)
         }
+        dismiss(animated: true)
+        self.presentingViewController?.beginAppearanceTransition(true, animated: false)
+        self.presentingViewController?.endAppearanceTransition()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
