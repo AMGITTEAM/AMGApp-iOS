@@ -40,12 +40,12 @@ class StundenplanViewController: UIViewController {
         stundenModels.removeAll()
         loadStundenplanFromUserdata()
         
-        var weekday = getWeekday()-1
+        var weekday = getWeekday()
         if(weekday >= 5) {
             weekday = 0
         }
         
-        for i in 1...5 {
+        for i in 0...4 {
             days.append(createStundenplan(wochentag: i))
         }
         mainView.insertSubview(dayView, belowSubview: mainEditButton)
@@ -77,7 +77,7 @@ class StundenplanViewController: UIViewController {
         if(weekday == 0){
             weekday = 7
         } //1=monday, not sunday
-        return weekday
+        return weekday-1 //indexing starts at 0
     }
     
     func editStundenplanByVertretungsplan(username: String, password: String, klasse: String){
@@ -175,12 +175,12 @@ class StundenplanViewController: UIViewController {
     
     func createStundenplan(wochentag: Int) -> StundenplanDay {
         var vertretungsplanModel: VertretungsplanViewController.VertretungModelArrayModel? = nil
-        if(wochentag == getWeekday()-1){
+        if(wochentag == getWeekday()){
             vertretungsplanModel = vertretungHeute
-        } else if(wochentag == getWeekday()){
+        } else if(wochentag == getWeekday()+1){
             vertretungsplanModel = vertretungFolgetag
         }
-        return StundenplanDay(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, stunden: stundenModels[wochentag-1], editingStundenplan: editingStundenplan, delegate: self)
+        return StundenplanDay(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, editingStundenplan: editingStundenplan, delegate: self)
     }
     
     var stunde: StundenplanViewController.StundenplanEintragModel? = nil
