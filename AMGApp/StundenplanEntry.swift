@@ -20,7 +20,7 @@ class StundenplanDay: UIView {
     
     init(stunde: Int, fach: String, fachId: String, lehrer: String, raum: String, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanViewController, editingStundenplan: Bool) {
         self.delegate = delegate
-        super.init(frame: CGRect(x: 0, y: 0, width: 200, height: 120))
+        super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         let vertretungStrikethrough: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#FE2E2E"), .strikethroughStyle: NSUnderlineStyle.single.rawValue, .baselineOffset: 0]
         let vertretungNew: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#04B404")]
