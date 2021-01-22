@@ -148,11 +148,11 @@ class StundenplanViewController: UIViewController {
         let alert = UIAlertController(title: "Stundenplan löschen", message: "Bist du sicher, dass du deinen ganzen Stundenplan löschen willst?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Ja", style: .destructive, handler: { [self]_ in
-            stundenModels = [[StundenplanEintragModel]]()
-            for _ in 1...5 {
-                stundenModels.append([StundenplanEintragModel]())
-            }
-            saveStundenModels()
+            UserDefaults.standard.removeObject(forKey: "stundenplanMontag")
+            UserDefaults.standard.removeObject(forKey: "stundenplanDienstag")
+            UserDefaults.standard.removeObject(forKey: "stundenplanMittwoch")
+            UserDefaults.standard.removeObject(forKey: "stundenplanDonnerstag")
+            UserDefaults.standard.removeObject(forKey: "stundenplanFreitag")
             changeWochentag(nil)
             openCloseMenu(nil)
         }))
