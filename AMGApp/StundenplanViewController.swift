@@ -166,11 +166,13 @@ class StundenplanViewController: UIViewController {
             dayView.subviews[0].removeFromSuperview()
         }
         let newSubview = days[wochentag]
-        dayView.addSubview(newSubview)
-        dayView.addConstraint(NSLayoutConstraint(item: newSubview, attribute: .top, relatedBy: .equal, toItem: dayView, attribute: .top, multiplier: 1, constant: 0))
-        dayView.addConstraint(NSLayoutConstraint(item: newSubview, attribute: .bottom, relatedBy: .equal, toItem: dayView, attribute: .bottom, multiplier: 1, constant: 0))
-        dayView.addConstraint(NSLayoutConstraint(item: newSubview, attribute: .leading, relatedBy: .equal, toItem: dayView, attribute: .leading, multiplier: 1, constant: 0))
-        dayView.addConstraint(NSLayoutConstraint(item: newSubview, attribute: .trailing, relatedBy: .equal, toItem: dayView, attribute: .trailing, multiplier: 1, constant: 0))
+        addChild(newSubview)
+        dayView.addSubview(newSubview.view!)
+        dayView.addConstraint(NSLayoutConstraint(item: newSubview.view!, attribute: .top, relatedBy: .equal, toItem: dayView, attribute: .top, multiplier: 1, constant: 0))
+        dayView.addConstraint(NSLayoutConstraint(item: newSubview.view!, attribute: .bottom, relatedBy: .equal, toItem: dayView, attribute: .bottom, multiplier: 1, constant: 0))
+        dayView.addConstraint(NSLayoutConstraint(item: newSubview.view!, attribute: .leading, relatedBy: .equal, toItem: dayView, attribute: .leading, multiplier: 1, constant: 0))
+        dayView.addConstraint(NSLayoutConstraint(item: newSubview.view!, attribute: .trailing, relatedBy: .equal, toItem: dayView, attribute: .trailing, multiplier: 1, constant: 0))
+        newSubview.didMove(toParent: self)
     }
     
     func createStundenplan(wochentag: Int) -> StundenplanDay {
@@ -180,7 +182,9 @@ class StundenplanViewController: UIViewController {
         } else if(wochentag == getWeekday()+1){
             vertretungsplanModel = vertretungFolgetag
         }
-        return StundenplanDay(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, editingStundenplan: editingStundenplan, delegate: self)
+        let day = StundenplanDay()
+        day.create(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, editingStundenplan: editingStundenplan, delegate: self)
+        return day
     }
     
     var stunde: StundenplanViewController.StundenplanEintragModel? = nil
