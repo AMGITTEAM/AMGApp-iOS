@@ -533,13 +533,13 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_amg" translatesAutoresizingMaskIntoConstraints="NO" id="pG8-8j-Lyg">
-                                <rect key="frame" x="20" y="158" width="388" height="139"/>
+                                <rect key="frame" x="20" y="114" width="388" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pG8-8j-Lyg" secondAttribute="height" multiplier="67:24" id="KIn-N6-JRU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Anmeldedaten für Schüler sind die des (alten) Schüleraccounts an den Schul-PCs." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-hQ-UjY">
-                                <rect key="frame" x="16" y="791.33333333333337" width="396" height="35.666666666666629"/>
+                                <rect key="frame" x="16" y="840.33333333333337" width="396" height="35.666666666666629"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -708,7 +708,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stundenplan löschen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix1-Rw-92v">
-                                <rect key="frame" x="218" y="674.66666666666663" width="136" height="17"/>
+                                <rect key="frame" x="218.33333333333337" y="674.66666666666663" width="135.66666666666663" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -726,7 +726,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stunde hinzufügen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eal-yb-0nz">
-                                <rect key="frame" x="231.66666666666663" y="626.66666666666663" width="122.33333333333334" height="17"/>
+                                <rect key="frame" x="231.66666666666666" y="626.66666666666663" width="122.33333333333334" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -744,7 +744,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senden &amp; Empfangen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCg-Mr-pV1">
-                                <rect key="frame" x="214" y="578.66666666666663" width="140" height="17"/>
+                                <rect key="frame" x="214.33333333333337" y="578.66666666666663" width="139.66666666666663" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -757,6 +757,8 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                             <constraint firstItem="7Zk-SD-KIc" firstAttribute="top" secondItem="KbZ-DW-zI5" secondAttribute="bottom" constant="8" id="5HR-qp-dfu"/>
                             <constraint firstItem="KbZ-DW-zI5" firstAttribute="centerY" secondItem="eal-yb-0nz" secondAttribute="centerY" id="5gf-wA-ja7"/>
                             <constraint firstItem="bfL-Gh-OGP" firstAttribute="centerY" secondItem="Vou-tS-gdC" secondAttribute="centerY" id="F67-Bh-vgH"/>
+                            <constraint firstItem="ix1-Rw-92v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A6a-ih-LYe" secondAttribute="leading" constant="16" id="FTc-9w-BDy"/>
+                            <constraint firstItem="Vou-tS-gdC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A6a-ih-LYe" secondAttribute="leading" constant="16" id="HLj-2n-bi7"/>
                             <constraint firstItem="7Zk-SD-KIc" firstAttribute="centerY" secondItem="ix1-Rw-92v" secondAttribute="centerY" id="IJ5-ne-heW"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="KbZ-DW-zI5" secondAttribute="trailing" constant="26" id="IOG-jY-yki"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="xQh-2y-wkq" secondAttribute="trailing" constant="26" id="IXx-Ug-per"/>
@@ -778,7 +780,10 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="trailing" secondItem="bfL-Gh-OGP" secondAttribute="trailing" constant="26" id="fpo-Bl-dF1"/>
                             <constraint firstItem="Jhf-yl-xb3" firstAttribute="top" secondItem="A6a-ih-LYe" secondAttribute="top" id="fzs-Or-sz0"/>
                             <constraint firstItem="xQh-2y-wkq" firstAttribute="leading" secondItem="wCg-Mr-pV1" secondAttribute="trailing" constant="8" id="k3d-ea-zbF"/>
+                            <constraint firstItem="xQh-2y-wkq" firstAttribute="leading" secondItem="wCg-Mr-pV1" secondAttribute="trailing" constant="8" symbolic="YES" id="kqa-k3-eVA"/>
                             <constraint firstItem="A6a-ih-LYe" firstAttribute="bottom" secondItem="mMY-1f-eGi" secondAttribute="bottom" constant="16" id="oZO-P8-YeH"/>
+                            <constraint firstItem="eal-yb-0nz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A6a-ih-LYe" secondAttribute="leading" constant="16" id="prV-ua-BNP"/>
+                            <constraint firstItem="wCg-Mr-pV1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A6a-ih-LYe" secondAttribute="leading" constant="16" id="xvE-aA-jOh"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stundenplan" image="tablecells" catalog="system" id="SRQ-FS-VDv"/>
@@ -1432,7 +1437,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OYL-gy-q7I"/>
+        <segue reference="XNN-cv-kRs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
