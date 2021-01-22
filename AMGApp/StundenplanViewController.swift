@@ -47,7 +47,7 @@ class StundenplanViewController: UIViewController {
         wochentagSelector.selectedSegmentIndex = weekday
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        mainView.addSubview(scrollView)
+        mainView.insertSubview(scrollView, belowSubview: mainEditButton)
         mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .trailing, relatedBy: .equal, toItem: self.mainView, attribute: .trailing, multiplier: 1.0, constant: 0))
         mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .leading, relatedBy: .equal, toItem: self.mainView, attribute: .leading, multiplier: 1.0, constant: 0))
         mainView.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .top, relatedBy: .equal, toItem: self.wochentagSelector, attribute: .bottom, multiplier: 1.0, constant: 0))
