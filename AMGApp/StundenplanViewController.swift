@@ -45,9 +45,7 @@ class StundenplanViewController: UIViewController {
             weekday = 0
         }
         
-        for i in 0...4 {
-            days.append(createStundenplan(wochentag: i))
-        }
+        rebuildDays()
         mainView.insertSubview(dayView, belowSubview: mainEditButton)
         mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .top, relatedBy: .equal, toItem: wochentagSelector, attribute: .bottom, multiplier: 1, constant: 0))
         mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .leading, relatedBy: .equal, toItem: mainView, attribute: .leading, multiplier: 1, constant: 0))
@@ -71,6 +69,13 @@ class StundenplanViewController: UIViewController {
         }
     }
     
+    func rebuildDays() {
+        days.removeAll()
+        for i in 0...4 {
+            days.append(createStundenplan(wochentag: i))
+        }
+    }
+    
     func getWeekday() -> Int {
         var weekday = Calendar(identifier: .gregorian).component(.weekday, from: Date())
         weekday-=1
@@ -89,8 +94,8 @@ class StundenplanViewController: UIViewController {
     }
     
     func loadStundenplanFromUserdata(){
-        for i in 0...4 {
-            let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+wochentagToString(wochentag: i+1)) ?? ""
+        for i in 1...5 {
+            let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: i)) ?? ""
             do {
                 let stundenStrings: [String] = try JSONDecoder().decode([String].self, from: (jsonString.data(using: .utf8)!))
                 stundenModels.append(stundenStrings.map{StundenplanEintragModel(allString: $0)})
@@ -139,6 +144,7 @@ class StundenplanViewController: UIViewController {
     
     @IBAction func editStundenplan(_ sender: Any?) {
         editingStundenplan = !editingStundenplan
+        rebuildDays()
         changeWochentag(nil)
         menuOpen = false
         updateMenu()
@@ -217,7 +223,7 @@ class StundenplanViewController: UIViewController {
         var i=0
         for tag in stundenModels {
             let jsonString = "["+tag.map{$0.toJSONString()}.joined(separator:",")+"]"
-            UserDefaults.standard.set(jsonString, forKey: "stundenplan"+wochentagToString(wochentag: i+1))
+            UserDefaults.standard.set(jsonString, forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: i))
             i+=1
         }
     }
@@ -262,23 +268,6 @@ class StundenplanViewController: UIViewController {
         (data, fertigeKlassen) = VertretungsplanViewController.parseKlassenWithProcess(klassen: klassen, fertigeKlassen: fertigeKlassen, vertretungModels: vertretungModels, data: data, progressBar: nil)
         
         return data
-    }
-    
-    func wochentagToString(wochentag: Int) -> String{
-        switch(wochentag){
-        case 1:
-            return "Montag"
-        case 2:
-            return "Dienstag"
-        case 3:
-            return "Mittwoch"
-        case 4:
-            return "Donnerstag"
-        case 5:
-            return "Freitag"
-        default:
-            return "ERROR"
-        }
     }
     
     class StundenplanEintragModel {

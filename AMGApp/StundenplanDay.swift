@@ -36,8 +36,7 @@ class StundenplanDay: UIViewController {
         scrollView.addConstraint(NSLayoutConstraint(item: stackView, attribute: .width, relatedBy: .equal, toItem: scrollView, attribute: .width, multiplier: 1.0, constant: 0))
         
         
-        let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+wochentagToString(wochentag: wochentag)) ?? ""
-        print(wochentagToString(wochentag: wochentag)+" = "+jsonString)
+        let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: wochentag)) ?? ""
         do {
             let stundenStrings = try JSONDecoder().decode([String].self, from: (jsonString.data(using: .utf8)!))
             var stunden = stundenStrings.map{StundenplanViewController.StundenplanEintragModel(allString: $0)}
@@ -62,7 +61,7 @@ class StundenplanDay: UIViewController {
         }
     }
     
-    func wochentagToString(wochentag: Int) -> String{
+    static func wochentagToString(wochentag: Int) -> String{
         switch(wochentag){
         case 0:
             return "Montag"
