@@ -26,7 +26,6 @@ class StundenplanViewController: UIViewController {
     
     var menuOpen = false
     var editingStundenplan = false
-    var stundenModels = [[StundenplanEintragModel]]()
     
     var vertretungHeute: VertretungsplanViewController.VertretungModelArrayModel? = nil
     var vertretungFolgetag: VertretungsplanViewController.VertretungModelArrayModel? = nil
@@ -36,9 +35,6 @@ class StundenplanViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        stundenModels.removeAll()
-        loadStundenplanFromUserdata()
         
         var weekday = getWeekday()
         if(weekday >= 5) {
@@ -93,20 +89,6 @@ class StundenplanViewController: UIViewController {
         vertretungFolgetag = dataFolgetag.first(where: {$0.klasse == klasse})
     }
     
-    func loadStundenplanFromUserdata(){
-        for i in 1...5 {
-            let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: i)) ?? ""
-            do {
-                let stundenStrings: [String] = try JSONDecoder().decode([String].self, from: (jsonString.data(using: .utf8)!))
-                stundenModels.append(stundenStrings.map{StundenplanEintragModel(allString: $0)})
-            } catch {
-                stundenModels.append([])
-                continue
-            }
-            stundenModels[i-1].sort(by: {return $0.stunde < $1.stunde})
-        }
-    }
-    
     @IBAction func openCloseMenu(_ sender: Any?) {
         if(!editingStundenplan) {
             editStundenplan(nil)
@@ -131,7 +113,6 @@ class StundenplanViewController: UIViewController {
         deleteLabel.addShadow()
         plusStundeLabel.addShadow()
         sendLabel.addShadow()
-        
         
         if(menuOpen){
             mainEditButton.setBackgroundImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
@@ -191,17 +172,6 @@ class StundenplanViewController: UIViewController {
         let day = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StundenplanDay") as! StundenplanDay
         day.create(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, editingStundenplan: editingStundenplan)
         return day
-    }
-    
-    var stunde: StundenplanViewController.StundenplanEintragModel? = nil
-    
-    func saveStundenModels(){
-        var i=0
-        for tag in stundenModels {
-            let jsonString = "["+tag.map{$0.toJSONString()}.joined(separator:",")+"]"
-            UserDefaults.standard.set(jsonString, forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: i))
-            i+=1
-        }
     }
     
     @IBAction func addStunde(_ sender: Any) {
