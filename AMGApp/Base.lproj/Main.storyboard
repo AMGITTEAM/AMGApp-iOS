@@ -804,11 +804,24 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Goc-Ya-zev">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Goc-Ya-zev">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="top" ambiguous="YES" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="E2X-pP-rYQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="848"/>
+                                    <stackView opaque="NO" contentMode="top" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="E2X-pP-rYQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="61"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoc-8O-D7c">
+                                                <rect key="frame" x="0.0" y="0.0" width="428" height="61"/>
+                                                <string key="text">A very long label, which does take up some space within this stackview and hopefully also spreads multiple lines so I can see how that looks and it takes up more space.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="aoc-8O-D7c" firstAttribute="leading" secondItem="E2X-pP-rYQ" secondAttribute="leading" id="jFg-ms-uVz"/>
+                                            <constraint firstItem="aoc-8O-D7c" firstAttribute="top" secondItem="E2X-pP-rYQ" secondAttribute="top" id="loh-lt-SOq"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -825,10 +838,10 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <viewLayoutGuide key="safeArea" id="P6s-p7-kuM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Goc-Ya-zev" firstAttribute="top" secondItem="P6s-p7-kuM" secondAttribute="top" id="0KJ-CO-WMR"/>
-                            <constraint firstItem="P6s-p7-kuM" firstAttribute="trailing" secondItem="Goc-Ya-zev" secondAttribute="trailing" id="Dem-lf-QYv"/>
-                            <constraint firstItem="Goc-Ya-zev" firstAttribute="leading" secondItem="P6s-p7-kuM" secondAttribute="leading" id="YHI-AR-693"/>
-                            <constraint firstItem="P6s-p7-kuM" firstAttribute="bottom" secondItem="Goc-Ya-zev" secondAttribute="bottom" id="xW9-kS-GIv"/>
+                            <constraint firstItem="Goc-Ya-zev" firstAttribute="top" secondItem="T7p-Se-OJ0" secondAttribute="top" id="0KJ-CO-WMR"/>
+                            <constraint firstAttribute="trailing" secondItem="Goc-Ya-zev" secondAttribute="trailing" id="Dem-lf-QYv"/>
+                            <constraint firstItem="Goc-Ya-zev" firstAttribute="leading" secondItem="T7p-Se-OJ0" secondAttribute="leading" id="YHI-AR-693"/>
+                            <constraint firstAttribute="bottom" secondItem="Goc-Ya-zev" secondAttribute="bottom" id="xW9-kS-GIv"/>
                         </constraints>
                     </view>
                     <connections>

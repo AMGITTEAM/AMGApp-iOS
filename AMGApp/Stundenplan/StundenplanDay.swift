@@ -19,7 +19,6 @@ class StundenplanDay: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.translatesAutoresizingMaskIntoConstraints = false
         _ = view //force it to load
     }
     
@@ -89,7 +88,6 @@ class StundenplanDay: UIViewController {
         }
     }
     func override(stundeNeu: StundenplanViewController.StundenplanEintragModel){
-        print("override ")
         stunden[stunde!.stunde-1] = stundeNeu
         saveStunden()
         updateView()
