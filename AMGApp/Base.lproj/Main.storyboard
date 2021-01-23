@@ -790,12 +790,55 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <outlet property="sendButton" destination="xQh-2y-wkq" id="8df-vf-xmA"/>
                         <outlet property="sendLabel" destination="wCg-Mr-pV1" id="JJc-95-p8F"/>
                         <outlet property="wochentagSelector" destination="Jhf-yl-xb3" id="qLe-MC-lIg"/>
-                        <segue destination="kUH-gZ-29V" kind="presentation" identifier="editStunde" id="ra8-Tc-qJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIP-1u-HBP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82" y="1326"/>
+            <point key="canvasLocation" x="-486" y="1324"/>
+        </scene>
+        <!--StundenplanDay-->
+        <scene sceneID="jSi-K7-dUm">
+            <objects>
+                <viewController storyboardIdentifier="StundenplanDay" id="oGB-of-ius" userLabel="StundenplanDay" customClass="StundenplanDay" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T7p-Se-OJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Goc-Ya-zev">
+                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="top" ambiguous="YES" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="E2X-pP-rYQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="848"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="itc-Ge-ARJ" firstAttribute="trailing" secondItem="E2X-pP-rYQ" secondAttribute="trailing" id="2Aa-AU-Wab"/>
+                                    <constraint firstItem="E2X-pP-rYQ" firstAttribute="top" secondItem="itc-Ge-ARJ" secondAttribute="top" id="3A2-RN-HFW"/>
+                                    <constraint firstItem="E2X-pP-rYQ" firstAttribute="leading" secondItem="itc-Ge-ARJ" secondAttribute="leading" id="Xgh-KV-oN2"/>
+                                    <constraint firstItem="itc-Ge-ARJ" firstAttribute="bottom" secondItem="E2X-pP-rYQ" secondAttribute="bottom" id="Zs9-q6-5Hk"/>
+                                    <constraint firstItem="E2X-pP-rYQ" firstAttribute="width" secondItem="ex7-ip-AV8" secondAttribute="width" id="owd-Ao-VPN"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="itc-Ge-ARJ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ex7-ip-AV8"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="P6s-p7-kuM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Goc-Ya-zev" firstAttribute="top" secondItem="P6s-p7-kuM" secondAttribute="top" id="0KJ-CO-WMR"/>
+                            <constraint firstItem="P6s-p7-kuM" firstAttribute="trailing" secondItem="Goc-Ya-zev" secondAttribute="trailing" id="Dem-lf-QYv"/>
+                            <constraint firstItem="Goc-Ya-zev" firstAttribute="leading" secondItem="P6s-p7-kuM" secondAttribute="leading" id="YHI-AR-693"/>
+                            <constraint firstItem="P6s-p7-kuM" firstAttribute="bottom" secondItem="Goc-Ya-zev" secondAttribute="bottom" id="xW9-kS-GIv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stackView" destination="E2X-pP-rYQ" id="7Lj-WB-N0J"/>
+                        <segue destination="kUH-gZ-29V" kind="presentation" identifier="editStunde" id="47e-Fb-b8v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBQ-AG-BMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="231" y="1755"/>
         </scene>
         <!--Stundenplan Entry View Controller-->
         <scene sceneID="xIe-BR-k8C">
@@ -1034,7 +1077,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2O4-7B-cYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="2089"/>
+            <point key="canvasLocation" x="918" y="2648"/>
         </scene>
         <!--Als Text exportieren-->
         <scene sceneID="QZS-bE-f4a">
@@ -1215,7 +1258,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L34-OB-ky3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="2089"/>
+            <point key="canvasLocation" x="0.0" y="2648"/>
         </scene>
         <!--SonstigesNavigationController-->
         <scene sceneID="YaA-4b-Frs">

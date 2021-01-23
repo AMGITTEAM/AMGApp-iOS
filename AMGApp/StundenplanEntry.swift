@@ -11,14 +11,14 @@ import UIKit
 
 class StundenplanEntry: UIView {
     
-    var delegate: StundenplanViewController
+    var delegate: StundenplanDay
     
     required init?(coder: NSCoder) {
-        delegate = StundenplanViewController() //should not happen
+        delegate = StundenplanDay() //should not happen
         super.init(coder: coder)
     }
     
-    init(stunde: Int, fach: String, fachId: String, lehrer: String, raum: String, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanViewController, editingStundenplan: Bool) {
+    init(stunde: Int, fach: String, fachId: String, lehrer: String, raum: String, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanDay, editingStundenplan: Bool) {
         self.delegate = delegate
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +134,7 @@ class StundenplanEntry: UIView {
     }
     
     @objc func editStunde(_ sender:Any){
-        delegate.performSegue(withIdentifier: "editStunde", sender: self)
+        delegate.performSegue(withIdentifier: "editStunde", sender: sender)
     }
     
     func stundeToTime(stunde:Int, moveNeunteStunde:Bool) -> String {

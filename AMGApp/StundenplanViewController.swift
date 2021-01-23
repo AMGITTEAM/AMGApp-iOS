@@ -103,7 +103,7 @@ class StundenplanViewController: UIViewController {
                 stundenModels.append([])
                 continue
             }
-            stundenModels[i].sort(by: {return $0.stunde < $1.stunde})
+            stundenModels[i-1].sort(by: {return $0.stunde < $1.stunde})
         }
     }
     
@@ -188,36 +188,12 @@ class StundenplanViewController: UIViewController {
         } else if(wochentag == getWeekday()+1){
             vertretungsplanModel = vertretungFolgetag
         }
-        let day = StundenplanDay()
-        day.create(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, editingStundenplan: editingStundenplan, delegate: self)
+        let day = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StundenplanDay") as! StundenplanDay
+        day.create(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, editingStundenplan: editingStundenplan)
         return day
     }
     
     var stunde: StundenplanViewController.StundenplanEintragModel? = nil
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let button = sender as? UIButton else{return}
-        guard let destVC = segue.destination as? StundenplanEntryViewController else{return}
-        stunde = stundenModels[wochentagSelector.selectedSegmentIndex][button.tag-1]
-        destVC.stunde = stunde
-        destVC.delegate = self
-    }
-    
-    func delete(){
-        if(stunde!.stunde != stundenModels[wochentagSelector.selectedSegmentIndex].count){
-            let stundeNeu = StundenplanEintragModel(stunde: stunde!.stunde, fachName: " ", fachAbk: " ", lehrer: " ", raum: " ")
-            override(stundeNeu: stundeNeu)
-        } else {
-            stundenModels[wochentagSelector.selectedSegmentIndex].remove(at: stunde!.stunde-1)
-            saveStundenModels()
-            changeWochentag(nil)
-        }
-    }
-    func override(stundeNeu: StundenplanEintragModel){
-        stundenModels[wochentagSelector.selectedSegmentIndex][stunde!.stunde-1] = stundeNeu
-        saveStundenModels()
-        changeWochentag(nil)
-    }
     
     func saveStundenModels(){
         var i=0
@@ -231,10 +207,7 @@ class StundenplanViewController: UIViewController {
     @IBAction func addStunde(_ sender: Any) {
         let wochentag = wochentagSelector.selectedSegmentIndex
         
-        stunde = StundenplanEintragModel(stunde: stundenModels[wochentag].count+1, fachName: "", fachAbk: "", lehrer: "", raum: "")
-        stundenModels[wochentag].append(stunde!)
-        
-        self.performSegue(withIdentifier: "editStunde", sender: self)
+        days[wochentag].addStunde(sender: sender)
         openCloseMenu(nil)
     }
     

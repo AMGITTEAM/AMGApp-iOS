@@ -18,7 +18,7 @@ class StundenplanEntryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var contentView: UIView!
     
     public var stunde: StundenplanViewController.StundenplanEintragModel? = nil
-    public var delegate: StundenplanViewController? = nil
+    public var delegate: StundenplanDay? = nil
     private var newHeightConstraint: NSLayoutConstraint? = nil
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,10 +60,10 @@ class StundenplanEntryViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func pressSpeichern(_ sender: Any) {
         let newStunde = StundenplanViewController.StundenplanEintragModel(stunde: stunde!.stunde, fachName: fachname.text!, fachAbk: fachAbk.text!, lehrer: lehrer.text!, raum: raum.text!)
+        print("delegate: "+self.delegate.debugDescription)
         self.delegate?.override(stundeNeu: newStunde)
         dismiss(animated: true, completion: nil)
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
