@@ -72,6 +72,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12FD8A0425BC2A0500C89B1C /* Stundenplan */ = {
+			isa = PBXGroup;
+			children = (
+				125FEDA925850D3D006F06BE /* StundenplanEntryViewController.swift */,
+				125FEDA62582797D006F06BE /* StundenplanViewController.swift */,
+				129C0E5525BB617E001DAC0E /* StundenplanEntry.swift */,
+				12961ABB259C9FB3001380F1 /* StundenplanQRScanner.swift */,
+				12961ABE259CB0E3001380F1 /* StundenplanQRGenerator.swift */,
+				12961ACE25BB2CD9001380F1 /* StundenplanTextGenerator.swift */,
+				12961AD125BB2DA8001380F1 /* StundenplanTextInput.swift */,
+				12FD8A0125BB6B1600C89B1C /* StundenplanDay.swift */,
+			);
+			path = Stundenplan;
+			sourceTree = "<group>";
+		};
 		7B73D47921C5ABAB005AB6D0 = {
 			isa = PBXGroup;
 			children = (
@@ -91,31 +106,24 @@
 		7B73D48421C5ABAB005AB6D0 /* AMGApp */ = {
 			isa = PBXGroup;
 			children = (
-				12961AC425AA52B8001380F1 /* AMGApp.entitlements */,
-				7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */,
-				12158B9F2580084200CA7151 /* TabBarController.swift */,
-				7B73D48B21C5ABAB005AB6D0 /* Main.storyboard */,
-				125FEDA925850D3D006F06BE /* StundenplanEntryViewController.swift */,
-				125FEDA62582797D006F06BE /* StundenplanViewController.swift */,
-				129C0E5525BB617E001DAC0E /* StundenplanEntry.swift */,
-				7B73D48E21C5ABAD005AB6D0 /* Assets.xcassets */,
-				7B73D49021C5ABAD005AB6D0 /* LaunchScreen.storyboard */,
 				7B73D49321C5ABAD005AB6D0 /* Info.plist */,
+				12961AC425AA52B8001380F1 /* AMGApp.entitlements */,
+				7B73D48E21C5ABAD005AB6D0 /* Assets.xcassets */,
+				7B73D48B21C5ABAB005AB6D0 /* Main.storyboard */,
+				7B73D49021C5ABAD005AB6D0 /* LaunchScreen.storyboard */,
+				7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */,
 				7B1244DA21EFA3F800EC7A0C /* Extensions.swift */,
-				7BF3F31822037B3600CA006B /* LoginViewController.swift */,
 				7B749955220A16EC002C7D0A /* Variables.swift */,
+				12158B9F2580084200CA7151 /* TabBarController.swift */,
+				12961AC1259F62EF001380F1 /* Startseite.swift */,
 				7B749957220F2B16002C7D0A /* VertretungsplanPageViewController.swift */,
 				1232E8BC2571586700577945 /* VertretungsplanViewController.swift */,
+				12FD8A0425BC2A0500C89B1C /* Stundenplan */,
 				129C7E7725719D21005BEB6F /* SonstigesViewController.swift */,
-				12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */,
 				12C420B02572F61F00660356 /* EinstellungenViewController.swift */,
 				125B845A2575541200A1651A /* KlassenPicker.swift */,
-				12961ABB259C9FB3001380F1 /* StundenplanQRScanner.swift */,
-				12961ABE259CB0E3001380F1 /* StundenplanQRGenerator.swift */,
-				12961AC1259F62EF001380F1 /* Startseite.swift */,
-				12961ACE25BB2CD9001380F1 /* StundenplanTextGenerator.swift */,
-				12961AD125BB2DA8001380F1 /* StundenplanTextInput.swift */,
-				12FD8A0125BB6B1600C89B1C /* StundenplanDay.swift */,
+				7BF3F31822037B3600CA006B /* LoginViewController.swift */,
+				12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */,
 			);
 			path = AMGApp;
 			sourceTree = "<group>";
