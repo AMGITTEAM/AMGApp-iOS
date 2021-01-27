@@ -56,6 +56,7 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1, constant: 0))
         
         wochentagSelector.selectedSegmentIndex = weekday
+        currentPageControllerPage = weekday
         changeWochentag(nil, force: true)
         
         updateMenu()
