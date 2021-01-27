@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1212934825C1A04800E286A0 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1212934725C1A04800E286A0 /* Info.swift */; };
 		12158BA02580084200CA7151 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12158B9F2580084200CA7151 /* TabBarController.swift */; };
 		1232E8BD2571586700577945 /* VertretungsplanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1232E8BC2571586700577945 /* VertretungsplanViewController.swift */; };
 		125B845B2575541200A1651A /* KlassenPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B845A2575541200A1651A /* KlassenPicker.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1212934725C1A04800E286A0 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		12158B9F2580084200CA7151 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1232E8BC2571586700577945 /* VertretungsplanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VertretungsplanViewController.swift; sourceTree = "<group>"; };
 		125B845A2575541200A1651A /* KlassenPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlassenPicker.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				125B845A2575541200A1651A /* KlassenPicker.swift */,
 				7BF3F31822037B3600CA006B /* LoginViewController.swift */,
 				12DD00072572C2B300DBD4BE /* FeedbackViewController.swift */,
+				1212934725C1A04800E286A0 /* Info.swift */,
 			);
 			path = AMGApp;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				12961AC2259F62EF001380F1 /* Startseite.swift in Sources */,
 				12DD00082572C2B300DBD4BE /* FeedbackViewController.swift in Sources */,
 				7B749958220F2B16002C7D0A /* VertretungsplanPageViewController.swift in Sources */,
+				1212934825C1A04800E286A0 /* Info.swift in Sources */,
 				125FEDA72582797D006F06BE /* StundenplanViewController.swift in Sources */,
 				129C0E5625BB617E001DAC0E /* StundenplanEntry.swift in Sources */,
 				125B845B2575541200A1651A /* KlassenPicker.swift in Sources */,

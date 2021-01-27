@@ -1449,7 +1449,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
         <!--Info-->
         <scene sceneID="gM9-oW-4y5">
             <objects>
-                <viewController id="vNM-0e-02a" userLabel="Info" sceneMemberID="viewController">
+                <viewController id="vNM-0e-02a" userLabel="Info" customClass="Info" customModule="AMGApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mfl-Tv-lVR">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1472,6 +1472,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="y1o-in-iBp"/>
+                    <connections>
+                        <outlet property="infoText" destination="EMl-Ba-TLG" id="GuZ-GT-6QF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJO-Md-Do3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
