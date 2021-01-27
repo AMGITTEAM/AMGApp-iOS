@@ -857,30 +857,33 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="be2-F8-egU">
-                                <rect key="frame" x="16" y="64" width="396" height="758"/>
+                                <rect key="frame" x="16" y="16" width="396" height="806"/>
                                 <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65r-Yl-fUl">
+                                        <rect key="frame" x="0.0" y="0.0" width="396" height="216"/>
+                                    </pickerView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fachname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Fh-tq-k6o">
-                                        <rect key="frame" x="0.0" y="0.0" width="396" height="34"/>
+                                        <rect key="frame" x="0.0" y="300.66666666666669" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fach Abkürzung (Mit Kursnummer)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4g-iW-sVk">
-                                        <rect key="frame" x="0.0" y="182" width="396" height="34"/>
+                                        <rect key="frame" x="0.0" y="419.66666666666669" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lehrer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dfn-7g-VZA">
-                                        <rect key="frame" x="0.0" y="364" width="396" height="34"/>
+                                        <rect key="frame" x="0.0" y="538.33333333333337" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Raum" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgL-M2-brC">
-                                        <rect key="frame" x="0.0" y="546" width="396" height="34"/>
+                                        <rect key="frame" x="0.0" y="657.33333333333337" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pkz-uw-D4H">
-                                        <rect key="frame" x="0.0" y="728" width="396" height="30"/>
+                                        <rect key="frame" x="0.0" y="776" width="396" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfC-Ng-0Nk">
                                                 <rect key="frame" x="0.0" y="0.0" width="132" height="30"/>
@@ -913,7 +916,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <constraints>
                             <constraint firstItem="be2-F8-egU" firstAttribute="leading" secondItem="9eG-xf-19m" secondAttribute="leading" constant="16" id="66u-4x-Eoi"/>
                             <constraint firstItem="9eG-xf-19m" firstAttribute="bottom" secondItem="be2-F8-egU" secondAttribute="bottom" constant="16" id="86L-LD-F5p"/>
-                            <constraint firstItem="be2-F8-egU" firstAttribute="top" secondItem="9eG-xf-19m" secondAttribute="top" constant="64" id="MD5-rc-XMk"/>
+                            <constraint firstItem="be2-F8-egU" firstAttribute="top" secondItem="9eG-xf-19m" secondAttribute="top" constant="16" id="MD5-rc-XMk"/>
                             <constraint firstItem="9eG-xf-19m" firstAttribute="trailing" secondItem="be2-F8-egU" secondAttribute="trailing" constant="16" id="NIE-o5-3pg"/>
                         </constraints>
                     </view>
@@ -923,6 +926,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                         <outlet property="fachname" destination="4Fh-tq-k6o" id="OXS-Lr-PzV"/>
                         <outlet property="innerViewBottomConstraint" destination="86L-LD-F5p" id="JnP-WV-NNT"/>
                         <outlet property="lehrer" destination="Dfn-7g-VZA" id="86c-5O-Axu"/>
+                        <outlet property="presetPicker" destination="65r-Yl-fUl" id="uxg-wI-fMk"/>
                         <outlet property="raum" destination="lgL-M2-brC" id="T35-FM-JDz"/>
                     </connections>
                 </viewController>
