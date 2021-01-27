@@ -68,7 +68,7 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         
         dayView.translatesAutoresizingMaskIntoConstraints = false
         wochentagSelector.selectedSegmentIndex = weekday
-        changeWochentag(nil)
+        changeWochentag(nil, force: true)
         //to bottom of weekday
         
         updateMenu()
@@ -77,6 +77,7 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
             DispatchQueue.init(label: "network").async { [self] in
                 editStundenplanByVertretungsplan(username: UserDefaults.standard.string(forKey: "loginUsername")!, password: UserDefaults.standard.string(forKey: "loginPassword")!, klasse: UserDefaults.standard.string(forKey: "klasse")!)
                 DispatchQueue.main.async {
+                    rebuildDays()
                     changeWochentag(nil, force: true)
                 }
             }
