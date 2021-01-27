@@ -21,6 +21,9 @@ class StundenplanEntry: UIView {
     init(stunde: Int, fach: String, fachId: String, lehrer: String, raum: String, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanDay, editingStundenplan: Bool) {
         self.delegate = delegate
         super.init(frame: .zero)
+        
+        let fach = fix(fach)
+        
         translatesAutoresizingMaskIntoConstraints = false
         let vertretungStrikethrough: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#FE2E2E"), .strikethroughStyle: NSUnderlineStyle.single.rawValue, .baselineOffset: 0]
         let vertretungNew: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#04B404")]
@@ -131,6 +134,13 @@ class StundenplanEntry: UIView {
         addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .trailing, relatedBy: .equal, toItem: editButton, attribute: .leading, multiplier: 1, constant: -10))
         addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .top, relatedBy: .equal, toItem: lehrerLabel, attribute: .centerY, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+    }
+    
+    func fix(_ string: String?) -> String{
+        if string != nil {
+            return (string != "") ? string! : " "
+        }
+        return " "
     }
     
     @objc func editStunde(_ sender:Any){
