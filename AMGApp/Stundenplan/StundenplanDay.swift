@@ -63,9 +63,10 @@ class StundenplanDay: UIViewController {
     var stunde: StundenplanViewController.StundenplanEintragModel? = nil
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let button = sender as? UIButton else{return}
         guard let destVC = segue.destination as? StundenplanEntryViewController else{return}
-        stunde = stunden[button.tag-1]
+        if let button = (sender as? UIButton) {
+            stunde = stunden[button.tag-1]
+        }
         destVC.stunde = stunde
         destVC.delegate = self
     }
@@ -74,7 +75,7 @@ class StundenplanDay: UIViewController {
         stunde = StundenplanViewController.StundenplanEintragModel(stunde: stunden.count+1, fachName: "", fachAbk: "", lehrer: "", raum: "")
         stunden.append(stunde!)
         
-        self.performSegue(withIdentifier: "editStunde", sender: self)
+        self.performSegue(withIdentifier: "editStunde", sender: nil)
     }
     
     func delete(){
