@@ -30,10 +30,9 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
     var vertretungHeute: VertretungsplanViewController.VertretungModelArrayModel? = nil
     var vertretungFolgetag: VertretungsplanViewController.VertretungModelArrayModel? = nil
     
-    var pageController: UIPageViewController? = nil
+    var pageController: UIPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     var currentPageControllerPage = 0
     var days = [StundenplanDay]()
-    let dayView = UIView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,32 +43,20 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         }
         
         rebuildDays()
-        pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        pageController!.dataSource = self
-        pageController!.delegate = self
-        pageController!.setViewControllers([days[0]], direction: .forward, animated: false, completion: nil)
-        mainView.insertSubview(dayView, belowSubview: mainEditButton)
-        mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .top, relatedBy: .equal, toItem: wochentagSelector, attribute: .bottom, multiplier: 1, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .leading, relatedBy: .equal, toItem: mainView, attribute: .leading, multiplier: 1, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .trailing, relatedBy: .equal, toItem: mainView, attribute: .trailing, multiplier: 1, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: dayView, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1, constant: 0))
+        pageController.dataSource = self
+        pageController.delegate = self
+        pageController.setViewControllers([days[0]], direction: .forward, animated: false, completion: nil)
         
-        let newSubview = pageController!
-        addChild(newSubview)
-        dayView.addSubview(newSubview.view!)
-        dayView.translatesAutoresizingMaskIntoConstraints = false
-        newSubview.view!.translatesAutoresizingMaskIntoConstraints = false
-        newSubview.view.frame = dayView.frame
-        dayView.addConstraint(NSLayoutConstraint(item: newSubview.view!, attribute: .top, relatedBy: .equal, toItem: dayView, attribute: .top, multiplier: 1, constant: 0))
-        dayView.addConstraint(NSLayoutConstraint(item: newSubview.view!, attribute: .bottom, relatedBy: .equal, toItem: dayView, attribute: .bottom, multiplier: 1, constant: 0))
-        dayView.addConstraint(NSLayoutConstraint(item: newSubview.view!, attribute: .leading, relatedBy: .equal, toItem: dayView, attribute: .leading, multiplier: 1, constant: 0))
-        dayView.addConstraint(NSLayoutConstraint(item: newSubview.view!, attribute: .trailing, relatedBy: .equal, toItem: dayView, attribute: .trailing, multiplier: 1, constant: 0))
-        newSubview.didMove(toParent: self)
+        addChild(pageController)
+        pageController.view.translatesAutoresizingMaskIntoConstraints = false
+        mainView.insertSubview(pageController.view, belowSubview: mainEditButton)
+        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .top, relatedBy: .equal, toItem: wochentagSelector, attribute: .bottom, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .leading, relatedBy: .equal, toItem: mainView, attribute: .leading, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .trailing, relatedBy: .equal, toItem: mainView, attribute: .trailing, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1, constant: 0))
         
-        dayView.translatesAutoresizingMaskIntoConstraints = false
         wochentagSelector.selectedSegmentIndex = weekday
         changeWochentag(nil, force: true)
-        //to bottom of weekday
         
         updateMenu()
         
@@ -201,12 +188,12 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         } else {
             if(force){
                 currentPageControllerPage = wochentag
-                pageController?.setViewControllers([days[wochentag]], direction: .forward, animated: false, completion: nil)
+                pageController.setViewControllers([days[wochentag]], direction: .forward, animated: false, completion: nil)
             }
             return
         }
         currentPageControllerPage = wochentag
-        pageController?.setViewControllers([days[wochentag]], direction: direction, animated: true, completion: nil)
+        pageController.setViewControllers([days[wochentag]], direction: direction, animated: true, completion: nil)
     }
     
     func createStundenplan(wochentag: Int) -> StundenplanDay {
