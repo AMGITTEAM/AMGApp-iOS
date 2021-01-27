@@ -79,8 +79,6 @@ class StundenplanQRScanner: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        captureSession.stopRunning()
-
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
@@ -91,28 +89,32 @@ class StundenplanQRScanner: UIViewController, AVCaptureMetadataOutputObjectsDele
 
     func found(code: String) {
         let decoded = NSMutableData(base64Encoded: code, options: .ignoreUnknownCharacters)
+        var decompressed: NSMutableData? = nil
         do {
-            let decompressed = (try decoded?.decompressed(using: .zlib))!
-            let string = String(decoding: decompressed, as: UTF8.self)
-            let stundenplan = string.components(separatedBy: "&").map{return $0.decodeUrl()}
-            
-            let alert = UIAlertController(title: "Stundenplan ersetzen", message: "Bist du sicher, dass du deinen aktuellen Stundenplan komplett ersetzen möchtest?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Ja", style: .destructive, handler: { [self]_ in
-                UserDefaults.standard.setValue(stundenplan[0], forKey: "stundenplanMontag")
-                UserDefaults.standard.setValue(stundenplan[1], forKey: "stundenplanDienstag")
-                UserDefaults.standard.setValue(stundenplan[2], forKey: "stundenplanMittwoch")
-                UserDefaults.standard.setValue(stundenplan[3], forKey: "stundenplanDonnerstag")
-                UserDefaults.standard.setValue(stundenplan[4], forKey: "stundenplanFreitag")
-                
-                dismiss(animated: true)
-                self.presentingViewController?.beginAppearanceTransition(true, animated: false)
-                self.presentingViewController?.endAppearanceTransition()
-            }))
-            present(alert, animated: true)
-        } catch {
-            print(error.localizedDescription)
+            decompressed = (try decoded?.decompressed(using: .zlib))
+        } catch {}
+        guard decompressed != nil else {
+            showToast(message: "Ungültiger Code")
+            return
         }
+        let string = String(decoding: decompressed!, as: UTF8.self)
+        let stundenplan = string.components(separatedBy: "&").map{return $0.decodeUrl()}
+        
+        let alert = UIAlertController(title: "Stundenplan ersetzen", message: "Bist du sicher, dass du deinen aktuellen Stundenplan komplett ersetzen möchtest?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ja", style: .destructive, handler: { [self]_ in
+            UserDefaults.standard.setValue(stundenplan[0], forKey: "stundenplanMontag")
+            UserDefaults.standard.setValue(stundenplan[1], forKey: "stundenplanDienstag")
+            UserDefaults.standard.setValue(stundenplan[2], forKey: "stundenplanMittwoch")
+            UserDefaults.standard.setValue(stundenplan[3], forKey: "stundenplanDonnerstag")
+            UserDefaults.standard.setValue(stundenplan[4], forKey: "stundenplanFreitag")
+            
+            captureSession.stopRunning()
+            dismiss(animated: true)
+            self.presentingViewController?.beginAppearanceTransition(true, animated: false)
+            self.presentingViewController?.endAppearanceTransition()
+        }))
+        present(alert, animated: true)
         
     }
 
