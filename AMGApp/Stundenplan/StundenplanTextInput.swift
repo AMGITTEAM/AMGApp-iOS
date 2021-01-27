@@ -27,7 +27,6 @@ class StundenplanTextInput: UIViewController, UITextViewDelegate {
         do {
             let decompressed = (try decoded?.decompressed(using: .zlib))!
             let string = String(decoding: decompressed, as: UTF8.self)
-            print(string)
             let stundenplan = string.components(separatedBy: "&").map{return $0.decodeUrl()}
             UserDefaults.standard.setValue(stundenplan[0], forKey: "stundenplanMontag")
             UserDefaults.standard.setValue(stundenplan[1], forKey: "stundenplanDienstag")
