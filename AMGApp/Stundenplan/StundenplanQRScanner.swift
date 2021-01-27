@@ -87,10 +87,6 @@ class StundenplanQRScanner: UIViewController, AVCaptureMetadataOutputObjectsDele
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
         }
-
-        dismiss(animated: true)
-        self.presentingViewController?.beginAppearanceTransition(true, animated: false)
-        self.presentingViewController?.endAppearanceTransition()
     }
 
     func found(code: String) {
@@ -98,13 +94,22 @@ class StundenplanQRScanner: UIViewController, AVCaptureMetadataOutputObjectsDele
         do {
             let decompressed = (try decoded?.decompressed(using: .zlib))!
             let string = String(decoding: decompressed, as: UTF8.self)
-            print(string)
             let stundenplan = string.components(separatedBy: "&").map{return $0.decodeUrl()}
-            UserDefaults.standard.setValue(stundenplan[0], forKey: "stundenplanMontag")
-            UserDefaults.standard.setValue(stundenplan[1], forKey: "stundenplanDienstag")
-            UserDefaults.standard.setValue(stundenplan[2], forKey: "stundenplanMittwoch")
-            UserDefaults.standard.setValue(stundenplan[3], forKey: "stundenplanDonnerstag")
-            UserDefaults.standard.setValue(stundenplan[4], forKey: "stundenplanFreitag")
+            
+            let alert = UIAlertController(title: "Stundenplan ersetzen", message: "Bist du sicher, dass du deinen aktuellen Stundenplan komplett ersetzen möchtest?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ja", style: .destructive, handler: { [self]_ in
+                UserDefaults.standard.setValue(stundenplan[0], forKey: "stundenplanMontag")
+                UserDefaults.standard.setValue(stundenplan[1], forKey: "stundenplanDienstag")
+                UserDefaults.standard.setValue(stundenplan[2], forKey: "stundenplanMittwoch")
+                UserDefaults.standard.setValue(stundenplan[3], forKey: "stundenplanDonnerstag")
+                UserDefaults.standard.setValue(stundenplan[4], forKey: "stundenplanFreitag")
+                
+                dismiss(animated: true)
+                self.presentingViewController?.beginAppearanceTransition(true, animated: false)
+                self.presentingViewController?.endAppearanceTransition()
+            }))
+            present(alert, animated: true)
         } catch {
             print(error.localizedDescription)
         }
