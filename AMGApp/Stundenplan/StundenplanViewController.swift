@@ -178,13 +178,19 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
             UserDefaults.standard.removeObject(forKey: "stundenplanMittwoch")
             UserDefaults.standard.removeObject(forKey: "stundenplanDonnerstag")
             UserDefaults.standard.removeObject(forKey: "stundenplanFreitag")
+            UserDefaults.standard.synchronize()
+            rebuildDays()
             changeWochentag(nil, force: true)
             openCloseMenu(nil)
         }))
         present(alert, animated: true)
     }
     
-    @IBAction func changeWochentag(_ sender: Any?, force:Bool = false) {
+    @IBAction func changeWochentag(_ sender: Any?) {
+        changeWochentag(sender, force:false)
+    }
+    
+    func changeWochentag(_ sender: Any?, force: Bool){
         let wochentag = wochentagSelector.selectedSegmentIndex
         let direction: UIPageViewController.NavigationDirection
         if(wochentag > currentPageControllerPage){
