@@ -57,7 +57,7 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         
         wochentagSelector.selectedSegmentIndex = weekday
         currentPageControllerPage = weekday
-        changeWochentag(nil, force: true)
+        forceUpdateView()
         
         updateMenu()
         
@@ -66,7 +66,7 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
                 editStundenplanByVertretungsplan(username: UserDefaults.standard.string(forKey: "loginUsername")!, password: UserDefaults.standard.string(forKey: "loginPassword")!, klasse: UserDefaults.standard.string(forKey: "klasse")!)
                 DispatchQueue.main.async {
                     rebuildDays()
-                    changeWochentag(nil, force: true)
+                    forceUpdateView()
                 }
             }
         }
@@ -153,7 +153,7 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
     @IBAction func editStundenplan(_ sender: Any?) {
         editingStundenplan = !editingStundenplan
         rebuildDays()
-        changeWochentag(nil, force: true)
+        forceUpdateView()
         menuOpen = false
         updateMenu()
     }
@@ -169,32 +169,31 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
             UserDefaults.standard.removeObject(forKey: "stundenplanFreitag")
             UserDefaults.standard.synchronize()
             rebuildDays()
-            changeWochentag(nil, force: true)
+            forceUpdateView()
             openCloseMenu(nil)
         }))
         present(alert, animated: true)
     }
     
     @IBAction func changeWochentag(_ sender: Any?) {
-        changeWochentag(sender, force:false)
+        changeWochentag(wochentag: wochentagSelector.selectedSegmentIndex)
     }
     
-    func changeWochentag(_ sender: Any?, force: Bool){
-        let wochentag = wochentagSelector.selectedSegmentIndex
-        let direction: UIPageViewController.NavigationDirection
+    func changeWochentag(wochentag: Int){
         if(wochentag > currentPageControllerPage){
-            direction = .forward
+            changeWochentag(wochentag: wochentag, direction: .forward)
         } else if(wochentag < currentPageControllerPage){
-            direction = .reverse
-        } else {
-            if(force){
-                currentPageControllerPage = wochentag
-                pageController.setViewControllers([days[wochentag]], direction: .forward, animated: false, completion: nil)
-            }
-            return
+            changeWochentag(wochentag: wochentag, direction: .reverse)
         }
+    }
+    
+    func forceUpdateView(){
+        changeWochentag(wochentag: wochentagSelector.selectedSegmentIndex, direction: .forward, animated: false)
+    }
+    
+    func changeWochentag(wochentag: Int, direction: UIPageViewController.NavigationDirection, animated: Bool=true){
         currentPageControllerPage = wochentag
-        pageController.setViewControllers([days[wochentag]], direction: direction, animated: true, completion: nil)
+        pageController.setViewControllers([days[wochentag]], direction: direction, animated: animated, completion: nil)
     }
     
     func createStundenplan(wochentag: Int) -> StundenplanDay {
