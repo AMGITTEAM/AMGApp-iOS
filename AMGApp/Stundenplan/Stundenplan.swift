@@ -37,26 +37,19 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        doneLabel.addShadow()
+        deleteLabel.addShadow()
+        plusStundeLabel.addShadow()
+        sendLabel.addShadow()
+        
+        rebuildDays()
+        createPageViewController()
+        
         var weekday = getWeekday()
         if(weekday >= 5) {
             weekday = 0
         }
-        
-        rebuildDays()
-        pageController.dataSource = self
-        pageController.delegate = self
-        pageController.setViewControllers([days[0]], direction: .forward, animated: false, completion: nil)
-        
-        addChild(pageController)
-        pageController.view.translatesAutoresizingMaskIntoConstraints = false
-        mainView.insertSubview(pageController.view, belowSubview: mainEditButton)
-        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .top, relatedBy: .equal, toItem: wochentagSelector, attribute: .bottom, multiplier: 1, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .leading, relatedBy: .equal, toItem: mainView, attribute: .leading, multiplier: 1, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .trailing, relatedBy: .equal, toItem: mainView, attribute: .trailing, multiplier: 1, constant: 0))
-        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1, constant: 0))
-        
         wochentagSelector.selectedSegmentIndex = weekday
-        currentPageControllerPage = weekday
         forceUpdateView()
         
         updateMenu()
@@ -99,6 +92,20 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         }
     }
     
+    func createPageViewController(){
+        pageController.dataSource = self
+        pageController.delegate = self
+        pageController.setViewControllers([days[0]], direction: .forward, animated: false, completion: nil)
+        
+        addChild(pageController)
+        pageController.view.translatesAutoresizingMaskIntoConstraints = false
+        mainView.insertSubview(pageController.view, belowSubview: mainEditButton)
+        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .top, relatedBy: .equal, toItem: wochentagSelector, attribute: .bottom, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .leading, relatedBy: .equal, toItem: mainView, attribute: .leading, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .trailing, relatedBy: .equal, toItem: mainView, attribute: .trailing, multiplier: 1, constant: 0))
+        mainView.addConstraint(NSLayoutConstraint(item: pageController.view!, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1, constant: 0))
+    }
+    
     func getWeekday() -> Int {
         var weekday = Calendar(identifier: .gregorian).component(.weekday, from: Date())
         weekday-=1
@@ -135,11 +142,6 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         deleteLabel.alpha = alpha
         plusStundeLabel.alpha = alpha
         sendLabel.alpha = alpha
-        
-        doneLabel.addShadow()
-        deleteLabel.addShadow()
-        plusStundeLabel.addShadow()
-        sendLabel.addShadow()
         
         if(menuOpen){
             mainEditButton.setBackgroundImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
@@ -210,7 +212,6 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
     
     @IBAction func addStunde(_ sender: Any) {
         let wochentag = wochentagSelector.selectedSegmentIndex
-        
         days[wochentag].addStunde(sender: sender)
         openCloseMenu(nil)
     }
