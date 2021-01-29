@@ -28,7 +28,6 @@
 		7B73D48D21C5ABAB005AB6D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B73D48B21C5ABAB005AB6D0 /* Main.storyboard */; };
 		7B73D48F21C5ABAD005AB6D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B73D48E21C5ABAD005AB6D0 /* Assets.xcassets */; };
 		7B73D49221C5ABAD005AB6D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B73D49021C5ABAD005AB6D0 /* LaunchScreen.storyboard */; };
-		7B749956220A16EC002C7D0A /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B749955220A16EC002C7D0A /* Variables.swift */; };
 		7B749958220F2B16002C7D0A /* VertretungsplanPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B749957220F2B16002C7D0A /* VertretungsplanPageViewController.swift */; };
 		7BF3F31922037B3600CA006B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF3F31822037B3600CA006B /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +57,6 @@
 		7B73D48E21C5ABAD005AB6D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B73D49121C5ABAD005AB6D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B73D49321C5ABAD005AB6D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B749955220A16EC002C7D0A /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		7B749957220F2B16002C7D0A /* VertretungsplanPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertretungsplanPageViewController.swift; sourceTree = "<group>"; };
 		7BF3F31822037B3600CA006B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +113,6 @@
 				7B73D49021C5ABAD005AB6D0 /* LaunchScreen.storyboard */,
 				7B73D48521C5ABAB005AB6D0 /* AppDelegate.swift */,
 				7B1244DA21EFA3F800EC7A0C /* Extensions.swift */,
-				7B749955220A16EC002C7D0A /* Variables.swift */,
 				12158B9F2580084200CA7151 /* TabBarController.swift */,
 				12961AC1259F62EF001380F1 /* Startseite.swift */,
 				7B749957220F2B16002C7D0A /* VertretungsplanPageViewController.swift */,
@@ -214,7 +211,6 @@
 				129C0E5625BB617E001DAC0E /* StundenplanEntry.swift in Sources */,
 				125B845B2575541200A1651A /* KlassenPicker.swift in Sources */,
 				7B73D48621C5ABAB005AB6D0 /* AppDelegate.swift in Sources */,
-				7B749956220A16EC002C7D0A /* Variables.swift in Sources */,
 				12961ACF25BB2CDA001380F1 /* StundenplanTextGenerator.swift in Sources */,
 				7BF3F31922037B3600CA006B /* LoginViewController.swift in Sources */,
 				12FD8A0225BB6B1600C89B1C /* StundenplanDay.swift in Sources */,

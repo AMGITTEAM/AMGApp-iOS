@@ -7,7 +7,7 @@ extension String {
                              with replacement:String) -> String {
         if let range = self.range(of: pattern){
             return self.replacingCharacters(in: range, with: replacement)
-        }else{
+        } else {
             return self
         }
     }
@@ -15,19 +15,15 @@ extension String {
     public func replaceAll(of pattern:String,
                            with replacement:String,
                            options: NSRegularExpression.Options = []) -> String{
-        do{
+        do {
             let regex = try NSRegularExpression(pattern: pattern, options: [])
             let range = NSRange(0..<self.utf16.count)
             return regex.stringByReplacingMatches(in: self, options: [],
                                                   range: range, withTemplate: replacement)
-        }catch{
+        } catch{
             NSLog("replaceAll error: \(error)")
             return self
         }
-    }
-    
-    var asciiArray: [UInt32] {
-        return unicodeScalars.filter{$0.isASCII}.map{$0.value}
     }
     
     func hashCode() -> Int32 {
@@ -36,6 +32,10 @@ extension String {
             h = 31 &* h &+ Int32(i) // Be aware of overflow operators,
         }
         return h
+    }
+    
+    var asciiArray: [UInt32] {
+        return unicodeScalars.filter{$0.isASCII}.map{$0.value}
     }
     
     func encodeUrl() -> String? {
@@ -56,7 +56,6 @@ extension Character {
 extension UIViewController {
     
     func showToast(message : String) {
-        
         let toastLabel = UILabel(frame: CGRect(x: 0, y: self.view.frame.size.height-100, width: (self.view.frame.width - 10), height: 35))
         toastLabel.numberOfLines = 0
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
@@ -68,22 +67,27 @@ extension UIViewController {
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
+        UIView.animate(withDuration: 4, delay: 0.1, options: .curveEaseInOut, animations: {
+            toastLabel.alpha = 0
+        }, completion: {(_) in
             toastLabel.removeFromSuperview()
         })
-    } }
-
-extension UIViewController {
+    }
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension UIView {
+    func addShadow(){
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 1, height: 1)
     }
 }
 
@@ -127,12 +131,10 @@ extension UIColor {
 
 extension UIStackView {
     func addHorizontalSeparators(color : UIColor) {
-        var i = self.arrangedSubviews.count
-        while i >= 0 {
+        for i in (0...self.arrangedSubviews.count).reversed() { //reversing -> bottom-first (no need to skip added ones)
             let separator = createSeparator(color: color)
             insertArrangedSubview(separator, at: i)
             separator.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
-            i -= 1
         }
     }
 
@@ -144,22 +146,12 @@ extension UIStackView {
     }
     
     func removeAllArrangedSubviews() {
-            let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
-                self.removeArrangedSubview(subview)
-                return allSubviews + [subview]
-            }
-            
-            // Deactivate all constraints
-            NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
-            
-            // Remove the views from self
-            removedSubviews.forEach({ $0.removeFromSuperview() })
+        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            return allSubviews + [subview]
         }
-}
-
-extension UIView {
-    func addShadow(){
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: 1, height: 1)
+        
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        removedSubviews.forEach({ $0.removeFromSuperview() })
     }
 }
