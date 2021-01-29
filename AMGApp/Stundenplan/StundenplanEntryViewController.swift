@@ -19,7 +19,7 @@ class StundenplanEntryViewController: UIViewController, UITextFieldDelegate, UIP
     @IBOutlet weak var innerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet var contentView: UIView!
     
-    public var stunde: StundenplanViewController.StundenplanEintragModel? = nil
+    public var stunde: StundenplanDay.StundenplanEintragModel? = nil
     public var delegate: StundenplanDay? = nil
     private var newHeightConstraint: NSLayoutConstraint? = nil
     private var stundenPresets = [[String]]()
@@ -45,7 +45,7 @@ class StundenplanEntryViewController: UIViewController, UITextFieldDelegate, UIP
             let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: i)) ?? ""
             do {
                 let stundenStrings = try JSONDecoder().decode([String].self, from: (jsonString.data(using: .utf8)!))
-                var stunden = stundenStrings.map{StundenplanViewController.StundenplanEintragModel(allString: $0)}
+                var stunden = stundenStrings.map{StundenplanDay.StundenplanEintragModel(allString: $0)}
                 stunden.sort(by: {return $0.stunde < $1.stunde})
                 stunden.forEach{
                     if(!stundenPresets.map{$0[0]}.contains($0.fachName) && $0.fachName.count>1){
@@ -97,7 +97,7 @@ class StundenplanEntryViewController: UIViewController, UITextFieldDelegate, UIP
         dismiss(animated: true, completion: nil)
     }
     @IBAction func pressSpeichern(_ sender: Any) {
-        let newStunde = StundenplanViewController.StundenplanEintragModel(stunde: stunde!.stunde, fachName: fachname.text!, fachAbk: fachAbk.text!, lehrer: lehrer.text!, raum: raum.text!)
+        let newStunde = StundenplanDay.StundenplanEintragModel(stunde: stunde!.stunde, fachName: fachname.text!, fachAbk: fachAbk.text!, lehrer: lehrer.text!, raum: raum.text!)
         print("delegate: "+self.delegate.debugDescription)
         self.delegate?.override(stundeNeu: newStunde)
         dismiss(animated: true, completion: nil)

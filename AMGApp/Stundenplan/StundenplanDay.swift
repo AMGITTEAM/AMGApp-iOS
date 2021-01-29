@@ -12,7 +12,7 @@ import UIKit
 class StundenplanDay: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
-    var stunden = [StundenplanViewController.StundenplanEintragModel]()
+    var stunden = [StundenplanEintragModel]()
     var wochentag = 0
     var vertretungsplanModel: VertretungsplanViewController.VertretungModelArrayModel? = nil
     var editingStundenplan = false
@@ -33,7 +33,7 @@ class StundenplanDay: UIViewController {
         let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: wochentag)) ?? ""
         do {
             let stundenStrings = try JSONDecoder().decode([String].self, from: (jsonString.data(using: .utf8)!))
-            stunden = stundenStrings.map{StundenplanViewController.StundenplanEintragModel(allString: $0)}
+            stunden = stundenStrings.map{StundenplanEintragModel(allString: $0)}
             stunden.sort(by: {return $0.stunde < $1.stunde})
             
             stackView.removeAllArrangedSubviews()
@@ -60,7 +60,7 @@ class StundenplanDay: UIViewController {
         UserDefaults.standard.set(jsonString, forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: wochentag))
     }
     
-    var stunde: StundenplanViewController.StundenplanEintragModel? = nil
+    var stunde: StundenplanEintragModel? = nil
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destVC = segue.destination as? StundenplanEntryViewController else{return}
@@ -72,7 +72,7 @@ class StundenplanDay: UIViewController {
     }
     
     func addStunde(sender: Any?){
-        stunde = StundenplanViewController.StundenplanEintragModel(stunde: stunden.count+1, fachName: "", fachAbk: "", lehrer: "", raum: "")
+        stunde = StundenplanEintragModel(stunde: stunden.count+1, fachName: "", fachAbk: "", lehrer: "", raum: "")
         stunden.append(stunde!)
         
         self.performSegue(withIdentifier: "editStunde", sender: nil)
@@ -80,7 +80,7 @@ class StundenplanDay: UIViewController {
     
     func delete(){
         if(stunde!.stunde != stunden.count){
-            let stundeNeu = StundenplanViewController.StundenplanEintragModel(stunde: stunde!.stunde, fachName: " ", fachAbk: " ", lehrer: " ", raum: " ")
+            let stundeNeu = StundenplanEintragModel(stunde: stunde!.stunde, fachName: " ", fachAbk: " ", lehrer: " ", raum: " ")
             override(stundeNeu: stundeNeu)
         } else {
             stunden.remove(at: stunde!.stunde-1)
@@ -88,7 +88,7 @@ class StundenplanDay: UIViewController {
             updateView()
         }
     }
-    func override(stundeNeu: StundenplanViewController.StundenplanEintragModel){
+    func override(stundeNeu: StundenplanEintragModel){
         stunden[stunde!.stunde-1] = stundeNeu
         saveStunden()
         updateView()
@@ -111,4 +111,38 @@ class StundenplanDay: UIViewController {
         }
     }
     
+    class StundenplanEintragModel {
+        let stunde: Int
+        let fach: String
+        let lehrer: String
+        let raum: String
+        let fachName: String
+        
+        init(allString: String) {
+            let all = allString.components(separatedBy: "||")
+            stunde = Int(all[0]) ?? 1
+            fach = all[1]
+            lehrer = all[2]
+            raum = all[3]
+            fachName = all[4]
+        }
+        
+        init(stunde: Int, fachName: String, fachAbk: String, lehrer: String, raum: String){
+            self.stunde = stunde
+            self.fachName = fachName
+            self.fach = fachAbk
+            self.lehrer = lehrer
+            self.raum = raum
+        }
+        
+        func toJSONString() -> String {
+            var returns = "\""
+            returns += String(stunde)+"||"
+            returns += fach+"||"
+            returns += lehrer+"||"
+            returns += raum+"||"
+            returns += fachName+"\""
+            return returns
+        }
+    }
 }

@@ -236,51 +236,13 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         
         realEintraege = VertretungsplanViewController.getOnlyRealKlassenListWithProcess(tables: tables,progressBar: nil)
         
-        var i=0
-        
         for s in realEintraege {
-            i+=1
             (vertretungModels,fertigeMulti) = VertretungsplanViewController.tryMatcher(s: s,fertigeMulti: fertigeMulti,vertretungModels: vertretungModels)
         }
         
         (data, fertigeKlassen) = VertretungsplanViewController.parseKlassenWithProcess(klassen: klassen, fertigeKlassen: fertigeKlassen, vertretungModels: vertretungModels, data: data, progressBar: nil)
         
         return data
-    }
-    
-    class StundenplanEintragModel {
-        let stunde: Int
-        let fach: String
-        let lehrer: String
-        let raum: String
-        let fachName: String
-        
-        init(allString: String) {
-            let all = allString.components(separatedBy: "||")
-            stunde = Int(all[0]) ?? 1
-            fach = all[1]
-            lehrer = all[2]
-            raum = all[3]
-            fachName = all[4]
-        }
-        
-        init(stunde: Int, fachName: String, fachAbk: String, lehrer: String, raum: String){
-            self.stunde = stunde
-            self.fachName = fachName
-            self.fach = fachAbk
-            self.lehrer = lehrer
-            self.raum = raum
-        }
-        
-        func toJSONString() -> String {
-            var returns = "\""
-            returns += String(stunde)+"||"
-            returns += fach+"||"
-            returns += lehrer+"||"
-            returns += raum+"||"
-            returns += fachName+"\""
-            return returns
-        }
     }
     
 }
