@@ -18,11 +18,11 @@ class StundenplanEntry: UIView {
         super.init(coder: coder)
     }
     
-    init(stunde: Int, fach: String, fachId: String, lehrer: String, raum: String, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanDay, editingStundenplan: Bool) {
+    init(stunde: StundenplanDay.StundenplanEintragModel, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanDay, editingStundenplan: Bool) {
         self.delegate = delegate
         super.init(frame: .zero)
         
-        let fach = fix(fach)
+        let fach = fix(stunde.fachName)
         
         translatesAutoresizingMaskIntoConstraints = false
         let vertretungStrikethrough: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#FE2E2E"), .strikethroughStyle: NSUnderlineStyle.single.rawValue, .baselineOffset: 0]
@@ -39,7 +39,7 @@ class StundenplanEntry: UIView {
         addConstraint(NSLayoutConstraint(item: divider, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
         
         let stundeLabel = UILabel()
-        stundeLabel.attributedText = NSAttributedString(string:String(stunde), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)])
+        stundeLabel.attributedText = NSAttributedString(string:String(stunde.stunde), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)])
         stundeLabel.textAlignment = .center
         stundeLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stundeLabel)
@@ -49,7 +49,7 @@ class StundenplanEntry: UIView {
         addConstraint(NSLayoutConstraint(item: stundeLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 5))
         
         let stundenZeitLabel = UILabel()
-        stundenZeitLabel.attributedText = NSAttributedString(string:stundeToTime(stunde:stunde, moveNeunteStunde: moveNeunteStunde), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)])
+        stundenZeitLabel.attributedText = NSAttributedString(string:stundeToTime(stunde:stunde.stunde, moveNeunteStunde: moveNeunteStunde), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)])
         stundenZeitLabel.textAlignment = .center
         stundenZeitLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stundenZeitLabel)
@@ -60,7 +60,7 @@ class StundenplanEntry: UIView {
         
         let fachLabel = UILabel()
         let fachLabelText = NSMutableAttributedString(string:String(fach))
-        if(vertretungModel != nil && fachId != vertretungModel?.getErsatzFach()){
+        if(vertretungModel != nil && stunde.fach != vertretungModel?.getErsatzFach()){
             fachLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: fachLabelText.length))
             if(vertretungModel?.getErsatzFach() != "---"){
                 fachLabelText.append(NSAttributedString(string: (vertretungModel?.getErsatzFach())!, attributes: vertretungNew))
@@ -95,14 +95,14 @@ class StundenplanEntry: UIView {
             addConstraint(NSLayoutConstraint(item: editButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -12))
             
             editButton.addTarget(self, action: #selector(editStunde(_:)), for: .touchUpInside)
-            editButton.tag = stunde
+            editButton.tag = stunde.stunde
         } else {
             addConstraint(NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 0, constant: 0))
         }
         
         let lehrerLabel = UILabel()
-        let lehrerLabelText = NSMutableAttributedString(string:String(lehrer))
-        if(vertretungModel != nil && lehrer != vertretungModel?.getVertretungslehrer()){
+        let lehrerLabelText = NSMutableAttributedString(string:String(stunde.lehrer))
+        if(vertretungModel != nil && stunde.lehrer != vertretungModel?.getVertretungslehrer()){
             lehrerLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: lehrerLabelText.length))
             if(vertretungModel?.getVertretungslehrer() != "---"){
                 lehrerLabelText.append(NSAttributedString(string: (vertretungModel?.getVertretungslehrer())!, attributes: vertretungNew))
@@ -118,8 +118,8 @@ class StundenplanEntry: UIView {
         addConstraint(NSLayoutConstraint(item: lehrerLabel, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 0.35, constant: 0))
         
         let raumLabel = UILabel()
-        let raumLabelText = NSMutableAttributedString(string:String(raum))
-        if(vertretungModel != nil && raum != vertretungModel?.getRaum()){
+        let raumLabelText = NSMutableAttributedString(string:String(stunde.raum))
+        if(vertretungModel != nil && stunde.raum != vertretungModel?.getRaum()){
             raumLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: raumLabelText.length))
             if(vertretungModel?.getRaum() != "---"){
                 raumLabelText.append(NSAttributedString(string: (vertretungModel?.getRaum())!, attributes: vertretungNew))
