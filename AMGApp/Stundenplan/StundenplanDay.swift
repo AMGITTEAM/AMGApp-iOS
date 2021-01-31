@@ -17,11 +17,6 @@ class StundenplanDay: UIViewController {
     var vertretungsplanModel: VertretungsplanViewController.VertretungModelArrayModel? = nil
     var editingStundenplan = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        _ = view //force it to load
-    }
-    
     func create(wochentag: Int, vertretungsplanModel: VertretungsplanViewController.VertretungModelArrayModel?, editingStundenplan: Bool){
         _ = view //force it to load
         self.wochentag = wochentag
