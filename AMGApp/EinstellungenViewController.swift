@@ -37,16 +37,25 @@ class EinstellungenViewController: UIViewController, UIColorPickerViewController
         oberstufeColorPreview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.changeOberstufeColor)))
     }
     
+    var completionHandler: ((UIColor)->Void)? = nil
     func pickColor(color: UIColor, completion: @escaping ((UIColor)->Void)) {
+        completionHandler = completion
         if #available(iOS 14.0, *) {
             let picker: UIColorPickerViewController = UIColorPickerViewController()
             picker.supportsAlpha = false
             picker.selectedColor = color
-            self.present(picker, animated: true, completion: {
-                completion(picker.selectedColor)
-            })
+            picker.delegate = self
+            
+            self.present(picker, animated: true)
         } else {
             tabBarController?.showToast(message: "Diese Funktion ist erst ab iOS 14 verfügbar!")
+        }
+    }
+    
+    @available(iOS 14.0, *)
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        if(completionHandler != nil){
+            completionHandler!(viewController.selectedColor)
         }
     }
     
