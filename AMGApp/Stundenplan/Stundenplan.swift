@@ -34,15 +34,19 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
     var currentPageControllerPage = 0
     var days = [StundenplanDay]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         doneLabel.addShadow()
         deleteLabel.addShadow()
         plusStundeLabel.addShadow()
         sendLabel.addShadow()
         
-        rebuildDays()
+        for i in 0...4 {
+            let day = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StundenplanDay") as! StundenplanDay
+            createStundenplan(wochentag: i, day: day)
+            days.append(day)
+        }
         createPageViewController()
         
         var weekday = getWeekday()
@@ -53,6 +57,10 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         forceUpdateView()
         
         updateMenu()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if(UserDefaults.standard.string(forKey: "login") != nil && UserDefaults.standard.string(forKey: "klasse") != nil){
             DispatchQueue.init(label: "network").async { [self] in
@@ -86,9 +94,8 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
     }
     
     func rebuildDays() {
-        days.removeAll()
         for i in 0...4 {
-            days.append(createStundenplan(wochentag: i))
+            createStundenplan(wochentag: i, day: days[i])
         }
     }
     
@@ -198,16 +205,14 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         pageController.setViewControllers([days[wochentag]], direction: direction, animated: animated, completion: nil)
     }
     
-    func createStundenplan(wochentag: Int) -> StundenplanDay {
+    func createStundenplan(wochentag: Int, day: StundenplanDay) {
         var vertretungsplanModel: VertretungsplanViewController.VertretungModelArrayModel? = nil
         if(wochentag == getWeekday()){
             vertretungsplanModel = vertretungHeute
         } else if(wochentag == getWeekday()+1){
             vertretungsplanModel = vertretungFolgetag
         }
-        let day = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StundenplanDay") as! StundenplanDay
         day.create(wochentag: wochentag, vertretungsplanModel: vertretungsplanModel, editingStundenplan: editingStundenplan)
-        return day
     }
     
     @IBAction func addStunde(_ sender: Any) {
