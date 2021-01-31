@@ -14,6 +14,8 @@ class StundenplanEntry: UIView {
     var delegate: StundenplanDay
     var currentEditButtonWidthConstraint: NSLayoutConstraint? = nil
     var editButton: UIButton
+    let vertretungStrikethrough: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#FE2E2E"), .strikethroughStyle: NSUnderlineStyle.single.rawValue, .baselineOffset: 0]
+    let vertretungNew: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#04B404")]
     
     required init?(coder: NSCoder) {
         delegate = StundenplanDay() //should not happen
@@ -30,8 +32,6 @@ class StundenplanEntry: UIView {
         let fach = fix(stunde.fachName)
         
         translatesAutoresizingMaskIntoConstraints = false
-        let vertretungStrikethrough: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#FE2E2E"), .strikethroughStyle: NSUnderlineStyle.single.rawValue, .baselineOffset: 0]
-        let vertretungNew: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#04B404")]
         
         let divider = UIView()
         divider.backgroundColor = UIColor.lightGray
@@ -97,22 +97,10 @@ class StundenplanEntry: UIView {
         editButton.contentHorizontalAlignment = .fill
         editButton.clipsToBounds = true
         editButton.layer.shadowOpacity = 0.6
-        
-        if(editingStundenplan){
-            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 1, constant: 0)
-        } else {
-            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 0, constant: 0)
-        }
-        addConstraint(currentEditButtonWidthConstraint!)
+        setEditMode(editingStundenplan, animated: false)
         
         let lehrerLabel = UILabel()
-        let lehrerLabelText = NSMutableAttributedString(string:String(stunde.lehrer))
-        if(vertretungModel != nil && stunde.lehrer != vertretungModel?.getVertretungslehrer()){
-            lehrerLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: lehrerLabelText.length))
-            if(vertretungModel?.getVertretungslehrer() != "---"){
-                lehrerLabelText.append(NSAttributedString(string: (vertretungModel?.getVertretungslehrer())!, attributes: vertretungNew))
-            }
-        }
+        let lehrerLabelText = generateStundenText(original: stunde.lehrer, edited: vertretungModel?.getVertretungslehrer())
         lehrerLabelText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], range: NSRange(location: 0, length: lehrerLabelText.length))
         lehrerLabel.attributedText = lehrerLabelText
         lehrerLabel.textAlignment = .right
@@ -123,13 +111,7 @@ class StundenplanEntry: UIView {
         addConstraint(NSLayoutConstraint(item: lehrerLabel, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 0.35, constant: 0))
         
         let raumLabel = UILabel()
-        let raumLabelText = NSMutableAttributedString(string:String(stunde.raum))
-        if(vertretungModel != nil && stunde.raum != vertretungModel?.getRaum()){
-            raumLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: raumLabelText.length))
-            if(vertretungModel?.getRaum() != "---"){
-                raumLabelText.append(NSAttributedString(string: (vertretungModel?.getRaum())!, attributes: vertretungNew))
-            }
-        }
+        let raumLabelText = generateStundenText(original: stunde.raum, edited: vertretungModel?.getRaum())
         raumLabelText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], range: NSRange(location: 0, length: raumLabelText.length))
         raumLabel.attributedText = raumLabelText
         raumLabel.textAlignment = .right
@@ -141,17 +123,32 @@ class StundenplanEntry: UIView {
         addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
     }
     
-    func setEditMode(_ editingStundenplan: Bool){
-        removeConstraint(currentEditButtonWidthConstraint!)
+    func generateStundenText(original:String, edited:String?) -> NSMutableAttributedString {
+        let string = NSMutableAttributedString(string:String(original))
+        if(edited != nil && original != edited){
+            string.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: string.length))
+            if(edited != "---"){
+                string.append(NSAttributedString(string: edited!, attributes: vertretungNew))
+            }
+        }
+        return string
+    }
+    
+    func setEditMode(_ editingStundenplan: Bool, animated: Bool=true){
+        if(currentEditButtonWidthConstraint != nil){
+            removeConstraint(currentEditButtonWidthConstraint!)
+        }
         if(editingStundenplan){
             currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 1, constant: 0)
         } else {
             currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 0, constant: 0)
         }
         addConstraint(currentEditButtonWidthConstraint!)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.layoutIfNeeded()
-        })
+        if(animated){
+            UIView.animate(withDuration: 0.5, animations: {
+                self.layoutIfNeeded()
+            })
+        }
     }
     
     func fix(_ string: String?) -> String{
