@@ -12,14 +12,19 @@ import UIKit
 class StundenplanEntry: UIView {
     
     var delegate: StundenplanDay
+    var currentEditButtonWidthConstraint: NSLayoutConstraint? = nil
+    var editButton: UIButton
     
     required init?(coder: NSCoder) {
         delegate = StundenplanDay() //should not happen
+        editButton = UIButton()
+        currentEditButtonWidthConstraint = NSLayoutConstraint()
         super.init(coder: coder)
     }
     
     init(stunde: StundenplanDay.StundenplanEintragModel, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanDay, editingStundenplan: Bool) {
         self.delegate = delegate
+        editButton = UIButton()
         super.init(frame: .zero)
         
         let fach = fix(stunde.fachName)
@@ -77,28 +82,28 @@ class StundenplanEntry: UIView {
         addConstraint(NSLayoutConstraint(item: fachLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 10))
         addConstraint(NSLayoutConstraint(item: fachLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -10))
         
-        let editButton = UIButton()
         editButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(editButton)
         
         addConstraint(NSLayoutConstraint(item: editButton, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -10))
         addConstraint(NSLayoutConstraint(item: editButton, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 12))
-        addConstraint(NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: editButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -12))
+        
+        editButton.setImage(UIImage(named: "table_edit"), for: .normal)
+        editButton.addTarget(self, action: #selector(editStunde(_:)), for: .touchUpInside)
+        editButton.tag = stunde.stunde
+        editButton.contentMode = .scaleAspectFit
+        editButton.contentVerticalAlignment = .fill
+        editButton.contentHorizontalAlignment = .fill
+        editButton.clipsToBounds = true
+        editButton.layer.shadowOpacity = 0.6
         
         if(editingStundenplan){
-            editButton.setImage(UIImage(named: "table_edit"), for: .normal)
-            editButton.contentMode = .scaleAspectFit
-            editButton.contentVerticalAlignment = .fill
-            editButton.contentHorizontalAlignment = .fill
-            editButton.clipsToBounds = true
-            editButton.layer.shadowOpacity = 0.6
-            addConstraint(NSLayoutConstraint(item: editButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -12))
-            
-            editButton.addTarget(self, action: #selector(editStunde(_:)), for: .touchUpInside)
-            editButton.tag = stunde.stunde
+            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 1, constant: 0)
         } else {
-            addConstraint(NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 0, constant: 0))
+            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 0, constant: 0)
         }
+        addConstraint(currentEditButtonWidthConstraint!)
         
         let lehrerLabel = UILabel()
         let lehrerLabelText = NSMutableAttributedString(string:String(stunde.lehrer))
@@ -134,6 +139,19 @@ class StundenplanEntry: UIView {
         addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .trailing, relatedBy: .equal, toItem: editButton, attribute: .leading, multiplier: 1, constant: -10))
         addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .top, relatedBy: .equal, toItem: lehrerLabel, attribute: .centerY, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+    }
+    
+    func setEditMode(_ editingStundenplan: Bool){
+        removeConstraint(currentEditButtonWidthConstraint!)
+        if(editingStundenplan){
+            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 1, constant: 0)
+        } else {
+            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 0, constant: 0)
+        }
+        addConstraint(currentEditButtonWidthConstraint!)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.layoutIfNeeded()
+        })
     }
     
     func fix(_ string: String?) -> String{

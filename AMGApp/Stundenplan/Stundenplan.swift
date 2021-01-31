@@ -161,7 +161,9 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
     
     @IBAction func editStundenplan(_ sender: Any?) {
         editingStundenplan = !editingStundenplan
-        rebuildDays()
+        for i in 0...4 {
+            days[i].setEditMode(editingStundenplan)
+        }
         forceUpdateView()
         menuOpen = false
         updateMenu()

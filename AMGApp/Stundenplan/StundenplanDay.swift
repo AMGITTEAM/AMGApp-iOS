@@ -13,6 +13,7 @@ class StundenplanDay: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
     var stunden = [StundenplanEintragModel]()
+    var entries = [StundenplanEntry]()
     var wochentag = 0
     var vertretungsplanModel: VertretungsplanViewController.VertretungModelArrayModel? = nil
     var editingStundenplan = false
@@ -26,6 +27,7 @@ class StundenplanDay: UIViewController {
     }
     func updateView(){
         let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: wochentag)) ?? ""
+        entries.removeAll()
         do {
             let stundenStrings = try JSONDecoder().decode([String].self, from: (jsonString.data(using: .utf8)!))
             stunden = stundenStrings.map{StundenplanEintragModel(allString: $0)}
@@ -42,7 +44,9 @@ class StundenplanDay: UIViewController {
                     return (Int(vModel.getStunde()) == stunde.stunde && vModel.getFach() == stunde.fach)
                 })
                 
-                stackView.addArrangedSubview(StundenplanEntry(stunde: stunde, moveNeunteStunde: stunden.count >= 10, vertretungModel: vertretungModel, delegate: self, editingStundenplan: editingStundenplan))
+                let entry = StundenplanEntry(stunde: stunde, moveNeunteStunde: stunden.count >= 10, vertretungModel: vertretungModel, delegate: self, editingStundenplan: editingStundenplan)
+                entries.append(entry)
+                stackView.addArrangedSubview(entry)
             }
             stackView.addHorizontalSeparators(color:.lightGray)
         } catch {
@@ -53,6 +57,13 @@ class StundenplanDay: UIViewController {
     func saveStunden(){
         let jsonString = "["+stunden.map{$0.toJSONString()}.joined(separator:",")+"]"
         UserDefaults.standard.set(jsonString, forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: wochentag))
+    }
+    
+    func setEditMode(_ editingStundenplan: Bool){
+        self.editingStundenplan = editingStundenplan
+        for i in 0..<stunden.count {
+            entries[i].setEditMode(editingStundenplan)
+        }
     }
     
     var stunde: StundenplanEintragModel? = nil
