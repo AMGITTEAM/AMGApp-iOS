@@ -31,7 +31,7 @@ class StundenplanEntry: UIView {
         
         let fach = fix(stunde.fachName)
         
-        translatesAutoresizingMaskIntoConstraints = false
+        //translatesAutoresizingMaskIntoConstraints = false
         
         let divider = UIView()
         divider.backgroundColor = UIColor.lightGray

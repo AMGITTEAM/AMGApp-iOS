@@ -28,12 +28,13 @@ class StundenplanDay: UIViewController {
     func updateView(){
         let jsonString = UserDefaults.standard.string(forKey: "stundenplan"+StundenplanDay.wochentagToString(wochentag: wochentag)) ?? ""
         entries.removeAll()
+        stackView.removeAllArrangedSubviews()
+        stunden = [StundenplanEintragModel]()
         do {
             let stundenStrings = try JSONDecoder().decode([String].self, from: (jsonString.data(using: .utf8)!))
             stunden = stundenStrings.map{StundenplanEintragModel(allString: $0)}
             stunden.sort(by: {return $0.stunde < $1.stunde})
             
-            stackView.removeAllArrangedSubviews()
             stunden.forEach{stunde in
                 let vertretungModel = vertretungsplanModel?.getRightRows().first(where: {vModel in
                     if(vModel.getStunde().contains(" - ")){ //erstreckt sich über mehrere Stunden

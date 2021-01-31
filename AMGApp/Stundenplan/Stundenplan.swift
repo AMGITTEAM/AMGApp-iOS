@@ -102,7 +102,6 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
     func createPageViewController(){
         pageController.dataSource = self
         pageController.delegate = self
-        pageController.setViewControllers([days[0]], direction: .forward, animated: false, completion: nil)
         
         addChild(pageController)
         pageController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -164,7 +163,6 @@ class StundenplanViewController: UIViewController, UIPageViewControllerDataSourc
         for i in 0...4 {
             days[i].setEditMode(editingStundenplan)
         }
-        forceUpdateView()
         menuOpen = false
         updateMenu()
     }
