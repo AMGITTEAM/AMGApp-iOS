@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StundenplanEntry" customModule="AMGApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11k-OD-meo" userLabel="divider">
+                    <rect key="frame" x="125" y="0.0" width="1" height="414"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFr-XF-Cha" userLabel="stundeLabel">
+                    <rect key="frame" x="0.0" y="5" width="125" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:45-8:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0m-se-Sqm" userLabel="stundeZeitLabel">
+                    <rect key="frame" x="3" y="304.66666666666669" width="122" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deutsch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sD-9i-Azj" userLabel="fachLabel">
+                    <rect key="frame" x="136" y="10" width="600" height="394"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtI-xb-9AV" userLabel="editButton">
+                    <rect key="frame" x="710" y="12" width="16" height="390"/>
+                    <state key="normal" image="table_edit"/>
+                    <connections>
+                        <action selector="editStunde:" destination="iN0-l3-epB" eventType="touchUpInside" id="IrG-r6-dH3"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-eJ-oLB" userLabel="lehrerLabel">
+                    <rect key="frame" x="679" y="136.33333333333334" width="21" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A101" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yM-6R-VCy" userLabel="raumLabel">
+                    <rect key="frame" x="669.66666666666663" y="207" width="30.333333333333371" height="207"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="11k-OD-meo" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" multiplier="0.17" constant="1" id="4vT-fG-xSD"/>
+                <constraint firstItem="hg6-eJ-oLB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="0.35" id="6Ll-UL-XWq"/>
+                <constraint firstItem="M0m-se-Sqm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="3" id="BX9-gu-VfQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4yM-6R-VCy" secondAttribute="bottom" id="EHd-CV-tcs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jtI-xb-9AV" secondAttribute="bottom" constant="12" id="JYp-Ja-fzR"/>
+                <constraint firstItem="lFr-XF-Cha" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JzH-Tu-rp6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jtI-xb-9AV" secondAttribute="trailing" constant="10" id="La1-i9-MeH"/>
+                <constraint firstItem="5sD-9i-Azj" firstAttribute="leading" secondItem="11k-OD-meo" secondAttribute="trailing" constant="10" id="MIL-iW-0fe"/>
+                <constraint firstItem="jtI-xb-9AV" firstAttribute="leading" secondItem="hg6-eJ-oLB" secondAttribute="trailing" constant="10" id="QWi-dE-IeN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5sD-9i-Azj" secondAttribute="bottom" constant="10" id="Vio-Vx-OhU"/>
+                <constraint firstItem="5sD-9i-Azj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aXZ-QV-1Id"/>
+                <constraint firstItem="11k-OD-meo" firstAttribute="leading" secondItem="M0m-se-Sqm" secondAttribute="trailing" id="dPZ-Ks-Fed"/>
+                <constraint firstItem="11k-OD-meo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="trailing" multiplier="0.17" id="dTq-MK-V9W"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5sD-9i-Azj" secondAttribute="trailing" id="kMv-93-byH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="11k-OD-meo" secondAttribute="bottom" id="mFI-62-CPX"/>
+                <constraint firstItem="jtI-xb-9AV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="neq-DQ-slR"/>
+                <constraint firstItem="4yM-6R-VCy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="qyI-Lk-YXn"/>
+                <constraint firstItem="11k-OD-meo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="tK0-R5-hHU"/>
+                <constraint firstItem="lFr-XF-Cha" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="tT4-Nf-HJw"/>
+                <constraint firstItem="jtI-xb-9AV" firstAttribute="leading" secondItem="4yM-6R-VCy" secondAttribute="trailing" constant="10" id="vl5-6t-DqA"/>
+                <constraint firstItem="5sD-9i-Azj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="vyv-fq-evD"/>
+                <constraint firstItem="11k-OD-meo" firstAttribute="leading" secondItem="lFr-XF-Cha" secondAttribute="trailing" id="wCG-EV-bd4"/>
+                <constraint firstItem="M0m-se-Sqm" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="bottom" multiplier="0.75" id="zBl-sU-IfS"/>
+            </constraints>
+            <connections>
+                <outlet property="editButton" destination="jtI-xb-9AV" id="eGF-BQ-vF7"/>
+                <outlet property="fachLabel" destination="5sD-9i-Azj" id="MLZ-yw-MwB"/>
+                <outlet property="lehrerLabel" destination="hg6-eJ-oLB" id="NqB-6N-ItA"/>
+                <outlet property="raumLabel" destination="4yM-6R-VCy" id="x22-Ye-pdS"/>
+                <outlet property="stundeLabel" destination="lFr-XF-Cha" id="Aju-Fh-SfH"/>
+                <outlet property="stundeZeitLabel" destination="M0m-se-Sqm" id="Try-YO-CrU"/>
+            </connections>
+            <point key="canvasLocation" x="141.84782608695653" y="105.79710144927537"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="table_edit" width="16" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

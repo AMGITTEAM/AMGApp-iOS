@@ -45,7 +45,7 @@ class StundenplanDay: UIViewController {
                     return (Int(vModel.getStunde()) == stunde.stunde && vModel.getFach() == stunde.fach)
                 })
                 
-                let entry = StundenplanEntry(stunde: stunde, moveNeunteStunde: stunden.count >= 10, vertretungModel: vertretungModel, delegate: self, editingStundenplan: editingStundenplan)
+                let entry = createStundenEntry(stunde: stunde, moveNeunteStunde: stunden.count>=10, vertretungModel: vertretungModel, editingStundenplan: editingStundenplan)
                 entries.append(entry)
                 stackView.addArrangedSubview(entry)
             }
@@ -53,6 +53,20 @@ class StundenplanDay: UIViewController {
         } catch {
             return
         }
+    }
+    
+    func createStundenEntry(stunde: StundenplanEintragModel, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, editingStundenplan: Bool) -> StundenplanEntry {
+        let view = loadFromNib()
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.setData(stunde: stunde, moveNeunteStunde: stunden.count >= 10, vertretungModel: vertretungModel, delegate: self, editingStundenplan: editingStundenplan)
+        return view
+    }
+    func loadFromNib() -> StundenplanEntry {
+        let bundle = Bundle(for:type(of:self))
+        let nib = UINib(nibName:"StundenplanEntryView", bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! StundenplanEntry
+        
+        return view
     }
     
     func saveStunden(){

@@ -10,60 +10,30 @@ import Foundation
 import UIKit
 
 class StundenplanEntry: UIView {
+    @IBOutlet weak var stundeLabel: UILabel!
+    @IBOutlet weak var stundeZeitLabel: UILabel!
+    @IBOutlet weak var fachLabel: UILabel!
+    @IBOutlet weak var lehrerLabel: UILabel!
+    @IBOutlet weak var raumLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
     
-    var delegate: StundenplanDay
+    var delegate: StundenplanDay? = nil
     var currentEditButtonWidthConstraint: NSLayoutConstraint? = nil
-    var editButton: UIButton
     let vertretungStrikethrough: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#FE2E2E"), .strikethroughStyle: NSUnderlineStyle.single.rawValue, .baselineOffset: 0]
     let vertretungNew: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.fromHexString(hexString: "#04B404")]
     
     required init?(coder: NSCoder) {
-        delegate = StundenplanDay() //should not happen
-        editButton = UIButton()
-        currentEditButtonWidthConstraint = NSLayoutConstraint()
         super.init(coder: coder)
     }
     
-    init(stunde: StundenplanDay.StundenplanEintragModel, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanDay, editingStundenplan: Bool) {
-        self.delegate = delegate
-        editButton = UIButton()
-        super.init(frame: .zero)
-        
+    func setData(stunde: StundenplanDay.StundenplanEintragModel, moveNeunteStunde: Bool, vertretungModel: VertretungsplanViewController.VertretungModel?, delegate: StundenplanDay, editingStundenplan: Bool){
         let fach = fix(stunde.fachName)
+        self.delegate = delegate
         
-        //translatesAutoresizingMaskIntoConstraints = false
+        stundeLabel.text = stunde.stunde.description
         
-        let divider = UIView()
-        divider.backgroundColor = UIColor.lightGray
-        divider.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(divider)
+        stundeZeitLabel.attributedText = NSAttributedString(string:stundeToTime(stunde:stunde.stunde, moveNeunteStunde: moveNeunteStunde), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)])
         
-        addConstraint(NSLayoutConstraint(item: divider, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 0.17, constant: 0))
-        addConstraint(NSLayoutConstraint(item: divider, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 0.17, constant: 1))
-        addConstraint(NSLayoutConstraint(item: divider, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: divider, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
-        
-        let stundeLabel = UILabel()
-        stundeLabel.attributedText = NSAttributedString(string:String(stunde.stunde), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)])
-        stundeLabel.textAlignment = .center
-        stundeLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stundeLabel)
-        
-        addConstraint(NSLayoutConstraint(item: stundeLabel, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: stundeLabel, attribute: .trailing, relatedBy: .equal, toItem: divider, attribute: .trailing, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: stundeLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 5))
-        
-        let stundenZeitLabel = UILabel()
-        stundenZeitLabel.attributedText = NSAttributedString(string:stundeToTime(stunde:stunde.stunde, moveNeunteStunde: moveNeunteStunde), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)])
-        stundenZeitLabel.textAlignment = .center
-        stundenZeitLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stundenZeitLabel)
-        
-        addConstraint(NSLayoutConstraint(item: stundenZeitLabel, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 3))
-        addConstraint(NSLayoutConstraint(item: stundenZeitLabel, attribute: .trailing, relatedBy: .equal, toItem: divider, attribute: .trailing, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: stundenZeitLabel, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 0.75, constant: 0))
-        
-        let fachLabel = UILabel()
         let fachLabelText = NSMutableAttributedString(string:String(fach))
         if(vertretungModel != nil && stunde.fach != vertretungModel?.getErsatzFach()){
             fachLabelText.addAttributes(vertretungStrikethrough, range: NSRange(location: 0, length: fachLabelText.length))
@@ -73,54 +43,20 @@ class StundenplanEntry: UIView {
         }
         fachLabelText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)], range: NSRange(location: 0, length: fachLabelText.length))
         fachLabel.attributedText = fachLabelText
-        fachLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(fachLabel)
         
-        addConstraint(NSLayoutConstraint(item: fachLabel, attribute: .leading, relatedBy: .equal, toItem: divider, attribute: .trailing, multiplier: 1, constant: 10))
-        addConstraint(NSLayoutConstraint(item: fachLabel, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: fachLabel, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: fachLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 10))
-        addConstraint(NSLayoutConstraint(item: fachLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -10))
-        
-        editButton.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(editButton)
-        
-        addConstraint(NSLayoutConstraint(item: editButton, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -10))
-        addConstraint(NSLayoutConstraint(item: editButton, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 12))
-        addConstraint(NSLayoutConstraint(item: editButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -12))
-        
-        editButton.setImage(UIImage(named: "table_edit"), for: .normal)
-        editButton.addTarget(self, action: #selector(editStunde(_:)), for: .touchUpInside)
         editButton.tag = stunde.stunde
-        editButton.contentMode = .scaleAspectFit
         editButton.contentVerticalAlignment = .fill
         editButton.contentHorizontalAlignment = .fill
-        editButton.clipsToBounds = true
         editButton.layer.shadowOpacity = 0.6
         setEditMode(editingStundenplan, animated: false)
         
-        let lehrerLabel = UILabel()
         let lehrerLabelText = generateStundenText(original: stunde.lehrer, edited: vertretungModel?.getVertretungslehrer())
         lehrerLabelText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], range: NSRange(location: 0, length: lehrerLabelText.length))
         lehrerLabel.attributedText = lehrerLabelText
-        lehrerLabel.textAlignment = .right
-        lehrerLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(lehrerLabel)
         
-        addConstraint(NSLayoutConstraint(item: lehrerLabel, attribute: .trailing, relatedBy: .equal, toItem: editButton, attribute: .leading, multiplier: 1, constant: -10))
-        addConstraint(NSLayoutConstraint(item: lehrerLabel, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 0.35, constant: 0))
-        
-        let raumLabel = UILabel()
         let raumLabelText = generateStundenText(original: stunde.raum, edited: vertretungModel?.getRaum())
         raumLabelText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], range: NSRange(location: 0, length: raumLabelText.length))
         raumLabel.attributedText = raumLabelText
-        raumLabel.textAlignment = .right
-        raumLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(raumLabel)
-        
-        addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .trailing, relatedBy: .equal, toItem: editButton, attribute: .leading, multiplier: 1, constant: -10))
-        addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .top, relatedBy: .equal, toItem: lehrerLabel, attribute: .centerY, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: raumLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
     }
     
     func generateStundenText(original:String, edited:String?) -> NSMutableAttributedString {
@@ -139,9 +75,9 @@ class StundenplanEntry: UIView {
             removeConstraint(currentEditButtonWidthConstraint!)
         }
         if(editingStundenplan){
-            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 1, constant: 0)
+            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton!, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 1, constant: 0)
         } else {
-            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 0, constant: 0)
+            currentEditButtonWidthConstraint = NSLayoutConstraint(item: editButton!, attribute: .width, relatedBy: .equal, toItem: editButton, attribute: .height, multiplier: 0, constant: 0)
         }
         addConstraint(currentEditButtonWidthConstraint!)
         if(animated){
@@ -157,9 +93,8 @@ class StundenplanEntry: UIView {
         }
         return " "
     }
-    
-    @objc func editStunde(_ sender:Any){
-        delegate.performSegue(withIdentifier: "editStunde", sender: sender)
+    @IBAction func editStunde(_ sender: Any) {
+        delegate!.performSegue(withIdentifier: "editStunde", sender: sender)
     }
     
     func stundeToTime(stunde:Int, moveNeunteStunde:Bool) -> String {
