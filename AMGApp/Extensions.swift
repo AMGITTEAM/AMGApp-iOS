@@ -130,24 +130,10 @@ extension UIColor {
 }
 
 extension UIStackView {
-    func addHorizontalSeparators(color : UIColor) {
-        for i in (0...self.arrangedSubviews.count).reversed() { //reversing -> bottom-first (no need to skip added ones)
-            let separator = createSeparator(color: color)
-            insertArrangedSubview(separator, at: i)
-            separator.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
-        }
-    }
-
-    private func createSeparator(color : UIColor) -> UIView {
-        let separator = UIView()
-        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        separator.backgroundColor = color
-        return separator
-    }
-    
     func removeAllArrangedSubviews() {
         let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
             self.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
             return allSubviews + [subview]
         }
         
