@@ -56,6 +56,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFC-wH-Pjv" userLabel="StackSeparator">
+                    <rect key="frame" x="0.0" y="413" width="736" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="NZt-E0-EKg"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,11 +70,13 @@
                 <constraint firstItem="11k-OD-meo" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" multiplier="0.17" constant="1" id="4vT-fG-xSD"/>
                 <constraint firstItem="hg6-eJ-oLB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="0.35" id="6Ll-UL-XWq"/>
                 <constraint firstItem="M0m-se-Sqm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="3" id="BX9-gu-VfQ"/>
+                <constraint firstItem="EFC-wH-Pjv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CUz-N6-eI8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4yM-6R-VCy" secondAttribute="bottom" id="EHd-CV-tcs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jtI-xb-9AV" secondAttribute="bottom" constant="12" id="JYp-Ja-fzR"/>
                 <constraint firstItem="lFr-XF-Cha" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JzH-Tu-rp6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jtI-xb-9AV" secondAttribute="trailing" constant="10" id="La1-i9-MeH"/>
                 <constraint firstItem="5sD-9i-Azj" firstAttribute="leading" secondItem="11k-OD-meo" secondAttribute="trailing" constant="10" id="MIL-iW-0fe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EFC-wH-Pjv" secondAttribute="bottom" id="NAb-q3-Fbj"/>
                 <constraint firstItem="jtI-xb-9AV" firstAttribute="leading" secondItem="hg6-eJ-oLB" secondAttribute="trailing" constant="10" id="QWi-dE-IeN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5sD-9i-Azj" secondAttribute="bottom" constant="10" id="Vio-Vx-OhU"/>
                 <constraint firstItem="5sD-9i-Azj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aXZ-QV-1Id"/>
@@ -79,6 +88,7 @@
                 <constraint firstItem="4yM-6R-VCy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="qyI-Lk-YXn"/>
                 <constraint firstItem="11k-OD-meo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="tK0-R5-hHU"/>
                 <constraint firstItem="lFr-XF-Cha" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="tT4-Nf-HJw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EFC-wH-Pjv" secondAttribute="trailing" id="tmu-2b-Vpt"/>
                 <constraint firstItem="jtI-xb-9AV" firstAttribute="leading" secondItem="4yM-6R-VCy" secondAttribute="trailing" constant="10" id="vl5-6t-DqA"/>
                 <constraint firstItem="5sD-9i-Azj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="vyv-fq-evD"/>
                 <constraint firstItem="11k-OD-meo" firstAttribute="leading" secondItem="lFr-XF-Cha" secondAttribute="trailing" id="wCG-EV-bd4"/>

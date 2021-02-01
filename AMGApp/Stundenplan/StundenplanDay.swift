@@ -49,7 +49,6 @@ class StundenplanDay: UIViewController {
                 entries.append(entry)
                 stackView.addArrangedSubview(entry)
             }
-            stackView.addHorizontalSeparators(color:.lightGray)
         } catch {
             return
         }
