@@ -37,6 +37,7 @@ class TabBarController: UITabBarController {
                                           - Kalender auf der Startseite hinzugefügt
                                           - amgitt.de als associated-link: Öffnet mit der App
                                           - Vertretungsplan-Icons können in den Einstellungen abgeschaltet werden
+                                          - Vertretungsplan: Umlaute repariert
                                           """,
                 attributes: [
                     NSAttributedString.Key.paragraphStyle: paragraphStyle,
