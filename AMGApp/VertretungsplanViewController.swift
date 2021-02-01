@@ -683,7 +683,7 @@ class VertretungsplanViewController: UIViewController {
         init(St: String, Kl: String, Ar: String, Fa: String, ErsatzFa: String, Vertlehrer: String, Ra: String, Hin: String){
             Stunde=St
             Klasse=Kl
-            Art=Ar
+            Art=Ar.replaceAll(of: "Stunde f�llt aus", with: "Stunde fällt aus").replaceAll(of: "Raum-�nd.", with: "Raum-Änd.")
             Fach=Fa
             ErsatzFach=ErsatzFa
             Vertretungslehrer=Vertlehrer
