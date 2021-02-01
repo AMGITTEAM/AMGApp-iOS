@@ -38,6 +38,7 @@ class TabBarController: UITabBarController {
                                           - amgitt.de als associated-link: Öffnet mit der App
                                           - Vertretungsplan-Icons können in den Einstellungen abgeschaltet werden
                                           - Vertretungsplan: Umlaute repariert
+                                          - Vertretungsplan aktualisiert sich nicht bei jeder Rückkehr
                                           """,
                 attributes: [
                     NSAttributedString.Key.paragraphStyle: paragraphStyle,
