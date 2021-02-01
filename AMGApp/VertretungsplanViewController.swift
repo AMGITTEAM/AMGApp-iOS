@@ -24,8 +24,8 @@ class VertretungsplanViewController: UIViewController {
     var username: String? = ""
     var password: String? = ""
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         klasse = UserDefaults.standard.string(forKey: "klasse") ?? ""
         username = UserDefaults.standard.string(forKey: "loginUsername")
