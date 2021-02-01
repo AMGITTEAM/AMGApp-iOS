@@ -16,6 +16,7 @@ class EinstellungenViewController: UIViewController, UIColorPickerViewController
     @IBOutlet weak var unterstufeColorPreview: UIView!
     @IBOutlet weak var mittelstufeColorPreview: UIView!
     @IBOutlet weak var oberstufeColorPreview: UIView!
+    @IBOutlet weak var iconsImVertretungsplan: UISwitch!
     var klassenPicker: KlassenPicker? = nil
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,6 +26,9 @@ class EinstellungenViewController: UIViewController, UIColorPickerViewController
         self.eigeneKlassePicker.delegate = klassenPicker
         self.eigeneKlassePicker.dataSource = klassenPicker
         klassenPicker!.refresh()
+        if(UserDefaults.standard.object(forKey: "vertretungsplanIconsEnabled") != nil){
+            iconsImVertretungsplan.isOn = UserDefaults.standard.bool(forKey: "vertretungsplanIconsEnabled")
+        }
         
         eigeneKlasseColorPreview.backgroundColor = UIColor.fromHexString(hexString: UserDefaults.standard.string(forKey: "vertretungEigeneKlasseFarbe") ?? "#FF0000")
         unterstufeColorPreview.backgroundColor = UIColor.fromHexString(hexString: UserDefaults.standard.string(forKey: "vertretungUnterstufeFarbe") ?? "#4aa3df")
@@ -82,5 +86,9 @@ class EinstellungenViewController: UIViewController, UIColorPickerViewController
             UserDefaults.standard.set(UIColor.hexStringFromColor(color: pickedColor), forKey: "vertretungOberstufeFarbe")
             oberstufeColorPreview.backgroundColor = pickedColor
         })
+    }
+    
+    @IBAction func vertretungsplanIconsChanged(_ sender: UISwitch) {
+        UserDefaults.standard.setValue(sender.isOn, forKey: "vertretungsplanIconsEnabled")
     }
 }

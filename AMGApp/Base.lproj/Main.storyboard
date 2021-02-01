@@ -339,6 +339,32 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                                     <constraint firstAttribute="trailing" secondItem="6R0-EQ-fdt" secondAttribute="trailing" constant="16" id="xEL-gz-ZvL"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5x-WF-VMq" userLabel="VertretungsplanIconsEnabled">
+                                <rect key="frame" x="0.0" y="516" width="428" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons im Vertretungsplan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5p-w6-qo5">
+                                        <rect key="frame" x="16" y="16" width="190" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bh-MJ-66j">
+                                        <rect key="frame" x="363" y="11" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="vertretungsplanIconsChanged:" destination="arP-TT-eVR" eventType="valueChanged" id="IAz-ce-Zpq"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="u5p-w6-qo5" firstAttribute="top" secondItem="b5x-WF-VMq" secondAttribute="top" constant="16" id="3J8-6r-WR7"/>
+                                    <constraint firstItem="u5p-w6-qo5" firstAttribute="centerY" secondItem="b5x-WF-VMq" secondAttribute="centerY" id="AjF-cH-mIW"/>
+                                    <constraint firstItem="9bh-MJ-66j" firstAttribute="centerY" secondItem="b5x-WF-VMq" secondAttribute="centerY" id="E9i-QI-Pxs"/>
+                                    <constraint firstItem="u5p-w6-qo5" firstAttribute="leading" secondItem="b5x-WF-VMq" secondAttribute="leading" constant="16" id="TJp-jM-2Ad"/>
+                                    <constraint firstAttribute="bottom" secondItem="u5p-w6-qo5" secondAttribute="bottom" constant="16" id="ovJ-2L-TIq"/>
+                                    <constraint firstAttribute="trailing" secondItem="9bh-MJ-66j" secondAttribute="trailing" constant="16" id="y9o-f4-eCX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d1j-0O-8Nq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -348,6 +374,9 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                             <constraint firstItem="drw-Cf-E3K" firstAttribute="trailing" secondItem="d1j-0O-8Nq" secondAttribute="trailing" id="EHv-Al-sPb"/>
                             <constraint firstItem="dLS-ZV-AeM" firstAttribute="top" secondItem="d1j-0O-8Nq" secondAttribute="top" id="IEF-dw-ozO"/>
                             <constraint firstItem="Q7i-EC-Y1Q" firstAttribute="top" secondItem="dLS-ZV-AeM" secondAttribute="bottom" id="Id9-h1-UhS"/>
+                            <constraint firstItem="b5x-WF-VMq" firstAttribute="leading" secondItem="d1j-0O-8Nq" secondAttribute="leading" id="LgE-AL-qEq"/>
+                            <constraint firstItem="d1j-0O-8Nq" firstAttribute="trailing" secondItem="b5x-WF-VMq" secondAttribute="trailing" id="TBk-bw-Zcy"/>
+                            <constraint firstItem="b5x-WF-VMq" firstAttribute="top" secondItem="NqY-qy-soh" secondAttribute="bottom" id="Twv-w5-BOt"/>
                             <constraint firstItem="NqY-qy-soh" firstAttribute="trailing" secondItem="d1j-0O-8Nq" secondAttribute="trailing" id="WCc-UU-UXE"/>
                             <constraint firstItem="Q7i-EC-Y1Q" firstAttribute="trailing" secondItem="d1j-0O-8Nq" secondAttribute="trailing" id="YRU-Zo-Oec"/>
                             <constraint firstItem="Q7i-EC-Y1Q" firstAttribute="leading" secondItem="d1j-0O-8Nq" secondAttribute="leading" id="eoz-tM-i7S"/>
@@ -365,6 +394,7 @@ Wir unterrichten weitgehend in Doppelstunden. Lehrerarbeits- und Kommunikationsr
                     <connections>
                         <outlet property="eigeneKlasseColorPreview" destination="QZN-94-xFj" id="4oi-WR-M0K"/>
                         <outlet property="eigeneKlassePicker" destination="qys-AZ-sl0" id="8YK-UF-5em"/>
+                        <outlet property="iconsImVertretungsplan" destination="9bh-MJ-66j" id="FWc-or-rze"/>
                         <outlet property="mittelstufeColorPreview" destination="x3S-f2-1mU" id="xaj-K6-rOo"/>
                         <outlet property="oberstufeColorPreview" destination="D7i-2x-gBk" id="Z4E-5s-iRj"/>
                         <outlet property="unterstufeColorPreview" destination="zeg-RE-bSg" id="AC4-IA-80b"/>

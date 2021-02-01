@@ -618,29 +618,7 @@ class VertretungsplanViewController: UIViewController {
                 "              <col width=\"9%\"/>\n"
             returns+="<col width=\"27%\"/>\n" +
                 "            </colgroup>\n\n"
-            if(UserDefaults.standard.object(forKey: "vertretungsplanIconsEnabled") != nil) {
-                if(UserDefaults.standard.bool(forKey: "vertretungsplanIconsEnabled")) {
-                    let stunde = "Stunde"
-                    let altKlasse = "Klasse"
-                    let vertretungsart = "Vertretungsart"
-                    let fach = "Fach"
-                    let ersatzfach = "Ersatzfach"
-                    let vertretungslehrer = "Vertretungslehrer"
-                    let raum = "Raum"
-                    let hinweise = "Hinweise"
-                    returns+="                       <tr>\n" +
-                        "              <td><img src=\"time.png\" alt=\""+stunde+"\" title=\""+stunde+"\" id=\"area\"/></td>\n" +
-                        "              <td><img src=\"group.png\" alt=\""+altKlasse+"\" title=\""+altKlasse+"\" id=\"area\"/></td>\n" +
-                        "              <td><img src=\"bullet_error.png\" alt=\""+vertretungsart+"\" title=\""+vertretungsart+"\" id=\"area\"/></td>\n" +
-                        "              <td><img src=\"book.png\" alt=\""+fach+"\" title=\""+fach+"\" id=\"area\"/></td>\n" +
-                        "              <td><img src=\"book_edit.png\" alt=\""+ersatzfach+"\" title=\""+ersatzfach+"\" id=\"area\"/></td>\n" +
-                        "              <td><img src=\"user.png\" alt=\""+vertretungslehrer+"\" title=\""+vertretungslehrer+"\" id=\"area\"/></td>\n" +
-                        "              <td><img src=\"door_open.png\" alt=\""+raum+"\" title=\""+raum+"\" id=\"area\"/></td>\n" +
-                        "              <td><img src=\"lightbulb.png\" alt=\""+hinweise+"\" title=\""+hinweise+"\" id=\"area\"/></td>\n" +
-                    "            </tr>            "
-                }
-            }
-            else {
+            if(UserDefaults.standard.object(forKey: "vertretungsplanIconsEnabled") == nil || UserDefaults.standard.bool(forKey: "vertretungsplanIconsEnabled")) {
                 let stunde = "Stunde"
                 let altKlasse = "Klasse"
                 let vertretungsart = "Vertretungsart"

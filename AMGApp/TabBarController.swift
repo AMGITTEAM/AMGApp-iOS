@@ -36,6 +36,7 @@ class TabBarController: UITabBarController {
                                           - \"Vertretungsplan\" unterstützt \"Swipe to Refresh\"
                                           - Kalender auf der Startseite hinzugefügt
                                           - amgitt.de als associated-link: Öffnet mit der App
+                                          - Vertretungsplan-Icons können in den Einstellungen abgeschaltet werden
                                           """,
                 attributes: [
                     NSAttributedString.Key.paragraphStyle: paragraphStyle,
