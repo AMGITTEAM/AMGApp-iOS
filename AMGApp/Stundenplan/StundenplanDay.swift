@@ -105,7 +105,10 @@ class StundenplanDay: UIViewController {
         } else {
             stunden.remove(at: stunde!.stunde-1)
             saveStunden()
-            updateView()
+            entries[stunde!.stunde-1].animateRemoval(completion: { [self]_ in
+                stackView.fullyRemoveSubview(entries[stunde!.stunde-1])
+                entries.remove(at: stunde!.stunde-1)
+            })
         }
     }
     func override(stundeNeu: StundenplanEintragModel){

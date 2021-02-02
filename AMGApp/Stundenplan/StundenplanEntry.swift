@@ -87,6 +87,14 @@ class StundenplanEntry: UIView {
         }
     }
     
+    func animateRemoval(completion: @escaping ((Bool)->Void)){
+        var transform = CGAffineTransform(translationX: 0, y: -frame.height/2)
+        transform = transform.scaledBy(x: 1, y: 0.001)
+        UIView.animate(withDuration: 1, animations: {
+            self.transform = transform
+        }, completion: completion)
+    }
+    
     func fix(_ string: String?) -> String{
         if string != nil {
             return (string != "") ? string! : " "
